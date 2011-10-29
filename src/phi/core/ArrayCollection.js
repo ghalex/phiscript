@@ -89,7 +89,7 @@ Phi.Core.ArrayCollection = new Class({
 	{
 		var event = new Phi.Events.CollectionEvent( "remove" );
 		
-		event.item = this.getItemAt( index );;
+		event.item = this.getItemAt( index );
 		event.location = index;
 		
 		// Remove item

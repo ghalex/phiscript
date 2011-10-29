@@ -13,7 +13,7 @@
  *   - phi/ui/Component.js
  *	 - phi/core/ChildList.js
  *	 - phi/core/Iterator.js
- * 	 - phi/core/ArrayCollection.js
+ *   - phi/core/ArrayCollection.js
  * 
  */
 Phi.UI.Container = new Class({
@@ -27,7 +27,7 @@ Phi.UI.Container = new Class({
 		this.parent(options);
 		
 		this.addEvent("childAdded", this.onChildAdded);
-		this.addEvent("childRemoved", this.onChildRemoved)
+		this.addEvent("childRemoved", this.onChildRemoved);
 		
 		this.createChildren();
 		this.prepareChildren( this );

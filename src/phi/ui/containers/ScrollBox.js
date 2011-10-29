@@ -37,5 +37,5 @@ Phi.UI.ScrollBox = new Class({
 	createElement: function()
 	{
 		return new Element("div");
-	}.protect(),
+	}.protect()
 });

@@ -13,7 +13,7 @@ Element.implement({
 	{
 		for (var i=0; i < element.attributes.length; i++) {
 		  this.set(element.attributes[i].name, element.attributes[i].value);
-		};	
+		}
 	},
 	
 	getAttributes: function()
@@ -33,8 +33,8 @@ Element.implement({
 		
 		for (var i=0; i < children.length; i++) 
 		{
-		  if( children[i].get("tag").toLowerCase() == tagName.toLowerCase() )
-		  	return children[i];
+            if( children[i].get("tag").toLowerCase() == tagName.toLowerCase() )
+                return children[i];
 		}
 		
 		return null;
@@ -47,8 +47,8 @@ Element.implement({
 		
 		for (var i=0; i < children.length; i++) 
 		{
-		  if( children[i].get("tag").toLowerCase() == tagName.toLowerCase() )
-		  	result.push(children[i]);
+            if( children[i].get("tag").toLowerCase() == tagName.toLowerCase() )
+                result.push(children[i]);
 		}
 		
 		return result;
@@ -62,7 +62,7 @@ Element.implement({
 			return null;
 			
 		if( parent.get("tag") == tagName )
-			return parent
+			return parent;
 		
 		return parent.getParentByTag( tagName );
 	},

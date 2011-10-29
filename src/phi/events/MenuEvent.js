@@ -17,5 +17,5 @@ Phi.Events.MenuEvent = new Class({
 		this.index = index;
 		this.item = item;
 		this.menu = menu;
-	},
+	}
 });

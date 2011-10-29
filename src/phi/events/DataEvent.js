@@ -15,5 +15,5 @@ Phi.Events.DataEvent = new Class({
 		
 		this.data = data;
 		this.oldData = oldData;
-	},
+	}
 });

@@ -15,5 +15,5 @@ Phi.Events.DataEvent = new Class({
 		
 		this.view = view;
 		this.model = model;
-	},
+	}
 });

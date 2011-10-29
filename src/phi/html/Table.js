@@ -13,7 +13,7 @@ Phi.HTML.Table = new Class({
 		
 		// If this is first TR just insert this using HtmlTable
 		// push function.
-		if( trIndex == null || this.body.rows.length == 0 || trIndex == this.body.rows.length )
+		if( trIndex === null || this.body.rows.length === 0 || trIndex == this.body.rows.length )
 		{
 			tr.inject( this.body );
 			td.inject( tr );
@@ -22,11 +22,11 @@ Phi.HTML.Table = new Class({
 			return {tr: tr, td: td}; 
 		}
 	
-		var tr = this.tr( trIndex );
+		tr = this.tr( trIndex );
 	
 		// This creates a new TR and TD and insert the new
 		// created TR at specific index.
-		if( tdIndex == null )
+		if( tdIndex === null )
 		{
 			var nextTr = tr;
 			
@@ -41,7 +41,7 @@ Phi.HTML.Table = new Class({
 		
 		// This use an existing TR and create
 		// only a new TD.
-		if( tdIndex != null && tdIndex < (tr.children.length) )
+		if( tdIndex !== null && tdIndex < (tr.children.length) )
 		{
 			var nextTd = this.td( trIndex, tdIndex );
 			

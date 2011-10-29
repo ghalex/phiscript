@@ -37,7 +37,7 @@ Phi.UI.VBox = new Class({
 		
 		for (var i=1; i < this.children.length; i++) {
 		  this.getTable().td(i, 0).setStyle('padding-top', Number.withPx(value));
-		};
+		}
 	},
 	
 	getGap: function()
@@ -111,4 +111,4 @@ Phi.UI.VBox.create = function( options )
 {
 	var result = new Phi.UI.VBox( options );
 	return result;
-}
+};

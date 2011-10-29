@@ -8,5 +8,5 @@ Phi.Events.Event = new Class({
 	{
 		this.name = name;
 		this.args = args;
-	},
+	}
 });

@@ -79,6 +79,5 @@ Phi.UI.View = new Class({
 	onModelChange: function()
 	{
 		this.updateBindsForChild( this, this );
-	},
-	
+	}
 });

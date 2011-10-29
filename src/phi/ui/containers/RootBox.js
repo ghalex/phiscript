@@ -38,10 +38,10 @@ Phi.UI.RootBox = new Class({
 	updateSize: function()
 	{
 		if( this.percentageWidth > 0 )
-			this.setWidth( $(this).getParent().getSize().x * this.percentageWidth/100 )
+			this.setWidth( $(this).getParent().getSize().x * this.percentageWidth/100 );
 			
 		if( this.percentageHeight > 0 )
-			this.setHeight( $(this).getParent().getSize().y * this.percentageHeight/100 )
+			this.setHeight( $(this).getParent().getSize().y * this.percentageHeight/100 );
 	},
 	
 	setPercentageWidth: function( value )
@@ -53,7 +53,7 @@ Phi.UI.RootBox = new Class({
 	setPercentageHeight: function( value )
 	{
 		this.percentageHeight = value;
-		this.updateSize();;
+		this.updateSize();
 	},
 	
 	//-------------------------------------------------------------------
@@ -89,7 +89,7 @@ Phi.UI.RootBox = new Class({
 Phi.UI.RootBox.getInstance = function()
 {
 	return Phi.UI.RootBox.instance || new Phi.UI.RootBox();
-}
+};
 
 Phi.UI.RootBox.get = function()
 {
@@ -112,4 +112,4 @@ Phi.UI.RootBox.get = function()
 	
 	return instance;
 	
-}
+};

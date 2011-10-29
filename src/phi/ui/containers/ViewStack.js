@@ -71,7 +71,8 @@ Phi.UI.ViewStack = new Class({
 		this.parent();
 		
 		if( this.options.selectedIndex )
-			this.setSelectedIndex( this.options.selectedIndex )
+			this.setSelectedIndex( this.options.selectedIndex );
+            
 	}.protect(),
 	
 	onChildAdded: function( event )
@@ -93,7 +94,7 @@ Phi.UI.ViewStack = new Class({
 		this.parent();
 		$(this).addClass("phi-ViewStack");
 		
-	}.protect(),
+	}.protect()
 });
 
 /**
@@ -104,4 +105,4 @@ Phi.UI.ViewStack.create = function( options )
 {
 	var result = new Phi.UI.ViewStack( options );
 	return result;
-}
+};

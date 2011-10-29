@@ -152,7 +152,7 @@ Phi.UI.CellBox = new Class({
 		// Align
 		this.setVerticalAlign( op.verticalAlign );
 		this.setHorizontalAlign( op.horizontalAlign );
-	}.protect(),
+	}.protect()
 });
 
 /**
@@ -163,4 +163,5 @@ Phi.UI.CellBox.create = function( options )
 {
 	var result = new Phi.UI.CellBox( options );
 	return result;
-}
+};
+

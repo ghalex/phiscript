@@ -33,7 +33,7 @@ Phi.Mn.PopUpManager.createPopUp = function( dialog )
 	Phi.Mn.PopUpManager.popups[ dialog ] = popUp;
 	
 	return popUp;
-}
+};
 
 /**
  * Remove a PopUp.
@@ -52,4 +52,4 @@ Phi.Mn.PopUpManager.removePopUp = function( dialog )
 		rootBox.removeChild( popUp );
 		
 	delete 	Phi.Mn.PopUpManager.popups[ dialog ];
-}
+};

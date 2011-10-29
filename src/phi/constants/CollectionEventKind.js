@@ -5,7 +5,7 @@
  */
 var CollectionEventKind = {};
 
-CollectionEventKind.ADD 	= "add";
-CollectionEventKind.REMOVE 	= "remove";
+CollectionEventKind.ADD     = "add";
+CollectionEventKind.REMOVE  = "remove";
 CollectionEventKind.REPLACE = "replace";
-CollectionEventKind.MOVE 	= "move";
+CollectionEventKind.MOVE    = "move";

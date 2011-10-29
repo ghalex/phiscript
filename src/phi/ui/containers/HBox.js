@@ -37,7 +37,7 @@ Phi.UI.HBox = new Class({
 		
 		for (var i=1; i < this.children.length; i++) {
 		  this.getTable().td(0, i).setStyle('padding-left', Number.withPx(value));
-		};
+		}
 	},
 	
 	getGap: function()
@@ -112,4 +112,4 @@ Phi.UI.HBox.create = function( options )
 {
 	var result = new Phi.UI.HBox( options );
 	return result;
-}
+};

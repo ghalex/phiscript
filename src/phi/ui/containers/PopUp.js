@@ -18,7 +18,7 @@ Phi.UI.PopUp = new Class({
 	Binds: ['onWindowMouseUp'],
 	
 	options: {
-		hideOnClick: false,
+		hideOnClick: false
 	},
 	
 	initialize: function( options )
@@ -39,17 +39,17 @@ Phi.UI.PopUp = new Class({
 			
 		var mapSide = [];
 		
-		mapSide['left']		= "topLeft"
-		mapSide['top']		= "topLeft"
-		mapSide['right']	= "topRight"
-		mapSide['bottom']	= "bottomLeft"
+		mapSide.left	= "topLeft";
+		mapSide.top		= "topLeft";
+		mapSide.right	= "topRight";
+		mapSide.bottom	= "bottomLeft";
 		
 		var mapEdge = [];
 		
-		mapEdge['left']		= "topRight"
-		mapEdge['top']		= "bottomLeft"
-		mapEdge['right']	= "topLeft"
-		mapEdge['bottom']	= "topLeft"
+		mapEdge.left	= "topRight";
+		mapEdge.top		= "bottomLeft";
+		mapEdge.right	= "topLeft";
+		mapEdge.bottom	= "topLeft";
 		
 		// Show popup first
 		this.show();

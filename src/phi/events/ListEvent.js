@@ -16,5 +16,5 @@ Phi.Events.ListEvent = new Class({
 	{
 		this.parent( name );
 		this.index = index;
-	},
+	}
 });

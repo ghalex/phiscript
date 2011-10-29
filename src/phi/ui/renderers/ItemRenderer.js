@@ -19,7 +19,7 @@ Phi.UI.ItemRenderer = new Class({
 	initialize: function()
 	{
 		this.parent();
-		this.addEvent("dataChange", this.onDataChange)
+		this.addEvent("dataChange", this.onDataChange);
 	},
 	
 	setData: function( value )

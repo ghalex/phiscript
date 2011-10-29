@@ -40,6 +40,6 @@ Phi.UI.HTMLBox = new Class({
 	
 	onAdded: function( event )
 	{
-		throw new Error("You can't add HTMLBox as a child please use other container!")
+		throw new Error("You can't add HTMLBox as a child please use other container!");
 	}
 });

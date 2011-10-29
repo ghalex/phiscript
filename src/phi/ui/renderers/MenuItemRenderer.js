@@ -38,7 +38,7 @@ Phi.UI.MenuItemRenderer = new Class({
 		this.addChild( this.hbox.addChild( this.label ));
 		
 		// Set HBox properties
-		this.hbox.setWidth("100%")
+		this.hbox.setWidth("100%");
 		this.hbox.setHeight(30);
 		
 		this.hbox.setVerticalAlign(VerticalAlign.MIDDLE);
@@ -56,7 +56,7 @@ Phi.UI.MenuItemRenderer = new Class({
 		else
 		{
 			if( this.hbox.hasChild( this.image ))
-				this.hbox.removeChild( this.image )
+				this.hbox.removeChild( this.image );
 		}
 	}
 });

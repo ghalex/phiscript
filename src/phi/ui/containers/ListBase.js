@@ -66,7 +66,7 @@ Phi.UI.ListBase = new Class({
 		this._selectedIndex = value;
 				
 		// Update DOM
-		this.removeItemsClass('selected')
+		this.removeItemsClass('selected');
 		
 		if( value > -1)
 			this.getChildAt(value).element.addClass('selected');
@@ -98,7 +98,7 @@ Phi.UI.ListBase = new Class({
 		if( !itemElement )
 			return -1;
 		
-		return this.getDataProvider().getItemIndex( itemElement.instance().getData() )
+		return this.getDataProvider().getItemIndex( itemElement.instance().getData() );
 	},
 	
 	//-------------------------------------------------------------------
@@ -197,8 +197,8 @@ Phi.UI.ListBase = new Class({
 	{
 		switch( event.kind )
 		{
-			case CollectionEventKind.ADD:
-			{
+			case CollectionEventKind.ADD: 
+            {
 				var itemList = this.createItem( event.item );
 				this.addChildAt( itemList, event.location );
 				this.setSelectedIndex(-1);

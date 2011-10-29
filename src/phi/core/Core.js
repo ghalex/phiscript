@@ -26,9 +26,9 @@ Number.isPercentage = function( value )
 			return true;
 		
 	return false;
-}
+};
 
 Number.withPx = function( value )
 {
 	return Number.from( value ) + "px";
-}
+};

@@ -33,5 +33,5 @@ function $redrawElement( element )
 			el.destroy();
 		},
 		1
-	)
+	);
 }

@@ -31,6 +31,6 @@ Phi.UI.ListItemRenderer = new Class({
 	createElement: function()
 	{
 		return new Element('li', {'class':'phi-ListItem'});
-	}.protect(),
+	}.protect()
 
 });

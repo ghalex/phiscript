@@ -14,13 +14,13 @@
  */
 
 Phi.Mn.ThemeManager = {};
-Phi.Mn.ThemeManager.directory = "assets/themes/"
+Phi.Mn.ThemeManager.directory = "assets/themes/";
 Phi.Mn.ThemeManager.theme = "default";
 
 Phi.Mn.ThemeManager.setDirectory = function( value )
 {
 	Phi.Mn.ThemeManager.directory = value;
-}
+};
 
 Phi.Mn.ThemeManager.load = function( theme )
 {
@@ -30,15 +30,15 @@ Phi.Mn.ThemeManager.load = function( theme )
 		rel: "stylesheet",
 		href: themeDir + theme + "/css/"+ theme +".css",
 		type: "text/css"
-	})
+	});
 	
 	// Unload current loaded theme
-	Phi.Mn.ThemeManager.unload( Phi.Mn.ThemeManager.theme )
+	Phi.Mn.ThemeManager.unload( Phi.Mn.ThemeManager.theme );
 	
 	// Load new theme
 	Phi.Mn.ThemeManager.theme = theme;
 	linkElement.inject( $$('head')[0] );
-}
+};
 
 Phi.Mn.ThemeManager.unload = function( theme )
 {
@@ -47,4 +47,4 @@ Phi.Mn.ThemeManager.unload = function( theme )
 	if( el )
 		el.dispose();
 	
-}
+};

@@ -30,7 +30,7 @@ Phi.Core.ChildList = new Class({
 		
 		// Remove child from old parent
 		// if child was not removed before
-		if( child.getParent() != null )
+		if( child.getParent() !== null )
 			child.getParent().removeChild( child );
 		
 		if( !this.hasChild(child) )
@@ -72,7 +72,7 @@ Phi.Core.ChildList = new Class({
 			}
 			
 			if( child.options.id == id )
-		  		return child;	
+                return child;	
 		}
 		
 		return null;
@@ -109,7 +109,7 @@ Phi.Core.ChildList = new Class({
 		child.dispatchEvent( new Phi.Events.ChildEvent( "removed", child, index ));
 		
 		// Dispatch "childRemoved" event.
-		this.dispatchEvent( new Phi.Events.ChildEvent("childRemoved", child, index))
+		this.dispatchEvent( new Phi.Events.ChildEvent("childRemoved", child, index));
 		
 		return child;
 	},
@@ -118,8 +118,8 @@ Phi.Core.ChildList = new Class({
 	{
 		for (var i=0; i < this.children.length; i++) 
 		{
-		  if( child == this.children[i] )
-		  	return true;
+            if( child == this.children[i] )
+                return true;
 		}
 		
 		return false;
