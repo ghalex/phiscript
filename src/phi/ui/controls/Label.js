@@ -20,7 +20,7 @@ Phi.UI.Label = new Class({
 	
 	setText: function( value )
 	{
-		if( value == null )
+		if( value === null )
 			return;
 			
 		$(this).set("html", value);
@@ -48,7 +48,7 @@ Phi.UI.Label = new Class({
 	{
 		this.parent();
 		this.setText( this.options.text );
-	},
+	}
 	
 });
 
@@ -60,4 +60,4 @@ Phi.UI.Label.create = function( options )
 {
 	var result = new Phi.UI.Label( options );
 	return result;
-}
+};

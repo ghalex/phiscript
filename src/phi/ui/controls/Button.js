@@ -20,7 +20,7 @@ Phi.UI.Button = new Class({
 
 	setText: function( value )
 	{
-		if( value == null )
+		if( value === null )
 			return;
 			
 		$(this).set("html", value);
@@ -58,4 +58,4 @@ Phi.UI.Button.create = function( options )
 {
 	var result = new Phi.UI.Button( options );
 	return result;
-}
+};

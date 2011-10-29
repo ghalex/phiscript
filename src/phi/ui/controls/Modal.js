@@ -4,7 +4,7 @@
  * name: Phi.UI.Modal
  * 
  * description: This component is used by PopUp component to display itself as
- * 				modal PopUp.
+ *              modal PopUp.
  * 
  * 
  * authors:

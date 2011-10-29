@@ -46,7 +46,7 @@ Phi.UI.Image = new Class({
 		$(this).setStyle('display', 'block');
 		$(this).addClass('phi-Image');
 		
-	}.protect(),
+	}.protect()
 });
 
 /**
@@ -57,4 +57,4 @@ Phi.UI.Image.create = function( options )
 {
 	var result = new Phi.UI.Image();
 	return result;
-}
+};

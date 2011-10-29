@@ -19,7 +19,7 @@ Phi.UI.Menu = new Class({
 	Binds: ['onItemRollOver','onItemClick'],
 	
 	options: {
-		hideOnClick: true,
+		hideOnClick: true
 	},
 	
 	list: null,
@@ -114,14 +114,14 @@ Phi.UI.Menu = new Class({
 	{
 		var index = event.index;
 		var item = this.getDataProvider().getItemAt( index );
-		var menuEvent = new Phi.Events.MenuEvent('itemClick', index, item, this)
+		var menuEvent = new Phi.Events.MenuEvent('itemClick', index, item, this);
 		
 		this.bubbleItemClick( menuEvent );
 	},
 	
 	bubbleItemClick: function( event )
 	{
-		if( this.parentMenu == null )
+		if( this.parentMenu === null )
 		{
 			this.dispatchEvent( event );
 			return;			
@@ -132,7 +132,7 @@ Phi.UI.Menu = new Class({
 	
 	onItemRollOver: function( event )
 	{
-		var child = this.list.getChildAt( event.index )
+		var child = this.list.getChildAt( event.index );
 		var children = child.getData().children;
 		 
 		if( this.childMenu && (child != this.childMenu.parentChild))
@@ -148,7 +148,7 @@ Phi.UI.Menu = new Class({
 				this.childMenu.parentChild = child; // This is a list element
 				this.childMenu.parentMenu = this;
 			
-				this.childMenu.setDataProvider( children )
+				this.childMenu.setDataProvider( children );
 				this.childMenu.snapToElement( 
 					$(child), 
 					{
@@ -204,4 +204,5 @@ Phi.UI.Menu.create = function( options )
 {
 	var result = new Phi.UI.Menu();
 	return result;
-}
+};
+

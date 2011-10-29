@@ -18,7 +18,7 @@ Phi.UI.TextInput = new Class({
 	
 	initialize: function( options )
 	{
-		this.parent( options )
+		this.parent( options );
 		
 		// Add listners
 		this.addEvent('keyup', this.onKeyDown);
@@ -26,7 +26,7 @@ Phi.UI.TextInput = new Class({
 	
 	setText: function( value )
 	{
-		if( value == null )
+		if( value === null )
 			return;
 			
 		$(this).set("value", value);
@@ -39,7 +39,7 @@ Phi.UI.TextInput = new Class({
 	
 	displayAsPassword: function( value )
 	{
-		if( value == null )
+		if( value === null )
 			return;
 			
 		if( value )
@@ -58,7 +58,7 @@ Phi.UI.TextInput = new Class({
 		this.parent();
 		
 		this.setText( this.options.text );
-		this.displayAsPassword( this.options.displayAsPassword )
+		this.displayAsPassword( this.options.displayAsPassword );
 	},
 		
 	onKeyDown: function( event )
@@ -77,4 +77,5 @@ Phi.UI.TextInput.create = function( options )
 {
 	var result = new Phi.UI.TextInput( options );
 	return result;
-}
+};
+

@@ -50,7 +50,7 @@ Phi.UI.CheckBox = new Class({
 		this.parent();
 		$(this).addClass('phi-CheckBox');
 		
-	}.protect(),
+	}.protect()
 	
 });
 
