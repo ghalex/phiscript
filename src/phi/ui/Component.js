@@ -32,7 +32,7 @@ Phi.UI.Component = new Class({
 	
 	initialize: function( options )
 	{
-		this.parent( options )
+		this.parent( options );
 		
 		// Add listners
 		this.addEvent('added', this.onAdded);
@@ -45,7 +45,7 @@ Phi.UI.Component = new Class({
 	
 	addClass: function( className )
 	{
-		if( className == null )
+		if( className === null )
 			return;
 			
 		$(this).addClass( className );
@@ -63,7 +63,7 @@ Phi.UI.Component = new Class({
 	
 	setWidth: function( value )
 	{
-		if( value == null )
+		if( value === null )
 			return;
 			
 		if( Number.isPercentage(value))
@@ -77,7 +77,7 @@ Phi.UI.Component = new Class({
 	
 	setHeight: function( value )
 	{
-		if( value == null )
+		if( value === null )
 			return;
 			
 		if( Number.isPercentage(value))
@@ -148,7 +148,7 @@ Phi.UI.Component = new Class({
 	
 	toElement: function()
 	{
-		if( this.element == null )
+		if( this.element === null )
 		{
 			this.element = this.createElement();
 			this.initElement();
@@ -159,10 +159,10 @@ Phi.UI.Component = new Class({
 	
 	isAddedToStage: function()
 	{
-		if( this.getParent() != null )
+		if( this.getParent() !== null )
 			return this.getParent().isAddedToStage();
 			
-		if( $(this).getParent() != null )
+		if( $(this).getParent() !== null )
 			return true;
 			
 		return false;
@@ -170,7 +170,7 @@ Phi.UI.Component = new Class({
 	
 	setPadding: function( side, size )
 	{
-		if( size == null )
+		if( size === null )
 			return;
 			
 		$(this).setStyle("padding-" + side, Number.withPx(size));
@@ -210,8 +210,8 @@ Phi.UI.Component = new Class({
 		$(this).addEvent("mouseout", $bubbleEvent.bind(this));
 		$(this).addEvent("mouseover", $bubbleEvent.bind(this));
 		$(this).addEvent("mouseup", $bubbleEvent.bind(this));
-		$(this).addEvent("mouseenter", function(event) { event.type = "mouseenter";$bubbleEvent.bind(this)(event) }.bind(this));
-		$(this).addEvent("mouseleave", function(event) { event.type = "mouseleave";$bubbleEvent.bind(this)(event) }.bind(this));
+		$(this).addEvent("mouseenter", function(event) { event.type = "mouseenter";$bubbleEvent.bind(this)(event); }.bind(this));
+		$(this).addEvent("mouseleave", function(event) { event.type = "mouseleave";$bubbleEvent.bind(this)(event); }.bind(this));
 	}.protect(),
 	
 	onOptionsChange: function()
@@ -226,7 +226,7 @@ Phi.UI.Component = new Class({
 		this.addClass( op.style );
 		
 		// Set padding
-		this.setPadding("left", op.paddingLeft)
+		this.setPadding("left", op.paddingLeft);
 		this.setPadding("top", op.paddingTop);
 		this.setPadding("right", op.paddingRight);
 		this.setPadding("bottom", op.paddingBottom);
@@ -237,16 +237,16 @@ Phi.UI.Component = new Class({
 	{
 		var newOptions = Object.clone( this.options );
 		var bind  = this.options.bind;
-		 		
+
 		for ( var prop in this.options.bind ) 
 		{
-        	if( bind[ prop ].object )
-        	{
-        		var model  = view[ bind[ prop ]["object"] ];
-        		
-        		if( model != null )
-        			newOptions[ prop ] = model.get([ bind[ prop ]["value"] ]); 
-        	}
+            if( bind[ prop ].object )
+            {
+                var model  = view[ bind[ prop ].object ];
+
+                if( model !== null )
+                    newOptions[ prop ] = model.get([ bind[ prop ].value ]); 
+            }
         }
         
         this.setOptions( newOptions );
