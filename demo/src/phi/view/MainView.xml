@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<View width="100%"
+	  height="100%"
+	  xmlns:screens="screens">
+
+	<VBox width="100%"
+		  height="100%"
+		  border="0"
+		  verticalAlign="middle"
+		  horizontalAlign="center">
+		  
+		<HBox id="prevNextHBox" height="40" gap="4">
+			<Button text="{model.name}" width="{model.width}" onClick="prev()" style="primary" />
+			<Button text="{model.name}" onClick="next()" />
+			<TextInput id="txt1" onChange="change( event )" />
+		</HBox>
+		
+		<ViewStack id="vs"
+				   selectedIndex="0">
+				   
+			<screens:LoginScreen id="loginScreen" />
+			<screens:MainScreen />
+			
+		</ViewStack>
+		
+		<HBox id="bottomHBox" height="40">
+			<Label text="Copyright (c) 2011, Phimento Inc." />
+		</HBox>
+	</VBox>
+	<JavaScript>
+		
+		
+		next: function()
+		{
+			this.vs.next();
+		},
+		
+		prev: function()
+		{
+			this.vs.prev();
+		},
+		
+		change: function( event )
+		{
+			this.model.set({width: event.target.getText()});
+		}
+		
+		
+	</JavaScript>
+</View>

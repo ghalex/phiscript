@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<View onChildrenCreated="childrenCreated()">
+	
+	<VBox gap="5"
+		  border="0"
+		  verticalAlign="middle"
+		  horizontalAlign="left">
+		  
+		<HBox border="0">
+			<Label text="Username:" width="100" />
+			<TextInput id="user" width="180" text="{model.username}" />
+		</HBox>
+		
+		<HBox border="0">
+			<Label text="Password:" width="100" />
+			<TextInput id="pass" displayAsPassword="true" width="180" text="{model.password}"/>
+		</HBox>
+		
+		<HBox border="0"
+			  gap="4"
+			  paddingLeft="100">
+			  
+			<Button text="Login" style="primary" onClick="login()" />
+			<CheckBox />
+			<Label text="Stay signed in" />
+			
+		</HBox>
+	</VBox>	
+	
+	<JavaScript>
+		
+		login: function( event )
+		{
+			console.log( this.user.getText() );
+			console.log( this.pass.getText() );
+		},
+		
+		childrenCreated: function()
+		{
+			this.setModel( new Phi.BackboneModel({username: "ghalex"}));
+		}
+		
+	</JavaScript>
+
+</View>
