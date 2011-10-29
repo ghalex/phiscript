@@ -23,7 +23,7 @@ Phi.UI.Object = new Class({
 	
 	initialize: function( options )
 	{
-		this.setOptions( options )
+		this.setOptions( options );
 	},
 	
 	setOptions: function( options )
