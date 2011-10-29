@@ -1,0 +1,184 @@
+
+/**
+ * 	General
+ */
+body 
+{
+  margin: 0px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+div
+{
+	display: block;
+}
+
+button
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+.phi-Modal
+{
+	background-color: #000000;
+	opacity:0.7;
+}
+
+/**
+ * 	Button
+ */
+.phi-Button
+{
+	cursor: pointer;
+	display: inline-block;
+	background-color: #e6e6e6;
+	background-repeat: no-repeat;
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(25%, #ffffff), to(#e6e6e6));
+    background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: -moz-linear-gradient(top, #ffffff, #ffffff 25%, #e6e6e6);
+    background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+	padding: 4px 14px 4px;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	color: #333;
+	font-size: 13px;
+	line-height: normal;
+	border: 1px solid #ccc;
+	border-bottom-color: #bbb;
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+	-webkit-transition: 0.1s linear all;
+	-moz-transition: 0.1s linear all;
+	-ms-transition: 0.1s linear all;
+	-o-transition: 0.1s linear all;
+	transition: 0.1s linear all;
+}
+
+.phi-Button:hover 
+{
+	background-position: 0 -15px;
+	color: #333;
+	text-decoration: none;
+}
+
+.phi-Button:focus 
+{
+	outline: 1px dotted #666;
+}
+
+.phi-Button.primary 
+{
+	color: #ffffff;
+	background-color: #0064cd;
+	background-repeat: repeat-x;
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#049cdb), to(#0064cd));
+	background-image: -moz-linear-gradient(top, #049cdb, #0064cd);
+	background-image: -ms-linear-gradient(top, #049cdb, #0064cd);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #049cdb), color-stop(100%, #0064cd));
+	background-image: -webkit-linear-gradient(top, #049cdb, #0064cd);
+	background-image: -o-linear-gradient(top, #049cdb, #0064cd);
+	background-image: linear-gradient(top, #049cdb, #0064cd);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#049cdb', endColorstr='#0064cd', GradientType=0);
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	border-color: #0064cd #0064cd #003f81;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+
+.phi-Button.danger
+{
+	color: #FFFFFF;
+	background-color: #c43c35;
+	background-repeat: repeat-x;
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#ee5f5b), to(#c43c35));
+	background-image: -moz-linear-gradient(top, #ee5f5b, #c43c35);
+	background-image: -ms-linear-gradient(top, #ee5f5b, #c43c35);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee5f5b), color-stop(100%, #c43c35));
+	background-image: -webkit-linear-gradient(top, #ee5f5b, #c43c35);
+	background-image: -o-linear-gradient(top, #ee5f5b, #c43c35);
+	background-image: linear-gradient(top, #ee5f5b, #c43c35);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee5f5b', endColorstr='#c43c35', GradientType=0);
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	border-color: #c43c35 #c43c35 #882a25;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+
+.phi-Button.success
+{
+	color: #FFFFFF;
+	background-color: #57a957;
+	background-repeat: repeat-x;
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#62c462), to(#57a957));
+	background-image: -moz-linear-gradient(top, #62c462, #57a957);
+	background-image: -ms-linear-gradient(top, #62c462, #57a957);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #62c462), color-stop(100%, #57a957));
+	background-image: -webkit-linear-gradient(top, #62c462, #57a957);
+	background-image: -o-linear-gradient(top, #62c462, #57a957);
+	background-image: linear-gradient(top, #62c462, #57a957);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#62c462', endColorstr='#57a957', GradientType=0);
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	border-color: #57a957 #57a957 #3d773d;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+
+/**
+ * 	TextInput
+ */
+.phi-TextInput
+{
+	padding: 4px;
+	margin: 0px;
+	font-size: 13px;
+	line-height: 16px;
+	color: #808080;
+	border: 1px solid #ccc;
+	-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-o-transition: border linear 0.2s, box-shadow linear 0.2s;
+	transition: border linear 0.2s, box-shadow linear 0.2s;
+	-webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.phi-TextInput:focus
+{
+	outline: 1px dotted #666;
+}
+
+/**
+ * 	List
+ */
+.phi-List
+{
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	border: 1px solid #000000;
+	background-color: #FFFFFF;
+}
+
+.phi-ListItem
+{
+	padding: 0px 10px 0px 0px;
+}
+
+.phi-List .over
+{
+	color: #FFFFFF;
+	background-color: #83ABD3;
+}
+
+.phi-List .selected
+{
+	color: #FFFFFF;
+	background-color: #3683D1;
+}
