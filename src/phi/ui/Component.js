@@ -17,6 +17,10 @@ Phi.UI.Component = new Class({
 	Extends: Phi.UI.Object,
 	Binds: ['onResize'],
 	
+    element: null,
+    parentComponent: null,
+    className: null,
+    
 	options: {
 		width: null,
 		height: null,
@@ -107,12 +111,12 @@ Phi.UI.Component = new Class({
 	
 	setParent: function( value )
 	{
-		this._parent = value;
+		this.parentComponent = value;
 	},
 	
 	getParent: function()
 	{
-		return this._parent;	
+		return this.parentComponent;	
 	},
 	
 	getParentView: function()
@@ -128,7 +132,7 @@ Phi.UI.Component = new Class({
 	
 	setVisible: function(value)
 	{
-		if( value == null )
+		if( value === null )
 			return;
 			
 		if(value)

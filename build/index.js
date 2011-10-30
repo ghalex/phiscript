@@ -1,26 +1,31 @@
 
-require('./libs/mootools-server');
+require('./../libs/mootools-server');
 
 var fs = require('fs');
 var http = require("http");
-var files = require('./core/files');
+var files = require('./files');
 var directory = 'src/phi/';
 
 // Build script data from files
-var scriptData = "";
-files.all.each( function( item, index ) {
+function buildScript()
+{
+    var result = "";
+    files.all.each( function( item, index ) {
+        
+        var data = fs.readFileSync(directory + item, 'utf-8');
+        result += data;
+        
+    });
     
-    var data = fs.readFileSync(directory + item, 'utf-8');
-    scriptData += data + '\n';
-    
-});
+    return result;
+}
 
 // Write data to server
 var server = http.createServer(
 	function(request, response) 
 	{
 		response.writeHead(200, {"Content-Type": "application/x-javascript"});
-		response.write( scriptData );
+		response.write( buildScript() );
 		response.end();
 	}
 );

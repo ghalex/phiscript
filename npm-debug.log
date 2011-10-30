@@ -1,0 +1,598 @@
+info it worked if it ends with ok
+verbose cli [ '/home/cloud9/c9/support/node-c9-builds-v4/node-c9-sunos',
+verbose cli   '/home/ide_ghalex/workspaces/npm/bin/npm.js',
+verbose cli   'install',
+verbose cli   'xml2json' ]
+info using npm@1.0.1rc6
+info using node@v0.4.5
+verbose config file /home/cloud9/.npmrc
+verbose config file /home/cloud9/c9/support/etc/npmrc
+info into /mnt/ws/users/ghalex/94502 [ 'xml2json' ]
+verbose cache add [ 'xml2json', null ]
+info addNamed [ 'xml2json', '' ]
+verbose addNamed [ null, '' ]
+verbose GET xml2json
+verbose raw, before any munging xml2json
+verbose url resolving [ 'http://registry.npmjs.org/', './xml2json' ]
+verbose url resolved http://registry.npmjs.org/xml2json
+verbose url parsed { protocol: 'http:',
+verbose url parsed   slashes: true,
+verbose url parsed   host: 'registry.npmjs.org',
+verbose url parsed   hostname: 'registry.npmjs.org',
+verbose url parsed   pathname: '/xml2json',
+verbose url parsed   href: 'http://registry.npmjs.org/xml2json' }
+verbose response http://registry.npmjs.org/xml2json
+silly chunk {"_id":"xml2json","_rev":"17-fa740417285834be1aa4d95e1ed6d9b9","name":"xml2json","description":"Converts xml to json and viceverza, using node-expat.","dist-tags":{"latest":"0.2.3"},"versions":{"0.1.0":{"name":"xml2json","version":"0.1.0","author":{"name":"Andrew Turley"},"email":"aturley@buglabs.net","description":"Converts xml to json using node-expat.","repository":{"type":"git","url":"git://github.com/buglabs/node-xml2json.git"},"main":"index","maintainers":[{"name":"Camilo Aguilar","email":"camilo@buglabs.net"}],"dependencies":{"node-expat":"1.3.2"},"_id":"xml2json@0.1.0","devDependencies":{},"engines":{"node":"*"},"_engineSupported":true,"_npmVersion":"1.0.10","_nodeVersion":"v0.4.8","_defaultsLoaded":true,"dist":{"shasum":"7796d51b899bded7ee5c02f9b647bc6b94803668","tarball":"http://registry.npmjs.org/xml2json/-/xml2json-0.1.0.tgz"},"scripts":{},"directories":{}},"0.1.1":{"name":"xml2json","version":"0.1.1","author":{"name":"Andrew Turley"},"email":"aturley@buglabs.net","description":"Converts xml to json using node-expat.","repository":{"type":"git","url":"git://github.com/buglabs/node-xml2json.git"},"main":"index","maintainers":[{"name":"Camilo Aguilar","email":"camilo@buglabs.net"}],"dependencies":{"node-expat":"1.3.2"},"_id":"xm
+silly chunk l2json@0.1.1","devDependencies":{},"engines":{"node":"*"},"_engineSupported":true,"_npmVersion":"1.0.10","_nodeVersion":"v0.4.8","_defaultsLoaded":true,"dist":{"shasum":"2db895867d2c379c61fed3a257e666f8804b4bb0","tarball":"http://registry.npmjs.org/xml2json/-/xml2json-0.1.1.tgz"},"scripts":{},"directories":{}},"0.2.0":{"name":"xml2json","version":"0.2.0","author":{"name":"Andrew Turley"},"email":"aturley@buglabs.net","description":"Converts xml to json using node-expat.","repository":{"type":"git","url":"git://github.com/buglabs/node-xml2json.git"},"main":"index","contributors":[{"name":"Camilo Aguilar","email":"camilo@buglabs.net"}],"dependencies":{"node-expat":"1.3.2"},"_id":"xml2json@0.2.0","devDependencies":{},"engines":{"node":"*"},"_engineSupported":true,"_npmVersion":"1.0.10","_nodeVersion":"v0.4.8","_defaultsLoaded":true,"dist":{"shasum":"0e1d920dcb4f7a0100101ab82f177802eeb955d0","tarball":"http://registry.npmjs.org/xml2json/-/xml2json-0.2.0.tgz"},"scripts":{},"directories":{}},"0.2.1":{"name":"xml2json","version":"0.2.1","author":{"name":"Andrew Turley"},"email":"aturley@buglabs.net","description":"Converts xml to json using node-expat.","repository":{"type":"git","url":"git://github.com/buglabs/node-xml2json.git"},"main":"index","contributors":[{"name":"Camilo Aguilar","email":"camilo@buglabs.net"}],"dependencies":{"node-expat":"1.3.2"},"_id":"xml2json@0.2.1","devDependencies":{},"engines":{"node":"*"},"_engineSupported":true,
+silly chunk "_npmVersion":"1.0.10","_nodeVersion":"v0.4.8","_defaultsLoaded":true,"dist":{"shasum":"015f9b2c724d73f7017cc128d9e77d4ebc033a45","tarball":"http://registry.npmjs.org/xml2json/-/xml2json-0.2.1.tgz"},"scripts":{},"directories":{}},"0.2.2":{"name":"xml2json","version":"0.2.2","author":{"name":"Andrew Turley"},"email":"aturley@buglabs.net","description":"Converts xml to json using node-expat.","repository":{"type":"git","url":"git://github.com/buglabs/node-xml2json.git"},"main":"index","contributors":[{"name":"Camilo Aguilar","email":"camilo@buglabs.net"}],"dependencies":{"node-expat":"1.3.2"},"_npmJsonOpts":{"file":"/Users/camilo/.npm/xml2json/0.2.2/package/package.json","wscript":false,"contributors":false,"serverjs":false},"_id":"xml2json@0.2.2","devDependencies":{},"engines":{"node":"*"},"_engineSupported":true,"_npmVersion":"1.0.23","_nodeVersion":"v0.4.8","_defaultsLoaded":true,"dist":{"shasum":"b507953612620ddfe8d6462b3c1ac420336a888f","tarball":"http://registry.npmjs.org/xml2json/-/xml2json-0.2.2.tgz"},"scripts":{},"maintainers":[{"name":"buglabs","email":"camilo@buglabs.net"}],"directories":{}},"0.2.3":{"name":"xml2json","version":"0.2.3","author":{"name":"Andrew Turley"},"email":"aturley@buglabs.net","description":"Converts xml to json and viceverza, using node-expat.","repository":{"type":"git","url":"git://github.com/buglabs/node-xml2json.git"},"main":"index","contributors":[{"name":"Camilo Aguilar","email":"camilo@buglabs.net"}],"dependencies":{"node-expat":"1.4.0"},"_npmJsonOpts":{"file":"/Users/camilo/.npm/xml2json/0.2.3/package/package.json","wscript":false,"contributors":false,"serverjs":false},"_id":"xml2json@0.2.3","devDependencies":{},"engines":{"node":"*"},"_engineSupported":true,"_npmVersion":"1.0.25","_nodeVersion":"v0.4.10","_defaultsLoaded":true,"dist":{"shasum":"de341300f6a9c59b459bfba7690f941644e65773","tarball":"http://registry.npmjs.org/xml2json/-/xml2json-0.2.3.tgz"},"scripts":{},"maintainers":[{"name":"buglabs","email":"camilo@buglabs.net"}],"directories":{}}},"maintainers":[{"name":"buglabs","email":"camilo@buglabs.net"}],"time":{"0.1.0":"2011-06-30T20:02:52.514Z","0.1.1":"2011-07-05T16:37:38.507Z","0.2.0":"2011-07-06T18:14:33.182Z","0.2.1":"2011-07-07T14:34:42.485Z","0.2.2":"2011-08-10T15:17:32.702Z","0.2.3":"2011-08-17T03:04:03.425Z"},"author":{"name":"Andrew Turley"},"repository":{"type":"git","url":"git://github.com/buglabs/node-xml2json.git"}}
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.1.0 (Erlang OTP/R14B03)',
+silly get cb     etag: '"CJLY9LLQB034TZ8BU4U6S39NX"',
+silly get cb     date: 'Sun, 30 Oct 2011 18:20:11 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '5137' } ]
+verbose mkdir done: /home/ide_ghalex/workspaces/npm_cache/xml2json
+verbose GET xml2json/0.2.3
+verbose raw, before any munging xml2json/0.2.3
+verbose url resolving [ 'http://registry.npmjs.org/', './xml2json/0.2.3' ]
+verbose url resolved http://registry.npmjs.org/xml2json/0.2.3
+verbose url parsed { protocol: 'http:',
+verbose url parsed   slashes: true,
+verbose url parsed   host: 'registry.npmjs.org',
+verbose url parsed   hostname: 'registry.npmjs.org',
+verbose url parsed   pathname: '/xml2json/0.2.3',
+verbose url parsed   href: 'http://registry.npmjs.org/xml2json/0.2.3' }
+verbose response http://registry.npmjs.org/xml2json/0.2.3
+silly chunk {"name":"xml2json","version":"0.2.3","author":{"name":"Andrew Turley"},"email":"aturley@buglabs.net","description":"Converts xml to json and viceverza, using node-expat.","repository":{"type":"git","url":"git://github.com/buglabs/node-xml2json.git"},"main":"index","contributors":[{"name":"Camilo Aguilar","email":"camilo@buglabs.net"}],"dependencies":{"node-expat":"1.4.0"},"_npmJsonOpts":{"file":"/Users/camilo/.npm/xml2json/0.2.3/package/package.json","wscript":false,"contributors":false,"serverjs":false},"_id":"xml2json@0.2.3","devDependencies":{},"engines":{"node":"*"},"_engineSupported":true,"_npmVersion":"1.0.25","_nodeVersion":"v0.4.10","_defaultsLoaded":true,"dist":{"shasum":"de341300f6a9c59b459bfba7690f941644e65773","tarball":"http://registry.npmjs.org/xml2json/-/xml2json-0.2.3.tgz"},"scripts":{},"maintainers":[{"name":"buglabs","email":"camilo@buglabs.net"}],"directories":{}}
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.1.0 (Erlang OTP/R14B03)',
+silly get cb     etag: '"CJLY9LLQB034TZ8BU4U6S39NX"',
+silly get cb     date: 'Sun, 30 Oct 2011 18:20:11 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '895' } ]
+verbose mkdir done: /home/ide_ghalex/workspaces/npm_cache/xml2json/0.2.3
+verbose bin dist [ '0.4-sunos-5.11',
+verbose bin dist   { shasum: 'de341300f6a9c59b459bfba7690f941644e65773',
+verbose bin dist     tarball: 'http://registry.npmjs.org/xml2json/-/xml2json-0.2.3.tgz' } ]
+verbose addRemoteTarball [ 'http://registry.npmjs.org/xml2json/-/xml2json-0.2.3.tgz',
+verbose addRemoteTarball   'de341300f6a9c59b459bfba7690f941644e65773' ]
+verbose mkdir done: /tmp/npm-1319998811516/1319998811516-0.44945693598128855
+info fetch http://registry.npmjs.org/xml2json/-/xml2json-0.2.3.tgz
+verbose fetch to /tmp/npm-1319998811516/1319998811516-0.44945693598128855/tmp.tgz
+silly updated sha bytes 3370
+info shasum de341300f6a9c59b459bfba7690f941644e65773
+info shasum /tmp/npm-1319998811516/1319998811516-0.44945693598128855/tmp.tgz
+verbose mkdir done: /tmp/npm-1319998811516/1319998811516-0.44945693598128855/contents/___package.npm
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /tmp/npm-1319998811516/1319998811516-0.44945693598128855/contents/package
+verbose success gzip "--decompress" "--stdout" "/tmp/npm-1319998811516/1319998811516-0.44945693598128855/tmp.tgz"
+verbose success /opt/local/bin/gtar "-mvxpf" "-" "--no-same-owner" "-C" "/tmp/npm-1319998811516/1319998811516-0.44945693598128855/contents/___package.npm"
+verbose gunzed /tmp/npm-1319998811516/1319998811516-0.44945693598128855/contents/___package.npm/package
+verbose rm'ed /tmp/npm-1319998811516/1319998811516-0.44945693598128855/contents/package
+verbose renamed [ '/tmp/npm-1319998811516/1319998811516-0.44945693598128855/contents/___package.npm/package',
+verbose renamed   '/tmp/npm-1319998811516/1319998811516-0.44945693598128855/contents/package' ]
+verbose rm'ed /tmp/npm-1319998811516/1319998811516-0.44945693598128855/contents/___package.npm
+silly testEngine { name: 'xml2json',
+silly testEngine   version: '0.2.3',
+silly testEngine   author: { name: 'Andrew Turley' },
+silly testEngine   email: 'aturley@buglabs.net',
+silly testEngine   description: 'Converts xml to json and viceverza, using node-expat.',
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/buglabs/node-xml2json.git' },
+silly testEngine   main: 'index',
+silly testEngine   contributors: 
+silly testEngine    [ { name: 'Camilo Aguilar',
+silly testEngine        email: 'camilo@buglabs.net' } ],
+silly testEngine   dependencies: { 'node-expat': '1.4.0' },
+silly testEngine   devDependencies: {},
+silly testEngine   _id: 'xml2json@0.2.3',
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.1rc6',
+silly testEngine   _nodeVersion: 'v0.4.5',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   path: '/tmp/npm-1319998811516/1319998811516-0.44945693598128855/contents/package' }
+verbose caching /tmp/npm-1319998811516/1319998811516-0.44945693598128855/contents/package/package.json
+verbose loadDefaults xml2json@0.2.3
+verbose tarball contents [ 'package' ]
+verbose from cache /tmp/npm-1319998811516/1319998811516-0.44945693598128855/contents/package/package.json
+verbose pack /tmp/npm-1319998811516/1319998811516-0.44945693598128855/contents/package /home/ide_ghalex/workspaces/npm_cache/xml2json/0.2.3/package.tgz
+verbose from cache /tmp/npm-1319998811516/1319998811516-0.44945693598128855/contents/package/package.json
+verbose mkdir'ed /home/ide_ghalex/workspaces/npm_cache/xml2json/0.2.3
+verbose tar about to write tar and gzip it.
+silly tar args [ '-cvf',
+silly tar args   '-',
+silly tar args   'package/.gitignore',
+silly tar args   'package/.npmignore',
+silly tar args   'package/index.js',
+silly tar args   'package/package.json',
+silly tar args   'package/README.md',
+silly tar args   'package/lib/index.js',
+silly tar args   'package/lib/json2xml.js',
+silly tar args   'package/lib/xml2json.js',
+silly tar args   'package/test/test.js',
+silly tar args   'package/test/fixtures/domain-reversible.json',
+silly tar args   'package/test/fixtures/domain.json',
+silly tar args   'package/test/fixtures/domain.xml' ]
+verbose success tar -cvf - <file list elided>
+verbose success gzip "--stdout"
+verbose mkdir done: /home/ide_ghalex/workspaces/npm_cache/xml2json/0.2.3/___package.npm
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /home/ide_ghalex/workspaces/npm_cache/xml2json/0.2.3/package
+verbose success gzip "--decompress" "--stdout" "/home/ide_ghalex/workspaces/npm_cache/xml2json/0.2.3/package.tgz"
+verbose success /opt/local/bin/gtar "-mvxpf" "-" "--no-same-owner" "-C" "/home/ide_ghalex/workspaces/npm_cache/xml2json/0.2.3/___package.npm"
+verbose gunzed /home/ide_ghalex/workspaces/npm_cache/xml2json/0.2.3/___package.npm/package
+verbose rm'ed /home/ide_ghalex/workspaces/npm_cache/xml2json/0.2.3/package
+verbose renamed [ '/home/ide_ghalex/workspaces/npm_cache/xml2json/0.2.3/___package.npm/package',
+verbose renamed   '/home/ide_ghalex/workspaces/npm_cache/xml2json/0.2.3/package' ]
+verbose rm'ed /home/ide_ghalex/workspaces/npm_cache/xml2json/0.2.3/___package.npm
+silly testEngine { name: 'xml2json',
+silly testEngine   version: '0.2.3',
+silly testEngine   author: { name: 'Andrew Turley' },
+silly testEngine   email: 'aturley@buglabs.net',
+silly testEngine   description: 'Converts xml to json and viceverza, using node-expat.',
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/buglabs/node-xml2json.git' },
+silly testEngine   main: 'index',
+silly testEngine   contributors: 
+silly testEngine    [ { name: 'Camilo Aguilar',
+silly testEngine        email: 'camilo@buglabs.net' } ],
+silly testEngine   dependencies: { 'node-expat': '1.4.0' },
+silly testEngine   devDependencies: {},
+silly testEngine   _id: 'xml2json@0.2.3',
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.1rc6',
+silly testEngine   _nodeVersion: 'v0.4.5',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   dist: { shasum: 'ceca6a6e5f77861904534c29682ddf69a96ca88b' } }
+verbose caching /home/ide_ghalex/workspaces/npm_cache/xml2json/0.2.3/package/package.json
+verbose loadDefaults xml2json@0.2.3
+silly updated sha bytes 3373
+info shasum ceca6a6e5f77861904534c29682ddf69a96ca88b
+info shasum /home/ide_ghalex/workspaces/npm_cache/xml2json/0.2.3/package.tgz
+verbose from cache /home/ide_ghalex/workspaces/npm_cache/xml2json/0.2.3/package/package.json
+silly resolved [ { name: 'xml2json',
+silly resolved     version: '0.2.3',
+silly resolved     author: { name: 'Andrew Turley' },
+silly resolved     email: 'aturley@buglabs.net',
+silly resolved     description: 'Converts xml to json and viceverza, using node-expat.',
+silly resolved     repository: 
+silly resolved      { type: 'git',
+silly resolved        url: 'git://github.com/buglabs/node-xml2json.git' },
+silly resolved     main: 'index',
+silly resolved     contributors: 
+silly resolved      [ { name: 'Camilo Aguilar',
+silly resolved          email: 'camilo@buglabs.net' } ],
+silly resolved     dependencies: { 'node-expat': '1.4.0' },
+silly resolved     devDependencies: {},
+silly resolved     _id: 'xml2json@0.2.3',
+silly resolved     engines: { node: '*' },
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.0.1rc6',
+silly resolved     _nodeVersion: 'v0.4.5',
+silly resolved     _defaultsLoaded: true,
+silly resolved     dist: { shasum: 'ceca6a6e5f77861904534c29682ddf69a96ca88b' } } ]
+info (resolved) into /mnt/ws/users/ghalex/94502 [ 'xml2json@0.2.3' ]
+info installOne xml2json@0.2.3
+silly testEngine { name: 'xml2json',
+silly testEngine   version: '0.2.3',
+silly testEngine   author: { name: 'Andrew Turley' },
+silly testEngine   email: 'aturley@buglabs.net',
+silly testEngine   description: 'Converts xml to json and viceverza, using node-expat.',
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/buglabs/node-xml2json.git' },
+silly testEngine   main: 'index',
+silly testEngine   contributors: 
+silly testEngine    [ { name: 'Camilo Aguilar',
+silly testEngine        email: 'camilo@buglabs.net' } ],
+silly testEngine   dependencies: { 'node-expat': '1.4.0' },
+silly testEngine   devDependencies: {},
+silly testEngine   _id: 'xml2json@0.2.3',
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.1rc6',
+silly testEngine   _nodeVersion: 'v0.4.5',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   dist: { shasum: 'ceca6a6e5f77861904534c29682ddf69a96ca88b' } }
+verbose caching /home/ide_ghalex/workspaces/npm_cache/xml2json/0.2.3/package.json
+verbose mkdir done: /mnt/ws/users/ghalex/94502/node_modules/___xml2json.npm
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /mnt/ws/users/ghalex/94502/node_modules/xml2json
+verbose success gzip "--decompress" "--stdout" "/home/ide_ghalex/workspaces/npm_cache/xml2json/0.2.3/package.tgz"
+verbose success /opt/local/bin/gtar "-mvxpf" "-" "--no-same-owner" "-C" "/mnt/ws/users/ghalex/94502/node_modules/___xml2json.npm"
+verbose gunzed /mnt/ws/users/ghalex/94502/node_modules/___xml2json.npm/package
+verbose rm'ed /mnt/ws/users/ghalex/94502/node_modules/xml2json
+verbose renamed [ '/mnt/ws/users/ghalex/94502/node_modules/___xml2json.npm/package',
+verbose renamed   '/mnt/ws/users/ghalex/94502/node_modules/xml2json' ]
+verbose rm'ed /mnt/ws/users/ghalex/94502/node_modules/___xml2json.npm
+silly testEngine { name: 'xml2json',
+silly testEngine   version: '0.2.3',
+silly testEngine   author: { name: 'Andrew Turley' },
+silly testEngine   email: 'aturley@buglabs.net',
+silly testEngine   description: 'Converts xml to json and viceverza, using node-expat.',
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/buglabs/node-xml2json.git' },
+silly testEngine   main: 'index',
+silly testEngine   contributors: 
+silly testEngine    [ { name: 'Camilo Aguilar',
+silly testEngine        email: 'camilo@buglabs.net' } ],
+silly testEngine   dependencies: { 'node-expat': '1.4.0' },
+silly testEngine   devDependencies: {},
+silly testEngine   _id: 'xml2json@0.2.3',
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.1rc6',
+silly testEngine   _nodeVersion: 'v0.4.5',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /mnt/ws/users/ghalex/94502/node_modules/xml2json/package.json
+verbose loadDefaults xml2json@0.2.3
+info into /mnt/ws/users/ghalex/94502/node_modules/xml2json [ 'node-expat@1.4.0' ]
+verbose cache add [ 'node-expat@1.4.0', null ]
+info addNamed [ 'node-expat', '1.4.0' ]
+verbose addNamed [ '1.4.0', '1.4.0' ]
+verbose GET node-expat/1.4.0
+verbose raw, before any munging node-expat/1.4.0
+verbose url resolving [ 'http://registry.npmjs.org/', './node-expat/1.4.0' ]
+verbose url resolved http://registry.npmjs.org/node-expat/1.4.0
+verbose url parsed { protocol: 'http:',
+verbose url parsed   slashes: true,
+verbose url parsed   host: 'registry.npmjs.org',
+verbose url parsed   hostname: 'registry.npmjs.org',
+verbose url parsed   pathname: '/node-expat/1.4.0',
+verbose url parsed   href: 'http://registry.npmjs.org/node-expat/1.4.0' }
+verbose response http://registry.npmjs.org/node-expat/1.4.0
+silly chunk {"name":"node-expat","version":"1.4.0","main":"./lib/node-expat","description":"NodeJS binding for fast XML parsing.","scripts":{"install":"node-waf configure build","update":"node-waf build","test":"node test.js"},"dependencies":{},"devDependencies":{"vows":""},"repositories":[{"type":"git","path":"git://github.com/astro/node-expat.git"}],"homepage":"http://github.com/astro/node-expat","bugs":{"name":"http://github.com/astro/node-expat/issues"},"maintainers":[{"name":"astro","email":"astro@spaceboyz.net"}],"contributors":[{"name":"Stephan Maka"},{"name":"Derek Hammer"},{"name":"Iein Valdez"},{"name":"Peter Körner"},{"name":"Camilo Aguilar"}],"licenses":[{"type":"MIT"}],"engine":"node","_npmJsonOpts":{"file":"/home/stephan/.npm/node-expat/1.4.0/package/package.json","contributors":false,"serverjs":false,"wscript":true},"_id":"node-expat@1.4.0","engines":{"node":"*"},"_engineSupported":true,"_npmVersion":"1.0.25","_nodeVersion":"v0.5.4","_defaultsLoaded":true,"dist":{"shasum":"d2daa2e27c0b347b672c099591be3312df820195","tarball":"http://registry.npmjs.org/node-expat/-/node-expat-1.4.0.tgz"},"directories":{}}
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.1.0 (Erlang OTP/R14B03)',
+silly get cb     etag: '"5PHCM3GEJJENAIDP02SONAXS8"',
+silly get cb     date: 'Sun, 30 Oct 2011 18:20:11 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '1124' } ]
+verbose mkdir done: /home/ide_ghalex/workspaces/npm_cache/node-expat/1.4.0
+verbose bin dist [ '0.4-sunos-5.11',
+verbose bin dist   { shasum: 'd2daa2e27c0b347b672c099591be3312df820195',
+verbose bin dist     tarball: 'http://registry.npmjs.org/node-expat/-/node-expat-1.4.0.tgz' } ]
+verbose addRemoteTarball [ 'http://registry.npmjs.org/node-expat/-/node-expat-1.4.0.tgz',
+verbose addRemoteTarball   'd2daa2e27c0b347b672c099591be3312df820195' ]
+verbose mkdir done: /tmp/npm-1319998811516/1319998811902-0.5074824742041528
+info fetch http://registry.npmjs.org/node-expat/-/node-expat-1.4.0.tgz
+verbose fetch to /tmp/npm-1319998811516/1319998811902-0.5074824742041528/tmp.tgz
+silly updated sha bytes 7336
+info shasum d2daa2e27c0b347b672c099591be3312df820195
+info shasum /tmp/npm-1319998811516/1319998811902-0.5074824742041528/tmp.tgz
+verbose mkdir done: /tmp/npm-1319998811516/1319998811902-0.5074824742041528/contents/___package.npm
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /tmp/npm-1319998811516/1319998811902-0.5074824742041528/contents/package
+verbose success gzip "--decompress" "--stdout" "/tmp/npm-1319998811516/1319998811902-0.5074824742041528/tmp.tgz"
+verbose success /opt/local/bin/gtar "-mvxpf" "-" "--no-same-owner" "-C" "/tmp/npm-1319998811516/1319998811902-0.5074824742041528/contents/___package.npm"
+verbose gunzed /tmp/npm-1319998811516/1319998811902-0.5074824742041528/contents/___package.npm/package
+verbose rm'ed /tmp/npm-1319998811516/1319998811902-0.5074824742041528/contents/package
+verbose renamed [ '/tmp/npm-1319998811516/1319998811902-0.5074824742041528/contents/___package.npm/package',
+verbose renamed   '/tmp/npm-1319998811516/1319998811902-0.5074824742041528/contents/package' ]
+verbose rm'ed /tmp/npm-1319998811516/1319998811902-0.5074824742041528/contents/___package.npm
+verbose has wscript [ undefined,
+verbose has wscript   { file: '/tmp/npm-1319998811516/1319998811902-0.5074824742041528/contents/package/package.json',
+verbose has wscript     wscript: 
+verbose has wscript      [ '\ndef configure',
+verbose has wscript        '\n',
+verbose has wscript        index: 106,
+verbose has wscript        input: 'srcdir = \'.\'\nblddir = \'build\'\nVERSION = \'1.1.0\'\n\ndef set_options(opt):\n  opt.tool_options(\'compiler_cxx\')\n\ndef configure(conf):\n  conf.check_tool(\'compiler_cxx\')\n  conf.check_tool(\'node_addon\')\n  conf.check( header_name=\'expat.h\', \n              mandatory = True,\n\t          errmsg = "not installed")\n\t\n  conf.env[\'LIB_EXPAT\'] = [\'expat\']\n\n\ndef build(bld):\n  obj = bld.new_task_gen(\'cxx\', \'shlib\', \'node_addon\')\n  obj.target = \'node-expat\'\n  obj.source = \'node-expat.cc\'\n  obj.lib = \'expat\'\n  obj.uselib = \'EXPAT\'\n' ] } ]
+silly testEngine { name: 'node-expat',
+silly testEngine   version: '1.4.0',
+silly testEngine   main: './lib/node-expat',
+silly testEngine   description: 'NodeJS binding for fast XML parsing.',
+silly testEngine   scripts: 
+silly testEngine    { install: 'node-waf configure build',
+silly testEngine      update: 'node-waf build',
+silly testEngine      test: 'node test.js' },
+silly testEngine   dependencies: {},
+silly testEngine   devDependencies: { vows: '' },
+silly testEngine   repositories: 
+silly testEngine    [ { type: 'git',
+silly testEngine        path: 'git://github.com/astro/node-expat.git' } ],
+silly testEngine   homepage: 'http://github.com/astro/node-expat',
+silly testEngine   bugs: { name: 'http://github.com/astro/node-expat/issues' },
+silly testEngine   maintainers: 
+silly testEngine    [ { name: 'Astro',
+silly testEngine        email: 'astro@spaceboyz.net',
+silly testEngine        url: 'http://spaceboyz.net/~astro/' } ],
+silly testEngine   contributors: 
+silly testEngine    [ { name: 'Stephan Maka' },
+silly testEngine      { name: 'Derek Hammer' },
+silly testEngine      { name: 'Iein Valdez' },
+silly testEngine      { name: 'Peter Körner' },
+silly testEngine      { name: 'Camilo Aguilar' } ],
+silly testEngine   licenses: [ { type: 'MIT' } ],
+silly testEngine   engine: 'node',
+silly testEngine   _id: 'node-expat@1.4.0',
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.1rc6',
+silly testEngine   _nodeVersion: 'v0.4.5',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   path: '/tmp/npm-1319998811516/1319998811902-0.5074824742041528/contents/package' }
+verbose caching /tmp/npm-1319998811516/1319998811902-0.5074824742041528/contents/package/package.json
+verbose loadDefaults node-expat@1.4.0
+verbose tarball contents [ 'package' ]
+verbose from cache /tmp/npm-1319998811516/1319998811902-0.5074824742041528/contents/package/package.json
+verbose pack /tmp/npm-1319998811516/1319998811902-0.5074824742041528/contents/package /home/ide_ghalex/workspaces/npm_cache/node-expat/1.4.0/package.tgz
+verbose from cache /tmp/npm-1319998811516/1319998811902-0.5074824742041528/contents/package/package.json
+verbose mkdir'ed /home/ide_ghalex/workspaces/npm_cache/node-expat/1.4.0
+verbose tar about to write tar and gzip it.
+silly tar args [ '-cvf',
+silly tar args   '-',
+silly tar args   'package/.gitignore',
+silly tar args   'package/README.markdown',
+silly tar args   'package/package.json',
+silly tar args   'package/test.js',
+silly tar args   'package/wscript',
+silly tar args   'package/node-expat.cc',
+silly tar args   'package/bench.js',
+silly tar args   'package/LICENSE',
+silly tar args   'package/lib/node-expat.js' ]
+verbose success tar -cvf - <file list elided>
+verbose success gzip "--stdout"
+verbose mkdir done: /home/ide_ghalex/workspaces/npm_cache/node-expat/1.4.0/___package.npm
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /home/ide_ghalex/workspaces/npm_cache/node-expat/1.4.0/package
+verbose success gzip "--decompress" "--stdout" "/home/ide_ghalex/workspaces/npm_cache/node-expat/1.4.0/package.tgz"
+verbose success /opt/local/bin/gtar "-mvxpf" "-" "--no-same-owner" "-C" "/home/ide_ghalex/workspaces/npm_cache/node-expat/1.4.0/___package.npm"
+verbose gunzed /home/ide_ghalex/workspaces/npm_cache/node-expat/1.4.0/___package.npm/package
+verbose rm'ed /home/ide_ghalex/workspaces/npm_cache/node-expat/1.4.0/package
+verbose renamed [ '/home/ide_ghalex/workspaces/npm_cache/node-expat/1.4.0/___package.npm/package',
+verbose renamed   '/home/ide_ghalex/workspaces/npm_cache/node-expat/1.4.0/package' ]
+verbose rm'ed /home/ide_ghalex/workspaces/npm_cache/node-expat/1.4.0/___package.npm
+verbose has wscript [ undefined,
+verbose has wscript   { file: '/home/ide_ghalex/workspaces/npm_cache/node-expat/1.4.0/package/package.json',
+verbose has wscript     wscript: 
+verbose has wscript      [ '\ndef configure',
+verbose has wscript        '\n',
+verbose has wscript        index: 106,
+verbose has wscript        input: 'srcdir = \'.\'\nblddir = \'build\'\nVERSION = \'1.1.0\'\n\ndef set_options(opt):\n  opt.tool_options(\'compiler_cxx\')\n\ndef configure(conf):\n  conf.check_tool(\'compiler_cxx\')\n  conf.check_tool(\'node_addon\')\n  conf.check( header_name=\'expat.h\', \n              mandatory = True,\n\t          errmsg = "not installed")\n\t\n  conf.env[\'LIB_EXPAT\'] = [\'expat\']\n\n\ndef build(bld):\n  obj = bld.new_task_gen(\'cxx\', \'shlib\', \'node_addon\')\n  obj.target = \'node-expat\'\n  obj.source = \'node-expat.cc\'\n  obj.lib = \'expat\'\n  obj.uselib = \'EXPAT\'\n' ] } ]
+silly testEngine { name: 'node-expat',
+silly testEngine   version: '1.4.0',
+silly testEngine   main: './lib/node-expat',
+silly testEngine   description: 'NodeJS binding for fast XML parsing.',
+silly testEngine   scripts: 
+silly testEngine    { install: 'node-waf configure build',
+silly testEngine      update: 'node-waf build',
+silly testEngine      test: 'node test.js' },
+silly testEngine   dependencies: {},
+silly testEngine   devDependencies: { vows: '' },
+silly testEngine   repositories: 
+silly testEngine    [ { type: 'git',
+silly testEngine        path: 'git://github.com/astro/node-expat.git' } ],
+silly testEngine   homepage: 'http://github.com/astro/node-expat',
+silly testEngine   bugs: { name: 'http://github.com/astro/node-expat/issues' },
+silly testEngine   maintainers: 
+silly testEngine    [ { name: 'Astro',
+silly testEngine        email: 'astro@spaceboyz.net',
+silly testEngine        url: 'http://spaceboyz.net/~astro/' } ],
+silly testEngine   contributors: 
+silly testEngine    [ { name: 'Stephan Maka' },
+silly testEngine      { name: 'Derek Hammer' },
+silly testEngine      { name: 'Iein Valdez' },
+silly testEngine      { name: 'Peter Körner' },
+silly testEngine      { name: 'Camilo Aguilar' } ],
+silly testEngine   licenses: [ { type: 'MIT' } ],
+silly testEngine   engine: 'node',
+silly testEngine   _id: 'node-expat@1.4.0',
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.1rc6',
+silly testEngine   _nodeVersion: 'v0.4.5',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   dist: { shasum: '85804285b76f66a2bbb880fae57ffbc17c863add' } }
+verbose caching /home/ide_ghalex/workspaces/npm_cache/node-expat/1.4.0/package/package.json
+verbose loadDefaults node-expat@1.4.0
+silly updated sha bytes 7343
+info shasum 85804285b76f66a2bbb880fae57ffbc17c863add
+info shasum /home/ide_ghalex/workspaces/npm_cache/node-expat/1.4.0/package.tgz
+verbose from cache /home/ide_ghalex/workspaces/npm_cache/node-expat/1.4.0/package/package.json
+silly resolved [ { name: 'node-expat',
+silly resolved     version: '1.4.0',
+silly resolved     main: './lib/node-expat',
+silly resolved     description: 'NodeJS binding for fast XML parsing.',
+silly resolved     scripts: 
+silly resolved      { install: 'node-waf configure build',
+silly resolved        update: 'node-waf build',
+silly resolved        test: 'node test.js' },
+silly resolved     dependencies: {},
+silly resolved     devDependencies: { vows: '' },
+silly resolved     repositories: 
+silly resolved      [ { type: 'git',
+silly resolved          path: 'git://github.com/astro/node-expat.git' } ],
+silly resolved     homepage: 'http://github.com/astro/node-expat',
+silly resolved     bugs: { name: 'http://github.com/astro/node-expat/issues' },
+silly resolved     maintainers: 
+silly resolved      [ { name: 'Astro',
+silly resolved          email: 'astro@spaceboyz.net',
+silly resolved          url: 'http://spaceboyz.net/~astro/' } ],
+silly resolved     contributors: 
+silly resolved      [ { name: 'Stephan Maka' },
+silly resolved        { name: 'Derek Hammer' },
+silly resolved        { name: 'Iein Valdez' },
+silly resolved        { name: 'Peter Körner' },
+silly resolved        { name: 'Camilo Aguilar' } ],
+silly resolved     licenses: [ { type: 'MIT' } ],
+silly resolved     engine: 'node',
+silly resolved     _id: 'node-expat@1.4.0',
+silly resolved     engines: { node: '*' },
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.0.1rc6',
+silly resolved     _nodeVersion: 'v0.4.5',
+silly resolved     _defaultsLoaded: true,
+silly resolved     dist: { shasum: '85804285b76f66a2bbb880fae57ffbc17c863add' } } ]
+info (resolved) into /mnt/ws/users/ghalex/94502/node_modules/xml2json [ 'node-expat@1.4.0' ]
+info installOne node-expat@1.4.0
+silly testEngine { name: 'node-expat',
+silly testEngine   version: '1.4.0',
+silly testEngine   main: './lib/node-expat',
+silly testEngine   description: 'NodeJS binding for fast XML parsing.',
+silly testEngine   scripts: 
+silly testEngine    { install: 'node-waf configure build',
+silly testEngine      update: 'node-waf build',
+silly testEngine      test: 'node test.js' },
+silly testEngine   dependencies: {},
+silly testEngine   devDependencies: { vows: '' },
+silly testEngine   repositories: 
+silly testEngine    [ { type: 'git',
+silly testEngine        path: 'git://github.com/astro/node-expat.git' } ],
+silly testEngine   homepage: 'http://github.com/astro/node-expat',
+silly testEngine   bugs: { name: 'http://github.com/astro/node-expat/issues' },
+silly testEngine   maintainers: 
+silly testEngine    [ { name: 'Astro',
+silly testEngine        email: 'astro@spaceboyz.net',
+silly testEngine        url: 'http://spaceboyz.net/~astro/' } ],
+silly testEngine   contributors: 
+silly testEngine    [ { name: 'Stephan Maka' },
+silly testEngine      { name: 'Derek Hammer' },
+silly testEngine      { name: 'Iein Valdez' },
+silly testEngine      { name: 'Peter Körner' },
+silly testEngine      { name: 'Camilo Aguilar' } ],
+silly testEngine   licenses: [ { type: 'MIT' } ],
+silly testEngine   engine: 'node',
+silly testEngine   _id: 'node-expat@1.4.0',
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.1rc6',
+silly testEngine   _nodeVersion: 'v0.4.5',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   dist: { shasum: '85804285b76f66a2bbb880fae57ffbc17c863add' } }
+verbose caching /home/ide_ghalex/workspaces/npm_cache/node-expat/1.4.0/package.json
+verbose mkdir done: /mnt/ws/users/ghalex/94502/node_modules/xml2json/node_modules/___node-expat.npm
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /mnt/ws/users/ghalex/94502/node_modules/xml2json/node_modules/node-expat
+verbose success gzip "--decompress" "--stdout" "/home/ide_ghalex/workspaces/npm_cache/node-expat/1.4.0/package.tgz"
+verbose success /opt/local/bin/gtar "-mvxpf" "-" "--no-same-owner" "-C" "/mnt/ws/users/ghalex/94502/node_modules/xml2json/node_modules/___node-expat.npm"
+verbose gunzed /mnt/ws/users/ghalex/94502/node_modules/xml2json/node_modules/___node-expat.npm/package
+verbose rm'ed /mnt/ws/users/ghalex/94502/node_modules/xml2json/node_modules/node-expat
+verbose renamed [ '/mnt/ws/users/ghalex/94502/node_modules/xml2json/node_modules/___node-expat.npm/package',
+verbose renamed   '/mnt/ws/users/ghalex/94502/node_modules/xml2json/node_modules/node-expat' ]
+verbose rm'ed /mnt/ws/users/ghalex/94502/node_modules/xml2json/node_modules/___node-expat.npm
+verbose has wscript [ undefined,
+verbose has wscript   { file: '/mnt/ws/users/ghalex/94502/node_modules/xml2json/node_modules/node-expat/package.json',
+verbose has wscript     wscript: 
+verbose has wscript      [ '\ndef configure',
+verbose has wscript        '\n',
+verbose has wscript        index: 106,
+verbose has wscript        input: 'srcdir = \'.\'\nblddir = \'build\'\nVERSION = \'1.1.0\'\n\ndef set_options(opt):\n  opt.tool_options(\'compiler_cxx\')\n\ndef configure(conf):\n  conf.check_tool(\'compiler_cxx\')\n  conf.check_tool(\'node_addon\')\n  conf.check( header_name=\'expat.h\', \n              mandatory = True,\n\t          errmsg = "not installed")\n\t\n  conf.env[\'LIB_EXPAT\'] = [\'expat\']\n\n\ndef build(bld):\n  obj = bld.new_task_gen(\'cxx\', \'shlib\', \'node_addon\')\n  obj.target = \'node-expat\'\n  obj.source = \'node-expat.cc\'\n  obj.lib = \'expat\'\n  obj.uselib = \'EXPAT\'\n' ] } ]
+silly testEngine { name: 'node-expat',
+silly testEngine   version: '1.4.0',
+silly testEngine   main: './lib/node-expat',
+silly testEngine   description: 'NodeJS binding for fast XML parsing.',
+silly testEngine   scripts: 
+silly testEngine    { install: 'node-waf configure build',
+silly testEngine      update: 'node-waf build',
+silly testEngine      test: 'node test.js' },
+silly testEngine   dependencies: {},
+silly testEngine   devDependencies: { vows: '' },
+silly testEngine   repositories: 
+silly testEngine    [ { type: 'git',
+silly testEngine        path: 'git://github.com/astro/node-expat.git' } ],
+silly testEngine   homepage: 'http://github.com/astro/node-expat',
+silly testEngine   bugs: { name: 'http://github.com/astro/node-expat/issues' },
+silly testEngine   maintainers: 
+silly testEngine    [ { name: 'Astro',
+silly testEngine        email: 'astro@spaceboyz.net',
+silly testEngine        url: 'http://spaceboyz.net/~astro/' } ],
+silly testEngine   contributors: 
+silly testEngine    [ { name: 'Stephan Maka' },
+silly testEngine      { name: 'Derek Hammer' },
+silly testEngine      { name: 'Iein Valdez' },
+silly testEngine      { name: 'Peter Körner' },
+silly testEngine      { name: 'Camilo Aguilar' } ],
+silly testEngine   licenses: [ { type: 'MIT' } ],
+silly testEngine   engine: 'node',
+silly testEngine   _id: 'node-expat@1.4.0',
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.1rc6',
+silly testEngine   _nodeVersion: 'v0.4.5',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /mnt/ws/users/ghalex/94502/node_modules/xml2json/node_modules/node-expat/package.json
+verbose loadDefaults node-expat@1.4.0
+info into /mnt/ws/users/ghalex/94502/node_modules/xml2json/node_modules/node-expat []
+silly resolved []
+info (resolved) into /mnt/ws/users/ghalex/94502/node_modules/xml2json/node_modules/node-expat []
+verbose about to build /mnt/ws/users/ghalex/94502/node_modules/xml2json/node_modules/node-expat
+info build /mnt/ws/users/ghalex/94502/node_modules/xml2json/node_modules/node-expat
+verbose from cache /mnt/ws/users/ghalex/94502/node_modules/xml2json/node_modules/node-expat/package.json
+info preinstall node-expat@1.4.0
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/mnt/ws/users/ghalex/94502/node_modules/xml2json/node_modules' ]
+info linkStuff node-expat@1.4.0
+info linkBins node-expat@1.4.0
+info linkMans node-expat@1.4.0
+info rebuildBundles node-expat@1.4.0
+verbose rebuildBundles [ { stack: [Getter/Setter],
+verbose rebuildBundles     arguments: undefined,
+verbose rebuildBundles     type: undefined,
+verbose rebuildBundles     message: 'ENOENT, No such file or directory',
+verbose rebuildBundles     errno: 2,
+verbose rebuildBundles     code: 'ENOENT' },
+verbose rebuildBundles   undefined ]
+info install node-expat@1.4.0
+verbose unsafe-perm in lifecycle true
+silly exec sh "-c" "node-waf configure build"
+info node-expat@1.4.0 Failed to exec install script
+ERR! error installing node-expat@1.4.0 { stack: [Getter/Setter],
+ERR! error installing node-expat@1.4.0   arguments: undefined,
+ERR! error installing node-expat@1.4.0   type: undefined,
+ERR! error installing node-expat@1.4.0   message: 'node-expat@1.4.0 install: `node-waf configure build`\n`sh "-c" "node-waf configure build"` failed with 127',
+ERR! error installing node-expat@1.4.0   errno: {},
+ERR! error installing node-expat@1.4.0   pkgid: 'node-expat@1.4.0',
+ERR! error installing node-expat@1.4.0   stage: 'install',
+ERR! error installing node-expat@1.4.0   script: 'node-waf configure build',
+ERR! error installing node-expat@1.4.0   pkgname: 'node-expat' }
+verbose from cache /mnt/ws/users/ghalex/94502/node_modules/xml2json/node_modules/node-expat/package.json
+info preuninstall node-expat@1.4.0
+info uninstall node-expat@1.4.0
+info unbuild node-expat@1.4.0 [ false,
+info unbuild node-expat@1.4.0   '/home/ide_ghalex/workspaces/npm_global/node_modules',
+info unbuild node-expat@1.4.0   '/mnt/ws/users/ghalex/94502/node_modules/xml2json/node_modules' ]
+info postuninstall node-expat@1.4.0
+info installOne cb node-expat@1.4.0
+verbose about to build /mnt/ws/users/ghalex/94502/node_modules/xml2json
+ERR! error installing xml2json@0.2.3 { stack: [Getter/Setter],
+ERR! error installing xml2json@0.2.3   arguments: undefined,
+ERR! error installing xml2json@0.2.3   type: undefined,
+ERR! error installing xml2json@0.2.3   message: 'node-expat@1.4.0 install: `node-waf configure build`\n`sh "-c" "node-waf configure build"` failed with 127',
+ERR! error installing xml2json@0.2.3   errno: {},
+ERR! error installing xml2json@0.2.3   pkgid: 'node-expat@1.4.0',
+ERR! error installing xml2json@0.2.3   stage: 'install',
+ERR! error installing xml2json@0.2.3   script: 'node-waf configure build',
+ERR! error installing xml2json@0.2.3   pkgname: 'node-expat' }
+verbose from cache /mnt/ws/users/ghalex/94502/node_modules/xml2json/package.json
+info preuninstall xml2json@0.2.3
+info uninstall xml2json@0.2.3
+info unbuild xml2json@0.2.3 [ false,
+info unbuild xml2json@0.2.3   '/home/ide_ghalex/workspaces/npm_global/node_modules',
+info unbuild xml2json@0.2.3   '/mnt/ws/users/ghalex/94502/node_modules' ]
+info postuninstall xml2json@0.2.3
+info installOne cb xml2json@0.2.3
+ERR! node-expat@1.4.0 install: `node-waf configure build`
+ERR! `sh "-c" "node-waf configure build"` failed with 127
+ERR! 
+ERR! Failed at the node-expat@1.4.0 install script.
+ERR! This is most likely a problem with the node-expat package,
+ERR! not with npm itself.
+ERR! Tell the author that this fails on your system:
+ERR!     node-waf configure build
+ERR! You can get their info via:
+ERR!     npm owner ls node-expat
+ERR! There is likely additional logging output above.
+ERR! 
+ERR! System SunOS 5.11
+ERR! command "/home/cloud9/c9/support/node-c9-builds-v4/node-c9-sunos" "/home/ide_ghalex/workspaces/npm/bin/npm.js" "install" "xml2json"
+verbose exit [ 1, true ]
