@@ -94,22 +94,22 @@ Phi.UI.RootBox.getInstance = function()
 Phi.UI.RootBox.get = function()
 {
 	var element = $$("body")[0];
-	var instance = element.retrieve( "rootBox" );
+	//var instance = element.retrieve( "rootBox" );
 	
-	if( instance )
-		return instance;
+	//if( instance )
+	//	return instance;
 
 	// If this is the first instance we create it
 	// and store it to element.		
-	instance = Phi.UI.RootBox.getInstance();
-	element.store( "rootBox", instance );
+	//instance = Phi.UI.RootBox.getInstance();
+	//element.store( "rootBox", instance );
 	
 	// Inject element to DOM
-	$(instance).inject( element );
+	//$(instance).inject( element );
 	
 	// Dispatch added to stage
-	instance.dispatchEvent( new Phi.Events.ChildEvent( "added", instance, 0));
+	//instance.dispatchEvent( new Phi.Events.ChildEvent( "added", instance, 0));
 	
-	return instance;
+	return null;
 	
 };
