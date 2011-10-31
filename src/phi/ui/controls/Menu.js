@@ -121,11 +121,9 @@ Phi.UI.Menu = new Class({
 	
 	bubbleItemClick: function( args )
 	{
-		args.target = this;
-		
 		if( this.parentMenu === null )
 		{
-			this.fireEvent('itemClick', args)
+			this.dispatchEvent('itemClick', args)
 			return;			
 		}
 			

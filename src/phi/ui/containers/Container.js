@@ -32,7 +32,7 @@ Phi.UI.Container = new Class({
 		this.createChildren();
 		this.prepareChildren( this );
 		
-		this.fireEvent( "childrenCreated", {target: this})
+		this.dispatchEvent( "childrenCreated")
 	},
 	
 	createChildren: function()

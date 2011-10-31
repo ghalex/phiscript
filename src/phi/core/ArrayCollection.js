@@ -34,7 +34,6 @@ Phi.Core.ArrayCollection = new Class({
 	{
 		var eventArgs = {};
 		
-		eventArgs.target = this;
 		eventArgs.item = item;
 		eventArgs.index = index;
 		eventArgs.kind = CollectionEventKind.ADD;
@@ -43,7 +42,7 @@ Phi.Core.ArrayCollection = new Class({
 		this.source.splice(index, 0, item );
 
 		// Dispatch event
-		this.fireEvent( "add", eventArgs);		
+		this.dispatchEvent( "add", eventArgs);		
 	},
 	
 	length: function()
@@ -55,7 +54,6 @@ Phi.Core.ArrayCollection = new Class({
 	{
 		var eventArgs = {};
 		
-		eventArgs.target = this;
 		eventArgs.item = item;
 		eventArgs.oldItem = this.getItemAt( index );
 		eventArgs.location = index;
@@ -65,14 +63,13 @@ Phi.Core.ArrayCollection = new Class({
 		this.source.splice(index, 1, item );
 		
 		// Dispatch event
-		this.fireEvent("replace", eventArgs)
+		this.dispatchEvent("replace", eventArgs)
 	},
 	
 	moveItem: function( item, newIndex )
 	{
 		var eventArgs = {};
 		
-		eventArgs.target = this;
 		eventArgs.item = item;
 		eventArgs.oldLocation = this.getItemIndex(item);
 		eventArgs.location = newIndex;
@@ -85,7 +82,7 @@ Phi.Core.ArrayCollection = new Class({
 		this.source.splice(event.location, 0, item );
 		
 		// Dispatch event
-		this.fireEvent("move", eventArgs);
+		this.dispatchEvent("move", eventArgs);
 	},
 	
 	removeItem: function( item )
@@ -97,7 +94,6 @@ Phi.Core.ArrayCollection = new Class({
 	{
 		var eventArgs = {};
 		
-		eventArgs.target = this;
 		eventArgs.item = this.getItemAt( index );
 		eventArgs.location = index;
 		eventArgs.kind = CollectionEventKind.REMOVE;
@@ -106,8 +102,7 @@ Phi.Core.ArrayCollection = new Class({
 		this.source.splice(index, 1);
 		
 		// Dispatch event
-		this.dispatchEvent( event );
-		this.fireEvent("remove", eventArgs);
+		this.dispatchEvent("remove", eventArgs);
 	},
 	
 	getItemAt: function( index )

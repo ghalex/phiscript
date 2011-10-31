@@ -31,7 +31,7 @@ Phi.UI.ItemRenderer = new Class({
 		this._data = value;
 		
 		// Dispatch dataChange
-		this.fireEvent('dataChange', {data: value, oldData: oldData});
+		this.dispatchEvent('dataChange', {data: value, oldData: oldData});
 	},
 	
 	getData: function()

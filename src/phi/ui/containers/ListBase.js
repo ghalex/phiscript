@@ -34,7 +34,7 @@ Phi.UI.ListBase = new Class({
 		this._dataProvider = value;
 		this._dataProvider.addEvent("collectionChange", this.onCollectionChange);
 		
-		this.fireEvent("newDataProvider", {target: this});
+		this.dispatchEvent("newDataProvider");
 	},
 	
 	getDataProvider: function()
@@ -168,7 +168,7 @@ Phi.UI.ListBase = new Class({
 		var index = this.elementToIndex( event.target );
 		$(this.getChildAt(index)).addClass("over");
 		
-		this.fireEvent("itemRollOver", {target: this, index: index});
+		this.dispatchEvent("itemRollOver", {index: index});
 	},
 	
 	onItemRollOut: function( event )
@@ -176,7 +176,7 @@ Phi.UI.ListBase = new Class({
 		var index = this.elementToIndex( event.target );
 		$(this.getChildAt(index)).removeClass("over");
 		
-		this.fireEvent("itemRollOut", {target: this, index: index})
+		this.dispatchEvent("itemRollOut", {index: index})
 	},
 	
 	/**
@@ -240,7 +240,7 @@ Phi.UI.ListBase = new Class({
 		
 		this.setSelectedIndex( index );
 		
-		this.fireEvent("change", {target: this, index:index});
-		this.fireEvent("itemClick", {target: this, index:index});
+		this.dispatchEvent("change", {index:index});
+		this.dispatchEvent("itemClick", {index:index});
 	}
 });

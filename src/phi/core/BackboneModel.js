@@ -13,6 +13,6 @@ Phi.BackboneModel = new Class({
 	
 	onChange: function()
 	{
-		this.fireEvent("change");
+		this.dispatchEvent("change");
 	}
 });

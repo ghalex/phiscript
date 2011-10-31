@@ -74,7 +74,7 @@ Phi.UI.Component = new Class({
 		else
 			$(this).setWidth( Number.withPx(value));
 		
-		this.fireEvent("widthChange", {target: this, value: value});
+		this.dispatchEvent("widthChange", {value: value});
 		return this;
 	},
 	
@@ -88,7 +88,7 @@ Phi.UI.Component = new Class({
 		else
 			$(this).setHeight( Number.withPx(value));
 			
-		this.fireEvent("heightChange", {target: this, value: value});
+		this.dispatchEvent("heightChange", {value: value});
 		return this;
 	},
 	

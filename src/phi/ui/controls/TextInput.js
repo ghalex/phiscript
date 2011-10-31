@@ -63,7 +63,7 @@ Phi.UI.TextInput = new Class({
 		
 	onKeyUp: function( event )
 	{
-		this.fireEvent("textChange", { target: this });
+		this.dispatchEvent("textChange");
 	}
 	
 });
