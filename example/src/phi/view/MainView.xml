@@ -27,6 +27,7 @@
 			<Label text="Copyright (c) 2011, Phimento Inc." />
 		</HBox>
 	</VBox>
+
 	<JavaScript>
 		
 		
