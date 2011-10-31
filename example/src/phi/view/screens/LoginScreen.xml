@@ -6,14 +6,26 @@
 		  verticalAlign="middle"
 		  horizontalAlign="left">
 		  
+		<HBox id="errorBox" paddingLeft="100" visible="false">
+			<Label text="The username or password is incorrect."
+				   color="#ff0000" />
+		</HBox>
+		
 		<HBox border="0">
 			<Label text="Username:" width="100" />
-			<TextInput id="user" width="180" text="{model.username}" />
+			<TextInput id="user" 
+					   width="220" 
+					   text="{model.username}"
+					   onEnter="login()" />
 		</HBox>
 		
 		<HBox border="0">
 			<Label text="Password:" width="100" />
-			<TextInput id="pass" displayAsPassword="true" width="180" text="{model.password}"/>
+			<TextInput id="pass" 
+					   displayAsPassword="true" 
+					   width="220" 
+					   text="{model.password}"
+					   onEnter="login()"/>
 		</HBox>
 		
 		<HBox border="0"
@@ -29,12 +41,19 @@
 	
 	<JavaScript>
 		
-		login: function( event )
+		login: function()
 		{
 			var username = this.user.getText();
 			var pass = this.pass.getText();
 			
-			this.sendMessage("loginSuccess", {username: username, pass: pass}); 
+			if( username == "ghalex" && pass == "parola")
+			{
+				this.errorBox.setVisible( false );
+				this.sendMessage("loginSuccess", {username: username, pass: pass});
+				return; 
+			}
+			
+			this.errorBox.setVisible( true );
 		},
 		
 		childrenCreated: function()

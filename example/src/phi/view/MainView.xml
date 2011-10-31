@@ -32,8 +32,7 @@
 		
 		onLoginSuccess: function( msg )
 		{
-			if( msg.username == "ghalex" && msg.pass == "parola")
-				this.vs.setSelectedIndex(1);
+			this.vs.setSelectedIndex(1);
 		},
 		
 		onLoginFailed: function( msg )

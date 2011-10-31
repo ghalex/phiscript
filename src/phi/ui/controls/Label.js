@@ -18,6 +18,22 @@ Phi.UI.Label = new Class({
 	
 	text: "",
 	
+	setFontSize: function( value )
+	{
+		if( value === null || value === undefined )
+			return;
+			
+		$(this).setStyle('font-size', Number.withPx(value));
+	},
+	
+	setColor: function( value )
+	{
+		if( value === null || value === undefined )
+			return;
+			
+		$(this).setStyle('color', value);
+	},
+	
 	setText: function( value )
 	{
 		if( value === null )
@@ -47,7 +63,10 @@ Phi.UI.Label = new Class({
 	onOptionsChange: function()
 	{
 		this.parent();
+		
 		this.setText( this.options.text );
+		this.setColor( this.options.color );
+		this.setFontSize( this.options.fontSize );
 	}
 	
 });

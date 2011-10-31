@@ -2,23 +2,30 @@ var LoginScreen = new Class({
 
 	Extends: Phi.Mvc.View,
 
-	hbox238: function()
+	hbox6: function()
+	{
+		var result = Phi.UI.HBox.create({'id':'errorBox','paddingLeft':'100','visible':'false'})
+		result.addChild( Phi.UI.Label.create({'text':'The username or password is incorrect.','color':'#ff0000'}) )
+		return result
+	},
+
+	hbox8: function()
 	{
 		var result = Phi.UI.HBox.create({'border':'0'})
 		result.addChild( Phi.UI.Label.create({'text':'Username:','width':'100'}) )
-		result.addChild( Phi.UI.TextInput.create({'id':'user','width':'180','bind':{'text':{'object':'model','value':'username'}}}) )
+		result.addChild( Phi.UI.TextInput.create({'id':'user','width':'220','bind':{'text':{'object':'model','value':'username'}},'onEnter':this.login.bind(this)}) )
 		return result
 	},
 
-	hbox241: function()
+	hbox11: function()
 	{
 		var result = Phi.UI.HBox.create({'border':'0'})
 		result.addChild( Phi.UI.Label.create({'text':'Password:','width':'100'}) )
-		result.addChild( Phi.UI.TextInput.create({'id':'pass','bind':{'text':{'object':'model','value':'password'}},'displayAsPassword':'true','width':'180'}) )
+		result.addChild( Phi.UI.TextInput.create({'id':'pass','onEnter':this.login.bind(this),'displayAsPassword':'true','width':'220','bind':{'text':{'object':'model','value':'password'}}}) )
 		return result
 	},
 
-	hbox244: function()
+	hbox14: function()
 	{
 		var result = Phi.UI.HBox.create({'border':'0','gap':'4','paddingLeft':'100'})
 		result.addChild( Phi.UI.Button.create({'text':'Login','style':'primary','onClick':this.login.bind(this)}) )
@@ -27,21 +34,29 @@ var LoginScreen = new Class({
 		return result
 	},
 
-	vbox237: function()
+	vbox5: function()
 	{
-		var result = Phi.UI.VBox.create({'gap':'5','verticalAlign':'middle','border':'0','horizontalAlign':'left'})
-		result.addChild( this.hbox238() )
-		result.addChild( this.hbox241() )
-		result.addChild( this.hbox244() )
+		var result = Phi.UI.VBox.create({'horizontalAlign':'left','gap':'5','border':'0','verticalAlign':'middle'})
+		result.addChild( this.hbox6() )
+		result.addChild( this.hbox8() )
+		result.addChild( this.hbox11() )
+		result.addChild( this.hbox14() )
 		return result
 	},
 
-	login: function( event )
+	login: function()
 		{
 			var username = this.user.getText();
 			var pass = this.pass.getText();
 			
-			this.sendMessage("loginSuccess", {username: username, pass: pass}); 
+			if( username == "ghalex" && pass == "parola")
+			{
+				this.errorBox.setVisible( false );
+				this.sendMessage("loginSuccess", {username: username, pass: pass});
+				return; 
+			}
+			
+			this.errorBox.setVisible( true );
 		},
 		
 		childrenCreated: function()
@@ -51,7 +66,7 @@ var LoginScreen = new Class({
 
 	createChildren: function()
 	{
-		this.addChild( this.vbox237() )
+		this.addChild( this.vbox5() )
 	},
 
 	initialize: function()
@@ -64,9 +79,9 @@ var MainScreen = new Class({
 
 	Extends: Phi.Mvc.View,
 
-	vbox250: function()
+	vbox20: function()
 	{
-		var result = Phi.UI.VBox.create({'horizontalAlign':'center'})
+		var result = Phi.UI.VBox.create({'horizontalAlign':'center','gap':'10'})
 		result.addChild( Phi.UI.Label.create({'text':'You are on main screen!','fontSize':'23'}) )
 		result.addChild( Phi.UI.Button.create({'text':'Click to logout!','onClick':this.logout.bind(this)}) )
 		return result
@@ -79,7 +94,7 @@ var MainScreen = new Class({
 
 	createChildren: function()
 	{
-		this.addChild( this.vbox250() )
+		this.addChild( this.vbox20() )
 	},
 
 	initialize: function()
@@ -92,7 +107,7 @@ var MainView = new Class({
 
 	Extends: Phi.Mvc.View,
 
-	viewstack235: function()
+	viewstack3: function()
 	{
 		var result = Phi.UI.ViewStack.create({'id':'vs','selectedIndex':'0'})
 		result.addChild( new LoginScreen({}) )
@@ -100,18 +115,18 @@ var MainView = new Class({
 		return result
 	},
 
-	hbox254: function()
+	hbox24: function()
 	{
 		var result = Phi.UI.HBox.create({'id':'bottomHBox','height':'40'})
 		result.addChild( Phi.UI.Label.create({'text':'Copyright (c) 2011, Phimento Inc.'}) )
 		return result
 	},
 
-	vbox234: function()
+	vbox2: function()
 	{
-		var result = Phi.UI.VBox.create({'height':'100%','verticalAlign':'middle','width':'100%','border':'0','horizontalAlign':'center'})
-		result.addChild( this.viewstack235() )
-		result.addChild( this.hbox254() )
+		var result = Phi.UI.VBox.create({'height':'100%','horizontalAlign':'center','width':'100%','border':'0','verticalAlign':'middle'})
+		result.addChild( this.viewstack3() )
+		result.addChild( this.hbox24() )
 		return result
 	},
 
@@ -123,8 +138,7 @@ var MainView = new Class({
 		
 		onLoginSuccess: function( msg )
 		{
-			if( msg.username == "ghalex" && msg.pass == "parola")
-				this.vs.setSelectedIndex(1);
+			this.vs.setSelectedIndex(1);
 		},
 		
 		onLoginFailed: function( msg )
@@ -138,7 +152,7 @@ var MainView = new Class({
 
 	createChildren: function()
 	{
-		this.addChild( this.vbox234() )
+		this.addChild( this.vbox2() )
 	},
 
 	initialize: function()

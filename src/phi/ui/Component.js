@@ -20,6 +20,7 @@ Phi.UI.Component = new Class({
     element: null,
     parentComponent: null,
     className: null,
+    displayAs: "block",
     
 	options: {
 		width: null,
@@ -129,18 +130,18 @@ Phi.UI.Component = new Class({
 		return null;	
 	},
 	
-	setVisible: function(value)
+	setVisible: function( value )
 	{
-		if( value === null )
+		if( value === null || value === undefined )
 			return;
+		
+		if( (typeof value) == "string" )
+			value = Boolean.fromString( value );
 			
 		if(value)
-			$(this).setStyle("display", this.oldDisplay);
+			$(this).setStyle("display", this.displayAs);
 		else
-		{
-			this.oldDisplay = $(this).getStyle("display");
 			$(this).setStyle("display","none");
-		}
 	},
 	
 	getVisible: function()
@@ -233,6 +234,8 @@ Phi.UI.Component = new Class({
 		this.setPadding("top", op.paddingTop);
 		this.setPadding("right", op.paddingRight);
 		this.setPadding("bottom", op.paddingBottom);
+		
+		this.setVisible( op.visible );
 		
 	}.protect(),
 	

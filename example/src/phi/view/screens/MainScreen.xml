@@ -3,7 +3,7 @@
 	  height="100%"
 	  horizontalAlign="center">
 
-	<VBox horizontalAlign="center">
+	<VBox horizontalAlign="center" gap="10">
 		<Label text="You are on main screen!" fontSize="23" />
 		<Button text="Click to logout!" onClick="logout()" />
 	</VBox>

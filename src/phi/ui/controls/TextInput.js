@@ -23,6 +23,7 @@ Phi.UI.TextInput = new Class({
 		this.parent( options );
 		
 		// Add listners
+		this.addEvent('keydown', this.onKeyDown)
 		this.addEvent('keyup', this.onKeyUp);
 	},
 	
@@ -66,6 +67,12 @@ Phi.UI.TextInput = new Class({
 	onKeyUp: function( event )
 	{
 		this.dispatchEvent("textChange");
+	},
+	
+	onKeyDown: function( event )
+	{
+		if( event.key == 'enter' )
+			this.dispatchEvent('enter');
 	}
 	
 });
