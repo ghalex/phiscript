@@ -1,5 +1,5 @@
 
-require('./../libs/mootools-server');
+require('mootools');
 
 var fs = require('fs');
 var http = require("http");
