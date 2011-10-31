@@ -8,12 +8,6 @@
 		  border="0"
 		  verticalAlign="middle"
 		  horizontalAlign="center">
-		  
-		<HBox id="prevNextHBox" height="40" gap="4">
-			<Button text="{model.name}" onClick="prev()" style="primary" />
-			<Button text="{model.name}" onClick="next()" />
-			<TextInput id="txt1" onTextChange="change( event )" />
-		</HBox>
 		
 		<ViewStack id="vs"
 				   selectedIndex="0">
@@ -30,22 +24,20 @@
 
 	<JavaScript>
 		
-		
-		next: function()
-		{
-			this.vs.next();
+		messages: {
+			loginSuccess: 'onLoginSuccess',
+			loginFailed: 'onLoginFailed'
 		},
 		
-		prev: function()
+		onLoginSuccess: function( msg )
 		{
-			this.vs.prev();
+			if( msg.username == "ghalex" && msg.pass == "parola")
+				this.vs.setSelectedIndex(1);
 		},
 		
-		change: function( event )
+		onLoginFailed: function( msg )
 		{
-			this.model.set({name: event.target.getText()});
 		}
-		
 		
 	</JavaScript>
 </View>

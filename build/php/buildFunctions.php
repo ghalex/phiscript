@@ -27,6 +27,7 @@ function getFiles()
 		'core/Function.js',
 		'core/ChildList.js',
 		'mvc/Model.js',
+		'mvc/Dispatcher.js',
 		
 		// Managers 
 		'managers/PopUpManager.js',

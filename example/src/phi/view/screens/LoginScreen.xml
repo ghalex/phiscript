@@ -31,8 +31,10 @@
 		
 		login: function( event )
 		{
-			console.log( this.user.getText() );
-			console.log( this.pass.getText() );
+			var username = this.user.getText();
+			var pass = this.pass.getText();
+			
+			this.sendMessage("loginSuccess", {username: username, pass: pass}); 
 		},
 		
 		childrenCreated: function()

@@ -17,10 +17,12 @@ Phi.Mvc.View = new Class({
 	Binds: ['onModelChange'],
 	
 	model: null,
+	message: null,
 	
 	initialize: function(options)
 	{
-		this.parent(options);
+		this.parent( options );
+		this.initMessages();
 	},
 	
 	setModel: function( value )
@@ -34,6 +36,12 @@ Phi.Mvc.View = new Class({
 	getModel: function()
 	{
 		return this.model;
+	},
+	
+	sendMessage: function( name, args )
+	{
+		var dispatcher = Phi.Mvc.Dispatcher.getInstance();
+		dispatcher.dispatchEvent( name, args );
 	},
 	
 	/**
@@ -79,6 +87,22 @@ Phi.Mvc.View = new Class({
 		}
 		
 		target.updateBinds( view );
+	},
+	
+	initMessages: function()
+	{
+		if( this.messages === null )
+			return;
+		
+		var dispatcher = Phi.Mvc.Dispatcher.getInstance();
+		
+		for( var key in this.messages )
+		{
+			var name = key;
+			var func = this[this.messages[key]];
+			
+			dispatcher.addEvent( name, func.bind(this));
+		}
 	},
 	
 	onModelChange: function()
