@@ -2,9 +2,9 @@
 include_once("buildFunctions.php");
 header("content-type: application/x-javascript");
 
-$version = "0.6.1";
+$version = "0.7.0";
 $buildFile = false;
-$filesDir = "src/phi/";
+$filesDir = "../../src/phi/";
 
 if( isset($_GET['buildFile']))
 	$buildFile = $_GET['buildFile']; 
@@ -14,7 +14,7 @@ $data = mergeFiles( getFiles(), $filesDir );
 if( $buildFile == TRUE )
 {
 	$fileName = "phiscript-" . $version . ".js";
-	buildFile($fileName, $data, false, "bin/");
+	buildFile($fileName, $data, false, "../../bin/");
 }
 
 echo $data;

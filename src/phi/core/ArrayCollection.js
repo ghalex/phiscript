@@ -32,15 +32,18 @@ Phi.Core.ArrayCollection = new Class({
 	
 	addItemAt: function( item, index )
 	{
-		var event = new Phi.Events.CollectionEvent( "add" );
-		event.item = item;
-		event.location = index;
+		var eventArgs = {};
+		
+		eventArgs.target = this;
+		eventArgs.item = item;
+		eventArgs.index = index;
+		eventArgs.kind = CollectionEventKind.ADD;
 		
 		// Add item
 		this.source.splice(index, 0, item );
 
-		// Dispatch event		
-		this.dispatchEvent( event );
+		// Dispatch event
+		this.fireEvent( "add", eventArgs);		
 	},
 	
 	length: function()
@@ -50,26 +53,31 @@ Phi.Core.ArrayCollection = new Class({
 	
 	setItemAt: function( item, index )
 	{
-		var event = new Phi.Events.CollectionEvent( "replace" );
+		var eventArgs = {};
 		
-		event.item = item;
-		event.oldItem = this.getItemAt( index );
-		event.location = index;
+		eventArgs.target = this;
+		eventArgs.item = item;
+		eventArgs.oldItem = this.getItemAt( index );
+		eventArgs.location = index;
+		eventArgs.kind = CollectionEventKind.REPLACE;
 		
 		// Add item
 		this.source.splice(index, 1, item );
 		
 		// Dispatch event
-		this.dispatchEvent( event );
+		this.fireEvent("replace", eventArgs)
 	},
 	
 	moveItem: function( item, newIndex )
 	{
-		var event = new Phi.Events.CollectionEvent( "move" );
-		event.item = item;
-		event.oldLocation = this.getItemIndex(item);
-		event.location = newIndex;
-				
+		var eventArgs = {};
+		
+		eventArgs.target = this;
+		eventArgs.item = item;
+		eventArgs.oldLocation = this.getItemIndex(item);
+		eventArgs.location = newIndex;
+		eventArgs.kind = CollectionEventKind.MOVE;
+		
 		// Remove item
 		this.source.splice(event.oldLocation, 1);
 		
@@ -77,7 +85,7 @@ Phi.Core.ArrayCollection = new Class({
 		this.source.splice(event.location, 0, item );
 		
 		// Dispatch event
-		this.dispatchEvent( event );
+		this.fireEvent("move", eventArgs);
 	},
 	
 	removeItem: function( item )
@@ -87,16 +95,19 @@ Phi.Core.ArrayCollection = new Class({
 	
 	removeItemAt: function( index )
 	{
-		var event = new Phi.Events.CollectionEvent( "remove" );
+		var eventArgs = {};
 		
-		event.item = this.getItemAt( index );
-		event.location = index;
+		eventArgs.target = this;
+		eventArgs.item = this.getItemAt( index );
+		eventArgs.location = index;
+		eventArgs.kind = CollectionEventKind.REMOVE;
 		
 		// Remove item
 		this.source.splice(index, 1);
 		
 		// Dispatch event
 		this.dispatchEvent( event );
+		this.fireEvent("remove", eventArgs);
 	},
 	
 	getItemAt: function( index )

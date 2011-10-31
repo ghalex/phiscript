@@ -21,7 +21,7 @@ Phi.UI.TextInput = new Class({
 		this.parent( options );
 		
 		// Add listners
-		this.addEvent('keyup', this.onKeyDown);
+		this.addEvent('keyup', this.onKeyUp);
 	},
 	
 	setText: function( value )
@@ -61,9 +61,9 @@ Phi.UI.TextInput = new Class({
 		this.displayAsPassword( this.options.displayAsPassword );
 	},
 		
-	onKeyDown: function( event )
+	onKeyUp: function( event )
 	{
-		this.dispatchEvent(new Phi.Events.Event('change'));
+		this.fireEvent("textChange", { target: this });
 	}
 	
 });

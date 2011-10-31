@@ -38,12 +38,12 @@ Phi.Core.ChildList = new Class({
 			this.children.pushAt( child, index );
 
 			// Dispatch "childAdded" event
-			this.dispatchEvent( new Phi.Events.ChildEvent( "childAdded", child, index));
+			this.fireEvent("childAdded", {target: this, child: child, index: index});
 			
 			// Set child parent & dispatch
 			// "added" event
 			child.setParent( this );
-			child.dispatchEvent( new Phi.Events.ChildEvent( "added", child, index));
+			child.fireEvent("added", {target: child, index: index})
 			
 		}
 		
@@ -106,10 +106,10 @@ Phi.Core.ChildList = new Class({
 		// Remove child parent & dispatch
 		// "remove" event.		
 		child.setParent( null );
-		child.dispatchEvent( new Phi.Events.ChildEvent( "removed", child, index ));
+		child.fireEvent("removed", {target: child, index: index});
 		
 		// Dispatch "childRemoved" event.
-		this.dispatchEvent( new Phi.Events.ChildEvent("childRemoved", child, index));
+		this.fireEvent("childRemoved", {target: this, child: child, index: index});
 		
 		return child;
 	},

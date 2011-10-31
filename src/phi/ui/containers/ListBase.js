@@ -34,7 +34,7 @@ Phi.UI.ListBase = new Class({
 		this._dataProvider = value;
 		this._dataProvider.addEvent("collectionChange", this.onCollectionChange);
 		
-		this.dispatchEvent(new Phi.Events.Event("newDataProvider"));
+		this.fireEvent("newDataProvider", {target: this});
 	},
 	
 	getDataProvider: function()
@@ -168,7 +168,7 @@ Phi.UI.ListBase = new Class({
 		var index = this.elementToIndex( event.target );
 		$(this.getChildAt(index)).addClass("over");
 		
-		this.dispatchEvent(new Phi.Events.ListEvent("itemRollOver", index));
+		this.fireEvent("itemRollOver", {target: this, index: index});
 	},
 	
 	onItemRollOut: function( event )
@@ -176,7 +176,7 @@ Phi.UI.ListBase = new Class({
 		var index = this.elementToIndex( event.target );
 		$(this.getChildAt(index)).removeClass("over");
 		
-		this.dispatchEvent(new Phi.Events.ListEvent("itemRollOut", index));
+		this.fireEvent("itemRollOut", {target: this, index: index})
 	},
 	
 	/**
@@ -191,7 +191,7 @@ Phi.UI.ListBase = new Class({
 	 * Collection change handler has the job
 	 * to keep tha dataProvider and DOM elements sync.
 	 *
-	 * @param event - Phi.Events.CollectionEvent
+	 * @param event
 	 */
 	onCollectionChange: function( event )
 	{
@@ -240,7 +240,7 @@ Phi.UI.ListBase = new Class({
 		
 		this.setSelectedIndex( index );
 		
-		this.dispatchEvent( new Phi.Events.ListEvent('change', index))
-		this.dispatchEvent( new Phi.Events.ListEvent('itemClick', index))
+		this.fireEvent("change", {target: this, index:index});
+		this.fireEvent("itemClick", {target: this, index:index});
 	}
 });

@@ -114,20 +114,22 @@ Phi.UI.Menu = new Class({
 	{
 		var index = event.index;
 		var item = this.getDataProvider().getItemAt( index );
-		var menuEvent = new Phi.Events.MenuEvent('itemClick', index, item, this);
+		var eventArgs = {index: index, item: item, menu: this};
 		
-		this.bubbleItemClick( menuEvent );
+		this.bubbleItemClick( eventArgs );
 	},
 	
-	bubbleItemClick: function( event )
+	bubbleItemClick: function( args )
 	{
+		args.target = this;
+		
 		if( this.parentMenu === null )
 		{
-			this.dispatchEvent( event );
+			this.fireEvent('itemClick', args)
 			return;			
 		}
 			
-		this.parentMenu.bubbleItemClick( event );
+		this.parentMenu.bubbleItemClick( args );
 	},
 	
 	onItemRollOver: function( event )

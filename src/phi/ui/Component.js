@@ -41,7 +41,6 @@ Phi.UI.Component = new Class({
 		// Add listners
 		this.addEvent('added', this.onAdded);
 		this.addEvent('removed', this.onRemoved);
-		this.addEvent('addedToStage', this.onAddedToStage);
 				
 		// Add resize event
 		window.addEvent('resize', this.onResize);
@@ -75,7 +74,7 @@ Phi.UI.Component = new Class({
 		else
 			$(this).setWidth( Number.withPx(value));
 		
-		this.dispatchEvent(new Phi.Events.Event("widthChange"));
+		this.fireEvent("widthChange", {target: this, value: value});
 		return this;
 	},
 	
@@ -89,7 +88,7 @@ Phi.UI.Component = new Class({
 		else
 			$(this).setHeight( Number.withPx(value));
 			
-		this.dispatchEvent(new Phi.Events.Event("heightChange"));
+		this.fireEvent("heightChange", {target: this, value: value});
 		return this;
 	},
 	
@@ -262,16 +261,10 @@ Phi.UI.Component = new Class({
 	
 	onAdded: function( event )
 	{
-		// dispatch ADDED_TO_STAGE
-		if( this.isAddedToStage() )		
-			this.propagateEvent( new Phi.Events.ChildEvent( "addedToStage" ));
+		console.log("addedddddddddd");
 	},
 	
 	onRemoved: function( event )
-	{
-	},
-	
-	onAddedToStage: function( event )
 	{
 	},
 	

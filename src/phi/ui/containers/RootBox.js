@@ -108,7 +108,7 @@ Phi.UI.RootBox.get = function()
 	$(instance).inject( element );
 	
 	// Dispatch added to stage
-	instance.dispatchEvent( new Phi.Events.ChildEvent( "added", instance, 0));
+	instance.fireEvent("added", {target: instance, index: 0});
 	
 	return instance;
 	

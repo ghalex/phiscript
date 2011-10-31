@@ -12,12 +12,12 @@ function getFiles()
 		'constants/PopUpSnap.js',
 		
 		// Events
-		'events/Event.js',
-		'events/CollectionEvent.js',
-		'events/ChildEvent.js',
-		'events/DataEvent.js',
-		'events/ListEvent.js',
-		'events/MenuEvent.js',
+		//'events/Event.js',
+		//'events/CollectionEvent.js',
+		//'events/ChildEvent.js',
+		//'events/DataEvent.js',
+		//'events/ListEvent.js',
+		//'events/MenuEvent.js',
 		
 		// Core
 		'core/Events.js',
