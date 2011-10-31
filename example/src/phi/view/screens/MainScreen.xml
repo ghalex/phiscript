@@ -4,8 +4,17 @@
 	  horizontalAlign="center">
 
 	<VBox horizontalAlign="center">
-		<Button text="Main Screen!" />
-		<Label text="You are on main screen!!!!" />
+		<Label text="You are on main screen!" fontSize="23" />
+		<Button text="Click to logout!" onClick="logout()" />
 	</VBox>
+	
+	<JavaScript>
+		
+		logout: function()
+		{
+			this.sendMessage("logout");
+		}
+		
+	</JavaScript>
 	
 </View>

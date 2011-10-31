@@ -26,7 +26,8 @@
 		
 		messages: {
 			loginSuccess: 'onLoginSuccess',
-			loginFailed: 'onLoginFailed'
+			loginFailed: 'onLoginFailed',
+			logout: 'onLogout'
 		},
 		
 		onLoginSuccess: function( msg )
@@ -37,6 +38,11 @@
 		
 		onLoginFailed: function( msg )
 		{
+		},
+		
+		onLogout: function( msg )
+		{
+			this.vs.setSelectedIndex(0);
 		}
 		
 	</JavaScript>
