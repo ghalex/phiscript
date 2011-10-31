@@ -26,7 +26,7 @@ function getFiles()
 		'core/ArrayCollection.js',
 		'core/Function.js',
 		'core/ChildList.js',
-		'core/BackboneModel.js',
+		'mvc/Model.js',
 		
 		// Managers 
 		'managers/PopUpManager.js',
@@ -47,7 +47,7 @@ function getFiles()
 		
 		// Containers
 		'ui/containers/Container.js',
-		'ui/containers/View.js',
+		'mvc/View.js',
 		'ui/containers/ViewStack.js',
 		'ui/containers/HTMLBox.js',
 		'ui/containers/ScrollBox.js',

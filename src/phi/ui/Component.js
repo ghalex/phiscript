@@ -120,7 +120,7 @@ Phi.UI.Component = new Class({
 	
 	getParentView: function()
 	{
-		if( instanceOf(this, Phi.UI.View))
+		if( instanceOf(this, Phi.Mvc.View))
 			return this;
 			
 		if( this.getParent() )
@@ -261,7 +261,6 @@ Phi.UI.Component = new Class({
 	
 	onAdded: function( event )
 	{
-		console.log("addedddddddddd");
 	},
 	
 	onRemoved: function( event )

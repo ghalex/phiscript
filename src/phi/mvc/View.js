@@ -6,15 +6,15 @@
  * description: 
  * This class is used to create views.
  * 
- * 
  * authors:
  *   - Alexandru Ghiura
  * 
  * requires:
  * 
  */
-Phi.UI.View = new Class({
+Phi.Mvc.View = new Class({
 	Extends: Phi.UI.Container,
+	Binds: ['onModelChange'],
 	
 	model: null,
 	
@@ -26,7 +26,7 @@ Phi.UI.View = new Class({
 	setModel: function( value )
 	{
 		this.model = value;
-		this.model.addEvent('change', this.onModelChange.bind(this));
+		this.model.addEvent('change', this.onModelChange);
 		
 		this.onModelChange();
 	},
@@ -36,6 +36,12 @@ Phi.UI.View = new Class({
 		return this.model;
 	},
 	
+	/**
+	 * This function is called by Phi.UI.Container after createChildren() was called
+	 * and before dispatching "childrenCreated" event.
+	 * 
+	 * @param - target is the root view
+	 */
 	prepareChildren: function( target )
 	{
 		if( instanceOf(target, Phi.UI.Container))
@@ -67,7 +73,6 @@ Phi.UI.View = new Class({
 			{
 				var child = iterator.current();
 				
-				//if( !instanceOf(child, Phi.UI.View) )
 				if( child.getParentView() == view )
 					this.updateBindsForChild( child, view );
 			}

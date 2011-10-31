@@ -1,8 +1,14 @@
 /**
- * script: ChildEvent.js
- * name: ChildEvent
+ * script: Model.js
+ * name: Phi.Mvc.Model
+ * 
+ * description: 
+ * This class is used to create models.
+ * 
+ * authors:
+ *   - Alexandru Ghiura
  */	
-Phi.BackboneModel = new Class({
+Phi.Mvc.Model = new Class({
 	Implements: [Backbone.Model, Events],
 	
 	initialize: function( attributes ) 

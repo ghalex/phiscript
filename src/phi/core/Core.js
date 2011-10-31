@@ -8,6 +8,7 @@ var Phi = Phi || {};
 // Define namespaces
 Phi.Core = Phi.Core || {};
 Phi.UI = Phi.UI || {};
+Phi.Mvc = Phi.Mvc || {};
 Phi.HTML = {};
 Phi.Mn = {};
 

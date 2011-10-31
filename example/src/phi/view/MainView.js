@@ -1,8 +1,8 @@
 var LoginScreen = new Class({
 
-	Extends: Phi.UI.View,
+	Extends: Phi.Mvc.View,
 
-	hbox118: function()
+	hbox64: function()
 	{
 		var result = Phi.UI.HBox.create({'border':'0'})
 		result.addChild( Phi.UI.Label.create({'text':'Username:','width':'100'}) )
@@ -10,7 +10,7 @@ var LoginScreen = new Class({
 		return result
 	},
 
-	hbox121: function()
+	hbox67: function()
 	{
 		var result = Phi.UI.HBox.create({'border':'0'})
 		result.addChild( Phi.UI.Label.create({'text':'Password:','width':'100'}) )
@@ -18,7 +18,7 @@ var LoginScreen = new Class({
 		return result
 	},
 
-	hbox124: function()
+	hbox70: function()
 	{
 		var result = Phi.UI.HBox.create({'gap':'4','paddingLeft':'100','border':'0'})
 		result.addChild( Phi.UI.Button.create({'text':'Login','onClick':this.login.bind(this),'style':'primary'}) )
@@ -27,12 +27,12 @@ var LoginScreen = new Class({
 		return result
 	},
 
-	vbox117: function()
+	vbox63: function()
 	{
 		var result = Phi.UI.VBox.create({'gap':'5','horizontalAlign':'left','verticalAlign':'middle','border':'0'})
-		result.addChild( this.hbox118() )
-		result.addChild( this.hbox121() )
-		result.addChild( this.hbox124() )
+		result.addChild( this.hbox64() )
+		result.addChild( this.hbox67() )
+		result.addChild( this.hbox70() )
 		return result
 	},
 
@@ -44,12 +44,12 @@ var LoginScreen = new Class({
 		
 		childrenCreated: function()
 		{
-			this.setModel( new Phi.BackboneModel({username: "ghalex"}));
+			this.setModel( new Phi.Mvc.Model({username: "ghalex"}));
 		},
 
 	createChildren: function()
 	{
-		this.addChild( this.vbox117() )
+		this.addChild( this.vbox63() )
 	},
 
 	initialize: function(options)
@@ -60,9 +60,9 @@ var LoginScreen = new Class({
 
 var MainScreen = new Class({
 
-	Extends: Phi.UI.View,
+	Extends: Phi.Mvc.View,
 
-	vbox130: function()
+	vbox76: function()
 	{
 		var result = Phi.UI.VBox.create({'horizontalAlign':'center'})
 		result.addChild( Phi.UI.Button.create({'text':'Main Screen!'}) )
@@ -72,7 +72,7 @@ var MainScreen = new Class({
 
 	createChildren: function()
 	{
-		this.addChild( this.vbox130() )
+		this.addChild( this.vbox76() )
 	},
 
 	initialize: function(options)
@@ -83,18 +83,18 @@ var MainScreen = new Class({
 
 var MainView = new Class({
 
-	Extends: Phi.UI.View,
+	Extends: Phi.Mvc.View,
 
-	hbox111: function()
+	hbox57: function()
 	{
 		var result = Phi.UI.HBox.create({'id':'prevNextHBox','height':'40','gap':'4'})
-		result.addChild( Phi.UI.Button.create({'style':'primary','bind':{'text':{'value':'name','object':'model'},'width':{'value':'width','object':'model'}},'onClick':this.prev.bind(this)}) )
+		result.addChild( Phi.UI.Button.create({'bind':{'text':{'value':'name','object':'model'},'width':{'value':'width','object':'model'}},'onClick':this.prev.bind(this),'style':'primary'}) )
 		result.addChild( Phi.UI.Button.create({'bind':{'text':{'value':'name','object':'model'}},'onClick':this.next.bind(this)}) )
-		result.addChild( Phi.UI.TextInput.create({'id':'txt1','onChange':this.change.bind(this)}) )
+		result.addChild( Phi.UI.TextInput.create({'id':'txt1','onTextChange':this.change.bind(this)}) )
 		return result
 	},
 
-	viewstack115: function()
+	viewstack61: function()
 	{
 		var result = Phi.UI.ViewStack.create({'id':'vs','selectedIndex':'0'})
 		result.addChild( new LoginScreen({}) )
@@ -102,19 +102,19 @@ var MainView = new Class({
 		return result
 	},
 
-	hbox133: function()
+	hbox79: function()
 	{
 		var result = Phi.UI.HBox.create({'id':'bottomHBox','height':'40'})
 		result.addChild( Phi.UI.Label.create({'text':'Copyright (c) 2011, Phimento Inc.'}) )
 		return result
 	},
 
-	vbox110: function()
+	vbox56: function()
 	{
 		var result = Phi.UI.VBox.create({'height':'100%','horizontalAlign':'center','verticalAlign':'middle','width':'100%','border':'0'})
-		result.addChild( this.hbox111() )
-		result.addChild( this.viewstack115() )
-		result.addChild( this.hbox133() )
+		result.addChild( this.hbox57() )
+		result.addChild( this.viewstack61() )
+		result.addChild( this.hbox79() )
 		return result
 	},
 
@@ -135,7 +135,7 @@ var MainView = new Class({
 
 	createChildren: function()
 	{
-		this.addChild( this.vbox110() )
+		this.addChild( this.vbox56() )
 	},
 
 	initialize: function(options)

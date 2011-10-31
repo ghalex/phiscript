@@ -37,7 +37,7 @@
 		
 		childrenCreated: function()
 		{
-			this.setModel( new Phi.BackboneModel({username: "ghalex"}));
+			this.setModel( new Phi.Mvc.Model({username: "ghalex"}));
 		}
 		
 	</JavaScript>
