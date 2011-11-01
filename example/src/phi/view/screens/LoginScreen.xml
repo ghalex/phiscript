@@ -14,7 +14,7 @@
 		<HBox border="0">
 			<Label text="Username:" width="100" />
 			<TextInput id="user" 
-					   width="220" 
+					   width="{model.width}" 
 					   text="{model.username}"
 					   onEnter="login()" />
 		</HBox>
@@ -41,6 +41,10 @@
 	
 	<JavaScript>
 		
+		messages: {
+			logout: 'onLogout'
+		},
+		
 		login: function()
 		{
 			var username = this.user.getText();
@@ -54,6 +58,15 @@
 			}
 			
 			this.errorBox.setVisible( true );
+		},
+		
+		onLogout: function()
+		{
+			this.getModel().set({username: "dragos", password: "ass"});
+			this.errorBox.
+			
+			//this.user.setText('');
+			//this.pass.setText('');
 		},
 		
 		childrenCreated: function()
