@@ -36,13 +36,14 @@ Phi.Core.ArrayCollection = new Class({
 		
 		eventArgs.item = item;
 		eventArgs.index = index;
+		eventArgs.location = index;
 		eventArgs.kind = CollectionEventKind.ADD;
 		
 		// Add item
 		this.source.splice(index, 0, item );
 
 		// Dispatch event
-		this.dispatchEvent( "add", eventArgs);		
+		this.dispatchEvent( "collectionChange", eventArgs);		
 	},
 	
 	length: function()
@@ -63,7 +64,7 @@ Phi.Core.ArrayCollection = new Class({
 		this.source.splice(index, 1, item );
 		
 		// Dispatch event
-		this.dispatchEvent("replace", eventArgs)
+		this.dispatchEvent("collectionChange", eventArgs)
 	},
 	
 	moveItem: function( item, newIndex )
@@ -82,7 +83,7 @@ Phi.Core.ArrayCollection = new Class({
 		this.source.splice(event.location, 0, item );
 		
 		// Dispatch event
-		this.dispatchEvent("move", eventArgs);
+		this.dispatchEvent("collectionChange", eventArgs);
 	},
 	
 	removeItem: function( item )
@@ -102,7 +103,7 @@ Phi.Core.ArrayCollection = new Class({
 		this.source.splice(index, 1);
 		
 		// Dispatch event
-		this.dispatchEvent("remove", eventArgs);
+		this.dispatchEvent("collectionChange", eventArgs);
 	},
 	
 	getItemAt: function( index )

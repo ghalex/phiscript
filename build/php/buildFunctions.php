@@ -59,6 +59,7 @@ function getFiles()
 		'ui/containers/VBox.js',
 		'ui/renderers/ItemRenderer.js',
 		'ui/renderers/ListItemRenderer.js',
+		'ui/renderers/DefaultListItemRenderer.js',
 		'ui/renderers/MenuItemRenderer.js',
 		'ui/containers/ListBase.js',
 		'ui/containers/List.js',

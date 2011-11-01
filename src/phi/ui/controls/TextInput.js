@@ -17,6 +17,10 @@ Phi.UI.TextInput = new Class({
 	Extends: Phi.UI.Component,
 	
 	text: null,
+	options: {
+		text: null,
+		displayAsPassword: null
+	},
 	
 	initialize: function( options )
 	{
@@ -29,7 +33,7 @@ Phi.UI.TextInput = new Class({
 	
 	setText: function( value )
 	{
-		if( value === null || value === undefined )
+		if( value === null )
 			return;
 			
 		$(this).set("value", value);
@@ -42,7 +46,7 @@ Phi.UI.TextInput = new Class({
 	
 	displayAsPassword: function( value )
 	{
-		if( value === null || value === undefined )
+		if( value === null )
 			return;
 			
 		if( value )

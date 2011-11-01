@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<View onChildrenCreated="childrenCreated()">
+<View onCreationComplete="creationComplete()">
 	
 	<VBox gap="5"
 		  border="0"
@@ -14,7 +14,7 @@
 		<HBox border="0">
 			<Label text="Username:" width="100" />
 			<TextInput id="user" 
-					   width="{model.width}" 
+					   width="220" 
 					   text="{model.username}"
 					   onEnter="login()" />
 		</HBox>
@@ -44,6 +44,11 @@
 		messages: {
 			logout: 'onLogout'
 		},
+				
+		creationComplete: function()
+		{
+			this.setModel( new Phi.Mvc.Model({username: "ghalex"}));
+		},
 		
 		login: function()
 		{
@@ -62,16 +67,8 @@
 		
 		onLogout: function()
 		{
-			this.getModel().set({username: "dragos", password: "ass"});
-			this.errorBox.
-			
-			//this.user.setText('');
-			//this.pass.setText('');
-		},
-		
-		childrenCreated: function()
-		{
-			this.setModel( new Phi.Mvc.Model({username: "ghalex"}));
+			this.getModel().unset('username');
+			this.getModel().unset('pass');
 		}
 		
 	</JavaScript>

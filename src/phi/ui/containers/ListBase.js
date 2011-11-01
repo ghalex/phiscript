@@ -17,53 +17,78 @@ Phi.UI.ListBase = new Class({
 	Extends: Phi.UI.Container,
 	Binds: ['onCollectionChange', 'onItemClick', 'onItemRollOver', 'onItemRollOut'],
 	
-	initialize: function()
+	options: {
+		selectable: true,
+		dataProvider: null,
+		itemRenderer: null,
+		selectedIndex: null
+	},
+	
+	initialize: function( options )
 	{
-		this.parent();
-		this._itemRenderer = Phi.UI.ListItemRenderer;
-		this._selectable = true;
+		this.parent( options );
+		
+		if( this.options.itemRenderer === null )
+			this.options.itemRenderer = Phi.UI.DefaultListItemRenderer;
 		
 		this.addEvent("newDataProvider", this.onNewDataProvider);
 	},
 	
 	setDataProvider: function( value )
 	{
+		if( value === null )
+			return;
+			
 		if( !instanceOf(value, Phi.Core.ArrayCollection) )
 			throw new Error( "DataProvider must be a ArrayCollection!");
 			
-		this._dataProvider = value;
-		this._dataProvider.addEvent("collectionChange", this.onCollectionChange);
+		this.options.dataProvider = value;
+		this.options.dataProvider.addEvent("collectionChange", this.onCollectionChange);
 		
 		this.dispatchEvent("newDataProvider");
 	},
 	
 	getDataProvider: function()
 	{
-		return this._dataProvider;
+		return this.options.dataProvider;
 	},
 	
 	setItemRenderer: function( value )
 	{
-		this._itemRenderer = value;
+		if( value === null )
+			return;
+			
+		this.options.itemRenderer = value;
 		this.rebuildItems();
+	},
+	
+	getItemRenderer: function()
+	{
+		return this.options.itemRenderer;	
 	},
 	
 	setSelectable: function( value )
 	{
-		this._selectable = value;
+		if( value === null )
+			return;
+			
+		this.options.selectable = value;
 	},
 	
 	getSelectable: function()
 	{
-		return this._selectable;	
+		return this.options.selectable;	
 	},
 	
 	setSelectedIndex: function( value )
 	{
+		if( value === null )
+			return;
+			
 		if( !this.getSelectable() )
 			return;
 			
-		this._selectedIndex = value;
+		this.options.selectedIndex = value;
 				
 		// Update DOM
 		this.removeItemsClass('selected');
@@ -74,7 +99,7 @@ Phi.UI.ListBase = new Class({
 	
 	getSelectedIndex: function()
 	{
-		return this._selectedIndex;
+		return this.options.selectedIndex;
 	},
 	
 	setSelectedItem: function( value )
@@ -98,7 +123,7 @@ Phi.UI.ListBase = new Class({
 		if( !itemElement )
 			return -1;
 		
-		return this.getDataProvider().getItemIndex( itemElement.instance().getData() );
+		return this.getDataProvider().getItemIndex( itemElement.instance().getModel() );
 	},
 	
 	//-------------------------------------------------------------------
@@ -110,14 +135,15 @@ Phi.UI.ListBase = new Class({
 		return new Element('ul', {'class': 'phi-ListBase'});
 	}.protect(),
 	
-	createItem: function( data )
+	createItem: function( model )
 	{
-		var item = new this._itemRenderer();
+		var renderer = this.getItemRenderer();
+		var item = new renderer();
 		
 		if( !instanceOf(item, Phi.UI.ListItemRenderer) )
 			throw new Error( "ItemRenderer must be an instance of Phi.UI.ListItemRenderer!");
 		
-		item.setData( data );
+		item.setModel( model );
 		item.list = this;
 		item.addEvent("mouseenter", this.onItemRollOver);
 		item.addEvent("mouseleave", this.onItemRollOut);
@@ -157,6 +183,17 @@ Phi.UI.ListBase = new Class({
 		
 		while( iterator.moveNext() )
 			$(iterator.current()).removeClass(className);
+	},
+	
+	onOptionsChange: function()
+	{
+		this.parent();
+		
+		this.setSelectable( this.options.selectable );
+		this.setDataProvider( this.options.dataProvider );
+		this.setItemRenderer( this.options.itemRenderer );
+		
+		this.setSelectedIndex( this.options.setSelectedIndex );
 	},
 	
 	//-------------------------------------------------------------------

@@ -16,9 +16,9 @@
 Phi.UI.List = new Class({
 	Extends: Phi.UI.ListBase,
 	
-	initialize: function()
+	initialize: function( options )
 	{
-		this.parent();
+		this.parent( options );
 	},
 
 	//-------------------------------------------------------------------
@@ -34,3 +34,14 @@ Phi.UI.List = new Class({
 		
 	}.protect()
 });
+
+
+/**
+ * Factory method.
+ * @param options.
+ */
+Phi.UI.List.create = function( options )
+{
+	var result = new Phi.UI.List( options );
+	return result;
+};

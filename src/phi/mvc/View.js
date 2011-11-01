@@ -23,6 +23,7 @@ Phi.Mvc.View = new Class({
 	{
 		this.parent( options );
 		this.initMessages();
+		this.dispatchEvent( "creationComplete" );
 	},
 	
 	setModel: function( value )

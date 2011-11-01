@@ -1,18 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <View width="100%"
 	  height="100%"
+	  onCreationComplete="creationComplete()"
 	  horizontalAlign="center">
 
 	<VBox horizontalAlign="center" gap="10">
 		<Label text="You are on main screen!" fontSize="23" />
 		<Button text="Click to logout!" onClick="logout()" />
+		<HBox>
+			<TextInput id="itemNameTi" onEnter="addNewItem()"/>
+			<Button text="Add new item" onClick="addNewItem()" />
+		</HBox>
+		
+		<List id="tasksList" 
+			  width="400"
+			  height="400"
+			  onItemClick="updateInput()"
+			  dataProvider="{model.tasks}" />
 	</VBox>
 	
 	<JavaScript>
 		
+		creationComplete: function()
+		{
+			this.setModel( new Phi.Mvc.Model({tasks: this.buildTasks() }));
+		},
+		
+		updateInput: function()
+		{
+			this.itemNameTi.setText( this.tasksList.getSelectedItem().get('name'));
+		},
+		
+		buildTasks: function()
+		{
+			var tasks = new Phi.Core.ArrayCollection();
+			
+			tasks.addItem( new Phi.Mvc.Model({name: "Task1", isDone: false}));
+			tasks.addItem( new Phi.Mvc.Model({name: "Create a list", isDone: false}));
+			tasks.addItem( new Phi.Mvc.Model({name: "Do shopping", isDone: false}));
+			tasks.addItem( new Phi.Mvc.Model({name: "Sheet", isDone: false}));
+			
+			return tasks;
+		},
+		
 		logout: function()
 		{
 			this.sendMessage("logout");
+		},
+		
+		addNewItem: function()
+		{
+			var tasks = this.tasksList.getDataProvider();
+			tasks.addItem(new Phi.Mvc.Model({name: this.itemNameTi.getText()}));
+			
+			this.itemNameTi.setText("");
 		}
 		
 	</JavaScript>

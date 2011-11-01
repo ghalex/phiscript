@@ -14,29 +14,12 @@
  * 
  */
 Phi.UI.ItemRenderer = new Class({
-	Extends: Phi.UI.Container,
+	Extends: Phi.Mvc.View,
 	
 	initialize: function()
 	{
 		this.parent();
 		this.addEvent("dataChange", this.onDataChange);
-	},
-	
-	setData: function( value )
-	{
-		// Save old data.
-		var oldData = this._data;
-		
-		// Change data.
-		this._data = value;
-		
-		// Dispatch dataChange
-		this.dispatchEvent('dataChange', {data: value, oldData: oldData});
-	},
-	
-	getData: function()
-	{
-		return this._data;
 	},
 	
 	//-------------------------------------------------------------------
@@ -51,8 +34,5 @@ Phi.UI.ItemRenderer = new Class({
 	{
 		return new Element('div');
 	}.protect(),
-	
-	onDataChange: function()
-	{
-	}
+
 });
