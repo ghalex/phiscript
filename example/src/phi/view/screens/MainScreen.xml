@@ -15,8 +15,7 @@
 		<List id="tasksList" 
 			  width="400"
 			  height="400"
-			  onItemClick="updateInput()"
-			  dataProvider="{model.tasks}" />
+			  onItemClick="updateInput()" />
 	</VBox>
 	
 	<JavaScript>

@@ -15,16 +15,16 @@
 			<Label text="Username:" width="100" />
 			<TextInput id="user" 
 					   width="220" 
-					   text="{model.username}"
+					   text="{this.model.username}"
 					   onEnter="login()" />
 		</HBox>
 		
 		<HBox border="0">
 			<Label text="Password:" width="100" />
 			<TextInput id="pass" 
-					   displayAsPassword="true" 
+					   displayAsPassword="false" 
 					   width="220" 
-					   text="{model.password}"
+					   text="{this.user.text}"
 					   onEnter="login()"/>
 		</HBox>
 		
@@ -34,7 +34,7 @@
 			  
 			<Button text="Login" style="primary" onClick="login()" />
 			<CheckBox />
-			<Label text="Stay signed in" />
+			<Label id="lb1" text="Stay signed in" />
 			
 		</HBox>
 	</VBox>	
@@ -47,22 +47,23 @@
 				
 		creationComplete: function()
 		{
-			this.setModel( new Phi.Mvc.Model({username: "ghalex"}));
+			this.setModel( new Phi.Mvc.Model({username: "asdfasdfasdf"}));
 		},
 		
 		login: function()
 		{
-			var username = this.user.getText();
-			var pass = this.pass.getText();
+			//var username = this.user.getText();
+			//var pass = this.pass.getText();
 			
-			if( username == "ghalex" && pass == "parola")
-			{
-				this.errorBox.setVisible( false );
-				this.sendMessage("loginSuccess", {username: username, pass: pass});
-				return; 
-			}
+			//if( username == "ghalex" && pass == "parola")
+			//{
+			//	this.errorBox.setVisible( false );
+			//	this.sendMessage("loginSuccess", {username: username, pass: pass});
+			//	return; 
+			//}
 			
-			this.errorBox.setVisible( true );
+			//this.errorBox.setVisible( true );
+			this.getModel().set({username: "dragos"});
 		},
 		
 		onLogout: function()

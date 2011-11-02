@@ -12,6 +12,21 @@ Phi.Mvc = Phi.Mvc || {};
 Phi.HTML = {};
 Phi.Mn = {};
 
+Object.forEachChild = function( target, callback )
+{
+	if( instanceOf(target, Phi.UI.Container))
+	{
+		var iterator = target.createIterator();
+
+		while( iterator.moveNext() )
+			Object.forEachChild( iterator.current(), callback );
+	}
+	
+	callback( target );
+}
+
+
+
 Array.implement({
 	pushAt: function(item, index)
 	{

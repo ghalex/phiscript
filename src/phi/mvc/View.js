@@ -23,15 +23,17 @@ Phi.Mvc.View = new Class({
 	{
 		this.parent( options );
 		this.initMessages();
+		
 		this.dispatchEvent( "creationComplete" );
 	},
 	
 	setModel: function( value )
 	{
+		if( value === null )
+			return;
+			
 		this.model = value;
-		this.model.addEvent('change', this.onModelChange);
-		
-		this.onModelChange();
+		this.dispatchEvent("propertyChange");
 	},
 	
 	getModel: function()
@@ -53,41 +55,15 @@ Phi.Mvc.View = new Class({
 	 */
 	prepareChildren: function( target )
 	{
-		if( instanceOf(target, Phi.UI.Container))
-		{
-			var iterator = target.createIterator();
-		
-			while( iterator.moveNext() )
+		Object.forEachChild( 
+			this, 
+			function( target )
 			{
-				var child = iterator.current();
-				this.prepareChildren( child );
-			}
-		}
-		
-		if( target.options.id )
-			this[ target.options.id ] = target;
-	},
-	
-	updateBinds: function( view )
-	{
-	},
-	
-	updateBindsForChild: function( target, view )
-	{
-		if( instanceOf(target, Phi.UI.Container))
-		{
-			var iterator = target.createIterator();
-		
-			while( iterator.moveNext() )
-			{
-				var child = iterator.current();
-				
-				if( child.getParentView() == view )
-					this.updateBindsForChild( child, view );
-			}
-		}
-		
-		target.updateBinds( view );
+				if( target.options.id )
+					this[ target.options.id ] = target;
+					
+			}.bind(this)
+		);
 	},
 	
 	initMessages: function()
@@ -104,10 +80,5 @@ Phi.Mvc.View = new Class({
 			
 			dispatcher.addEvent( name, func.bind(this));
 		}
-	},
-	
-	onModelChange: function()
-	{
-		this.updateBindsForChild( this, this );
 	}
 });

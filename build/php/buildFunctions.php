@@ -26,6 +26,8 @@ function getFiles()
 		'core/ArrayCollection.js',
 		'core/Function.js',
 		'core/ChildList.js',
+		'core/BindWatcher.js',
+		'core/BindViewWatcher.js',
 		'mvc/Model.js',
 		'mvc/Dispatcher.js',
 		

@@ -17,11 +17,7 @@ Phi.UI.TextInput = new Class({
 	Extends: Phi.UI.Component,
 	
 	text: null,
-	options: {
-		text: null,
-		displayAsPassword: null
-	},
-	
+
 	initialize: function( options )
 	{
 		this.parent( options );
@@ -70,6 +66,7 @@ Phi.UI.TextInput = new Class({
 		
 	onKeyUp: function( event )
 	{
+		this.dispatchEvent("propertyChange");
 		this.dispatchEvent("textChange");
 	},
 	
