@@ -14,7 +14,6 @@
  */
 Phi.Mvc.View = new Class({
 	Extends: Phi.UI.Container,
-	Binds: ['onModelChange'],
 	
 	model: null,
 	message: null,

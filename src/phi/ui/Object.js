@@ -51,8 +51,14 @@ Phi.UI.Object = new Class({
 	get: function( property )
 	{
 		var getName = "get" + String.capitalize( property );
-		var getFunction = this[ getName ].bind(this); 
-		return getFunction();
+		
+		if( this[ getName ] )
+		{
+			var getFunction = this[ getName ].bind(this); 
+			return getFunction();
+		}
+		
+		return null;
 	}
 	
 });

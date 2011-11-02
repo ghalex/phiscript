@@ -47,23 +47,23 @@
 				
 		creationComplete: function()
 		{
-			this.setModel( new Phi.Mvc.Model({username: "asdfasdfasdf"}));
+			this.setModel( new Phi.Mvc.Model({username: "ghalex", password: "parola"}));
 		},
 		
 		login: function()
 		{
-			//var username = this.user.getText();
-			//var pass = this.pass.getText();
+			var username = this.user.getText();
+			var pass = this.pass.getText();
 			
-			//if( username == "ghalex" && pass == "parola")
-			//{
-			//	this.errorBox.setVisible( false );
-			//	this.sendMessage("loginSuccess", {username: username, pass: pass});
-			//	return; 
-			//}
+			if( username == "ghalex" && pass == "parola")
+			{
+				this.errorBox.setVisible( false );
+				this.sendMessage("loginSuccess", {username: username, pass: pass});
+				return; 
+			}
 			
-			//this.errorBox.setVisible( true );
-			this.getModel().set({username: "dragos"});
+			this.errorBox.setVisible( true );
+			
 		},
 		
 		onLogout: function()

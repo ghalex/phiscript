@@ -55,13 +55,13 @@ Phi.Core.BindViewWatcher = new Class({
 			{
 				result = result[item];
 				
-				if( result != null )
+				if( result )
 				{
 					result.addEvent("propertyChange", this.updateChain.bind(this));						
 					this.chain.push( result );
 				}
 			}
-		})
+		}.bind(this))
 	},
 	
 	getSource: function()
@@ -72,10 +72,15 @@ Phi.Core.BindViewWatcher = new Class({
 		var result = this.view
 		var tmp = this.source.split('.');
 		
-		tmp.each( function( item, index ){
-			if( result != null )
-				result = result[item];
-		})
+		tmp.each( 
+			function( item, index )
+			{
+				if( result != null )
+				{
+					result = result[item] || result.get(item);
+				}
+			}
+		);
 		
 		return result;
 	},
@@ -84,7 +89,7 @@ Phi.Core.BindViewWatcher = new Class({
 	{
 		this.chain.each( function( item, index ){
 			item.removeEvent("propertyChange", this.updateChain.bind(this));
-		})
+		}.bind(this))
 		
 		this.chain = [];
 	}

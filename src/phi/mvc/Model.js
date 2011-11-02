@@ -19,6 +19,6 @@ Phi.Mvc.Model = new Class({
 	
 	onChange: function()
 	{
-		this.dispatchEvent("change");
+		this.dispatchEvent("propertyChange");
 	}
 });

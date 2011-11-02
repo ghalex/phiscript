@@ -105,11 +105,15 @@ Phi.UI.ListBase = new Class({
 	setSelectedItem: function( value )
 	{
 		var itemIndex = this.getDataProvider().getItemIndex(value);
-		this.setSelectedIndex( itemIndex );	
+		this.setSelectedIndex( itemIndex );
+		this.dispatchEvent("propertyChange", {property: 'selectedItem', value: value});	
 	},
 	
 	getSelectedItem: function()
 	{
+		if( this.getDataProvider() === null )
+			return null;
+			
 		return this.getDataProvider().getItemAt( this.getSelectedIndex() );
 	},
 	
@@ -277,7 +281,7 @@ Phi.UI.ListBase = new Class({
 		
 		this.setSelectedIndex( index );
 		
-		this.dispatchEvent("change", {index:index});
+		this.dispatchEvent("propertyChange");
 		this.dispatchEvent("itemClick", {index:index});
 	}
 });
