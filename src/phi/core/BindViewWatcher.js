@@ -13,41 +13,42 @@
  * 
  */
 Phi.Core.BindViewWatcher = new Class({
+	Extends: Phi.Core.BindWatcher,
 	Implements: [Events],
 	
 	view: null,
-	target: null,
-	targetProperty: null,
-	source: null,
-	sourceProperty: null,
 	chain: [],
 	
 	initialize: function( view, target, targetProperty, source,  sourceProperty )
 	{
-		this.view = view;
-		this.target = target;
-		this.targetProperty = targetProperty;
-		this.source = source;
-		this.sourceProperty = sourceProperty;
+		this.parent( target, targetProperty, source, sourceProperty);
 		
+		this.view = view;
 		this.chain = [];
 		this.updateChain();
 	},
 	
 	updateChain: function()
 	{
+		// If we have a source to bind
+		// we create a watcher for it.
 		if( this.getSource() != null )
 		{
-			this.doBinding();
+			this.bindSource();
+			this.applyBind();
+			
 			return;
 		}
 
+		// Remove all listners to parent
+		// objects.
 		this.removeAllListners();
 
+		// Create listners to object that are not null.
 		var result = this.view;
 		var tmp = this.source.split('.');
 		
-		this.view.addEvent("propertyChange", this.updateChain.bind(this), true);
+		result.addEvent("propertyChange", this.updateChain.bind(this));
 		
 		tmp.each( function( item, index ){
 			if( result != null )
@@ -61,14 +62,6 @@ Phi.Core.BindViewWatcher = new Class({
 				}
 			}
 		})
-	},
-	
-	doBinding: function()
-	{
-		var obj = {};
-		
-		obj[ this.targetProperty ] = this.getSource().get( this.sourceProperty );
-		this.target.set( obj );
 	},
 	
 	getSource: function()

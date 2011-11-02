@@ -246,40 +246,17 @@ Phi.UI.Component = new Class({
 	{
 		var binds = this.binds;
 		
-		this.watchers = [];
-		
 		for( var key in binds )
 		{
-			var watcher = new Phi.Core.BindViewWatcher(
+			Phi.Mn.BindManager.bindUsingView(
 				binds[key].view, 	// View 
 				this, 				// Target
 				key, 				// TargetProperty
 				binds[key].source, 	// Source relative to View
 				binds[key].value	// SourceProperty
 			);
-			
-			this.watchers.push( watcher );	
 		}
 	},
-	
-	// updateBinds: function( view )
-	// {
-		// var newOptions = Object.clone( this.options );
-		// var bind  = this.options.bind;
-// 
-		// for ( var prop in this.options.bind ) 
-		// {
-            // if( bind[ prop ].object )
-            // {
-                // var model  = view[ bind[ prop ].object ];
-// 
-                // if( model !== null )
-                    // newOptions[ prop ] = model.get([ bind[ prop ].value ]); 
-            // }
-        // }
-//         
-        // this.setOptions( newOptions );
-	// },
 	
 	//-------------------------------------------------------------------
 	// Handlers

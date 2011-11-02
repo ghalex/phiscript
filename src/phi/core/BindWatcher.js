@@ -27,15 +27,29 @@ Phi.Core.BindWatcher = new Class({
 		this.source = source;
 		this.sourceProperty = sourceProperty;
 		
-		this.source.addEvent('change', this.onPropertyChange.bind(this));
+		this.bindSource();
+		this.applyBind();
 	},
 	
-	onPropertyChange: function()
+	getSource: function()
 	{
-		var values = {};
-		
-		values[ this.targetProperty ] = this.source.get( this.sourceProperty );
-		this.target.set( values );
+		return this.source;	
+	},
+	
+	bindSource: function()
+	{
+		if( this.getSource() === null || this.getSource() === undefined )
+			return;
+			
+		this.getSource().addEvent('propertyChange', this.applyBind.bind(this));
+	},
+	
+	applyBind: function()
+	{
+		if( this.getSource() === null || this.getSource() === undefined )
+			return;
+			
+		this.target.set( this.targetProperty, this.getSource().get( this.sourceProperty ) );
 	}
 });
 

@@ -34,6 +34,7 @@ function getFiles()
 		// Managers 
 		'managers/PopUpManager.js',
 		'managers/ThemeManager.js',
+		'managers/BindManager.js',
 		
 		// HTML
 		'html/Table.js',

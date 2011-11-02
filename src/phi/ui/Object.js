@@ -17,7 +17,7 @@ Phi.UI.Object = new Class({
 	Implements: [Events],
 	
 	options: {
-		bind: {
+		binds: {
 		}
 	},
 	
@@ -29,25 +29,23 @@ Phi.UI.Object = new Class({
 		this.setOptions( options );
 	},
 	
-	setOptions: function( options )
+	setOptions: function( value )
 	{
-		this.parent( options );
+		this.parent( value );
 		
-		if( options )
-			if( options.bind != undefined )
-				this.binds = options.bind;
+		if( value )
+			if( value.binds  )
+				this.binds = value.binds;
 		
 		this.dispatchEvent("optionsChange");
 	},
 	
-	set: function( options )
+	set: function( property, value )
 	{
-		for( var key in options)
-		{
-			var setName = "set" + String.capitalize( key );
-			var setFunction = this[ setName ].bind( this );
-			setFunction( options[key] );
-		}
+		var setName = "set" + String.capitalize( property );
+		var setFunction = this[ setName ].bind( this );
+		
+		setFunction( value );
 	},
 	
 	get: function( property )

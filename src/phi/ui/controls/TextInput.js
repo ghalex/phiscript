@@ -33,6 +33,7 @@ Phi.UI.TextInput = new Class({
 			return;
 			
 		$(this).set("value", value);
+		this.dispatchEvent("propertyChange", {property: 'text', value: value});
 	},
 	
 	getText: function()
@@ -66,8 +67,8 @@ Phi.UI.TextInput = new Class({
 		
 	onKeyUp: function( event )
 	{
-		this.dispatchEvent("propertyChange");
 		this.dispatchEvent("textChange");
+		this.dispatchEvent("propertyChange", {property: 'text', value: this.getText()});
 	},
 	
 	onKeyDown: function( event )

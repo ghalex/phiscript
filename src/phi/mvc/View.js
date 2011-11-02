@@ -33,7 +33,7 @@ Phi.Mvc.View = new Class({
 			return;
 			
 		this.model = value;
-		this.dispatchEvent("propertyChange");
+		this.dispatchEvent("propertyChange", {property: 'model', value: value});
 	},
 	
 	getModel: function()
