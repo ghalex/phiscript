@@ -5,17 +5,29 @@
 	  horizontalAlign="center">
 
 	<VBox horizontalAlign="center" gap="10">
-		<Label text="You are on main screen!" fontSize="23" />
-		<Button text="Click to logout!" onClick="logout()" />
-		<HBox>
-			<TextInput id="itemNameTi" onEnter="addNewItem()" text="{this.tasksList.selectedItem.name}"/>
-			<Button text="Add new item" onClick="addNewItem()" />
+		<Label text="Welcome!" fontSize="23" />
+		
+		<HBox gap="2">
+			<TextInput id="itemNameTi"
+					   width="180" 
+					   onEnter="addNewItem()" 
+					   text="{this.tasksList.selectedItem.name}"/>
+					   
+			<Button text="Add task" onClick="addNewItem()" />
+
 		</HBox>
 		
 		<List id="tasksList" 
 			  width="400"
 			  height="400"
 			  dataProvider="{this.model.tasks}" />
+		
+		<HBox gap="4">
+			<Button text="Logout!" onClick="logout()" style="success" />
+			<Button text="Edit" style="primary" />
+			<Button text="Delete" style="danger" />
+		</HBox>	  
+		
 	</VBox>
 	
 	<JavaScript>

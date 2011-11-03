@@ -21,6 +21,9 @@ button
 {
 	margin: 0px;
 	padding: 0px;
+	-webkit-border-radius: 3px;
+  	-moz-border-radius: 3px;
+  	border-radius: 3px;
 }
 
 .phi-Modal
@@ -147,6 +150,9 @@ button
 	-webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+	-webkit-border-radius: 3px;
+  	-moz-border-radius: 3px;
+  	border-radius: 3px;
 }
 
 .phi-TextInput:focus
@@ -162,23 +168,34 @@ button
 	list-style: none;
 	padding: 0px;
 	margin: 0px;
-	border: 1px solid #000000;
 	background-color: #FFFFFF;
+	border: 1px solid #ccc;
+	color: #808080;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 }
 
 .phi-ListItem
 {
 	padding: 0px 10px 0px 0px;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.phi-List .odd
+{
+	background-color: #F9F9F9;
 }
 
 .phi-List .over
 {
-	color: #FFFFFF;
-	background-color: #83ABD3;
+	background-color: #EFEFEF;
 }
 
 .phi-List .selected
 {
-	color: #FFFFFF;
-	background-color: #3683D1;
+	background-color: #FFF6D9;
 }

@@ -139,7 +139,7 @@ Phi.UI.ListBase = new Class({
 		return new Element('ul', {'class': 'phi-ListBase'});
 	}.protect(),
 	
-	createItem: function( model )
+	createItem: function( data )
 	{
 		var renderer = this.getItemRenderer();
 		var item = new renderer();
@@ -147,12 +147,17 @@ Phi.UI.ListBase = new Class({
 		if( !instanceOf(item, Phi.UI.ListItemRenderer) )
 			throw new Error( "ItemRenderer must be an instance of Phi.UI.ListItemRenderer!");
 		
-		item.setModel( model );
+		item.setModel( data );
 		item.list = this;
 		item.addEvent("mouseenter", this.onItemRollOver);
 		item.addEvent("mouseleave", this.onItemRollOut);
 		item.addEvent("mouseup", this.onItemClick);
 		
+		var index = this.getDataProvider().getItemIndex( data );
+		
+		if( index % 2 != 0)
+			$(item).addClass('odd');
+			
 		return item;
 	}.protect(),
 	

@@ -24,7 +24,7 @@
 			<TextInput id="pass" 
 					   displayAsPassword="false" 
 					   width="220" 
-					   text="{this.user.text}"
+					   text="{this.model.password}"
 					   onEnter="login()"/>
 		</HBox>
 		
@@ -69,7 +69,7 @@
 		onLogout: function()
 		{
 			this.getModel().unset('username');
-			this.getModel().unset('pass');
+			this.getModel().unset('password');
 		}
 		
 	</JavaScript>
