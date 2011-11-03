@@ -5,27 +5,34 @@
 	  horizontalAlign="center">
 
 	<VBox horizontalAlign="center" gap="10">
-		<Label text="Welcome!" fontSize="23" />
+		<Image source="assets/images/todo.png" paddingBottom="20"/>
 		
-		<HBox gap="2">
+		<HBox gap="4">
 			<TextInput id="itemNameTi"
-					   width="180" 
-					   onEnter="addNewItem()" 
+					   width="175"
+					   onEnter="addTask()" 
 					   text="{this.tasksList.selectedItem.name}"/>
 					   
-			<Button text="Add task" onClick="addNewItem()" />
+			<Button text="Add task"
+				    onClick="addTask()" />
 
+			<Button text="Edit" 
+					style="primary" 
+					enabled="{this.tasksList.selectedItem}"
+					onClick="editTask()" />
+					
+			<Button text="Delete" style="danger" enabled="{this.tasksList.selectedItem}" />
 		</HBox>
 		
 		<List id="tasksList" 
 			  width="400"
 			  height="400"
+			  
 			  dataProvider="{this.model.tasks}" />
 		
 		<HBox gap="4">
 			<Button text="Logout!" onClick="logout()" style="success" />
-			<Button text="Edit" style="primary" />
-			<Button text="Delete" style="danger" />
+			
 		</HBox>	  
 		
 	</VBox>
@@ -54,12 +61,17 @@
 			this.sendMessage("logout");
 		},
 		
-		addNewItem: function()
+		addTask: function()
 		{
 			var tasks = this.tasksList.getDataProvider();
 			tasks.addItem(new Phi.Mvc.Model({name: this.itemNameTi.getText()}));
 			
 			this.itemNameTi.setText("");
+		},
+		
+		editTask: function()
+		{
+			console.log( 'edit task' );
 		}
 		
 	</JavaScript>

@@ -16,16 +16,20 @@
 Phi.UI.Image = new Class({
 	Extends: Phi.UI.Component,
 	
-	initialize: function( source )
-	{
-		this.parent();
-		
-		if(source)
-			this.setSource(source);
+	options: {
+		source: null	
 	},
 	
-	setSource: function  (value)
+	initialize: function( options )
 	{
+		this.parent( options );
+	},
+	
+	setSource: function( value )
+	{
+		if( value === null || value === undefined )
+			return;
+			
 		$(this).set("src", value);
 	},
 	
@@ -38,6 +42,13 @@ Phi.UI.Image = new Class({
 	{
 		return new Element("img");
 	}.protect(),
+	
+	onOptionsChange: function()
+	{
+		this.parent();
+		
+		this.setSource( this.options.source );
+	},
 	
 	initElement: function()
 	{
@@ -55,6 +66,6 @@ Phi.UI.Image = new Class({
  */
 Phi.UI.Image.create = function( options )
 {
-	var result = new Phi.UI.Image();
+	var result = new Phi.UI.Image( options );
 	return result;
 };

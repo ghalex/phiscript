@@ -21,6 +21,7 @@ Phi.UI.ListBase = new Class({
 		selectable: true,
 		dataProvider: null,
 		itemRenderer: null,
+		selectedItem: null,
 		selectedIndex: null
 	},
 	
@@ -95,6 +96,9 @@ Phi.UI.ListBase = new Class({
 		
 		if( value > -1)
 			this.getChildAt(value).element.addClass('selected');
+			
+		// Dispatch event for binding
+		this.dispatchEvent("propertyChange", {property: 'selectedIndex', value: value});
 	},
 	
 	getSelectedIndex: function()
@@ -105,13 +109,15 @@ Phi.UI.ListBase = new Class({
 	setSelectedItem: function( value )
 	{
 		var itemIndex = this.getDataProvider().getItemIndex(value);
-		this.setSelectedIndex( itemIndex );
-		this.dispatchEvent("propertyChange", {property: 'selectedItem', value: value});	
+		this.setSelectedIndex( itemIndex );	
 	},
 	
 	getSelectedItem: function()
 	{
 		if( this.getDataProvider() === null )
+			return null;
+			
+		if( this.getSelectedIndex() == -1 )
 			return null;
 			
 		return this.getDataProvider().getItemAt( this.getSelectedIndex() );

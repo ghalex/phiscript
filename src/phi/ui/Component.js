@@ -26,6 +26,8 @@ Phi.UI.Component = new Class({
 		width: null,
 		height: null,
 		style: null,
+		visible: undefined,
+		enabled: undefined,
 		paddingLeft: null,
 		paddingTop: null,
 		paddingRight: null,
@@ -132,13 +134,13 @@ Phi.UI.Component = new Class({
 	
 	setVisible: function( value )
 	{
-		if( value === null || value === undefined )
+		if( value === undefined )
 			return;
 		
 		if( (typeof value) == "string" )
 			value = Boolean.fromString( value );
 			
-		if(value)
+		if( value )
 			$(this).setStyle("display", this.displayAs);
 		else
 			$(this).setStyle("display","none");
@@ -148,6 +150,31 @@ Phi.UI.Component = new Class({
 	{
 		var dispaly = $(this).getStyle("display");
 		return display != "none";
+	},
+	
+	setEnabled: function( value )
+	{
+		if( value === undefined )
+			return;
+				
+		if( (typeof value) == "string" )
+			value = Boolean.fromString( value );
+				
+		if( value )
+		{
+			$(this).removeClass('disabled');
+			$(this).erase('disabled');
+		}
+		else
+		{
+			$(this).addClass('disabled');
+			$(this).set('disabled', 'disabled');
+		}
+	},
+	
+	getEnabled: function()
+	{
+		return !$(this).hasClass('disabled');
 	},
 	
 	toElement: function()
@@ -236,6 +263,7 @@ Phi.UI.Component = new Class({
 		this.setPadding("bottom", op.paddingBottom);
 		
 		this.setVisible( op.visible );
+		this.setEnabled( op.enabled );
 		
 		// Create binds
 		this.createWatchers();

@@ -72,6 +72,7 @@ button
 	text-decoration: none;
 }
 
+
 .phi-Button:focus 
 {
 	outline: 1px dotted #666;
@@ -131,11 +132,26 @@ button
 	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 }
 
+.phi-Button.disabled 
+{
+	cursor: default;
+	background-image: none;
+	filter: alpha(opacity=65);
+	-khtml-opacity: 0.65;
+	-moz-opacity: 0.65;
+	opacity: 0.65;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	text-shadow: none;
+}
+
 /**
  * 	TextInput
  */
 .phi-TextInput
 {
+	height: 17px;
 	padding: 4px;
 	margin: 0px;
 	font-size: 13px;
@@ -171,9 +187,9 @@ button
 	background-color: #FFFFFF;
 	border: 1px solid #ccc;
 	color: #808080;
-	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
