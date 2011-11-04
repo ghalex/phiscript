@@ -5,7 +5,8 @@
 		  border="0"
 		  verticalAlign="middle"
 		  horizontalAlign="left">
-		  
+		
+		<Image source="assets/images/todo.png" paddingBottom="10" paddingLeft="130"/>
 		<HBox id="errorBox" paddingLeft="100" visible="false">
 			<Label text="The username or password is incorrect."
 				   color="#ff0000" />

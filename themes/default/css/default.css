@@ -215,3 +215,8 @@ button
 {
 	background-color: #FFF6D9;
 }
+
+.strike
+{
+	text-decoration: line-through;
+}

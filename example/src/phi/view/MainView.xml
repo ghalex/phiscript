@@ -18,7 +18,7 @@
 		</ViewStack>
 		
 		<HBox id="bottomHBox" height="40">
-			<Label text="Copyright (c) 2011, Phimento Inc." />
+			<Label text="Copyright (c) 2011, PhiScript. All rights reserved." />
 		</HBox>
 	</VBox>
 
