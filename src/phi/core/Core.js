@@ -34,15 +34,13 @@ Array.implement({
 	}
 });
 
-Boolean.implement({
-	fromString: function( value )
-	{
-		if( value === "true" )
-			return true;
-			
-		return false;
-	}	
-});
+Boolean.fromString = function( value )
+{
+	if( value == "true" )
+		return true;
+		
+	return false;
+};
 
 Number.isPercentage = function( value )
 {

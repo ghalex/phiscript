@@ -12,7 +12,7 @@
 				  onClick="putTaskAsDone()" />
 		
 		<Label id="taskTitleLb" text="{this.model.name}" width="100%" />
-		<Image source="assets/images/delete.png" />
+		<Image source="assets/images/delete.png" onClick="deleteTask()" buttonMode="true" />
 		<Image source="assets/images/options.png" />
 	</HBox>
 	
@@ -26,9 +26,13 @@
 				this.taskTitleLb.addClass('strike');
 		},
 		
+		deleteTask: function()
+		{
+			this.sendMessage("deleteTask", {task: this.model});
+		},
+				
 		onMDown: function()
 		{
-		
 		}
 	</JavaScript>
 </ListItemRenderer>

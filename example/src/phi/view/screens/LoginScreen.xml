@@ -48,7 +48,7 @@
 				
 		creationComplete: function()
 		{
-			this.setModel( new Phi.Mvc.Model({username: "ghalex", password: "parola"}));
+			this.setModel( new Phi.Mvc.Model({username: "admin", password: "admin"}));
 		},
 		
 		login: function()
@@ -56,7 +56,7 @@
 			var username = this.user.getText();
 			var pass = this.pass.getText();
 			
-			if( username == "ghalex" && pass == "parola")
+			if( username == "admin" && pass == "admin")
 			{
 				this.errorBox.setVisible( false );
 				this.sendMessage("loginSuccess", {username: username, pass: pass});

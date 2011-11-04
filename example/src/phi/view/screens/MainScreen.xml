@@ -42,6 +42,10 @@
 	
 	<JavaScript>
 		
+		messages: {
+			deleteTask: 'onDeleteTask',
+		},
+		
 		creationComplete: function()
 		{
 			this.setModel( new Phi.Mvc.Model({tasks: this.buildTasks() }));
@@ -83,8 +87,14 @@
 		deleteTask: function()
 		{
 			var selectedTask = this.tasksList.getSelectedItem();
-			this.tasksList.getDataProvider().removeItem( selectedTask );
 			
+			this.tasksList.getDataProvider().removeItem( selectedTask );
+			this.itemNameTi.setText("");
+		},
+		
+		onDeleteTask: function( msg )
+		{
+			this.tasksList.getDataProvider().removeItem( msg.task );
 			this.itemNameTi.setText("");
 		}
 		
