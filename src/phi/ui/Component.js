@@ -28,6 +28,7 @@ Phi.UI.Component = new Class({
 		style: null,
 		visible: undefined,
 		enabled: undefined,
+		buttonMode: undefined,
 		paddingLeft: null,
 		paddingTop: null,
 		paddingRight: null,
@@ -207,6 +208,25 @@ Phi.UI.Component = new Class({
 		$(this).setStyle("padding-" + side, Number.withPx(size));
 	},
 	
+	setButtonMode: function( value )
+	{
+		if( value === undefined )
+			return;
+		
+		if( (typeof value) == "string" )
+			value = Boolean.fromString( value );
+			
+		$(this).removeClass('buttonMode');
+		
+		if( value )
+			$(this).addClass('buttonMode');
+	},
+	
+	getButtonMode: function()
+	{
+		return $(this).hasClass('buttonMode');
+	},
+	
 	//-------------------------------------------------------------------
 	// Protected functions
 	//-------------------------------------------------------------------
@@ -262,6 +282,7 @@ Phi.UI.Component = new Class({
 		this.setPadding("right", op.paddingRight);
 		this.setPadding("bottom", op.paddingBottom);
 		
+		this.setButtonMode( op.buttonMode );
 		this.setVisible( op.visible );
 		this.setEnabled( op.enabled );
 		

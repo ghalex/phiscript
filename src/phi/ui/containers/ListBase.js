@@ -25,12 +25,15 @@ Phi.UI.ListBase = new Class({
 		selectedIndex: null
 	},
 	
+	itemRenderer: null,
+	dataProvider: null,
+	
 	initialize: function( options )
 	{
 		this.parent( options );
 		
-		if( this.options.itemRenderer === null )
-			this.options.itemRenderer = Phi.UI.DefaultListItemRenderer;
+		if( this.itemRenderer === null )
+			this.itemRenderer = Phi.UI.DefaultListItemRenderer;
 		
 		this.addEvent("newDataProvider", this.onNewDataProvider);
 	},
@@ -43,15 +46,15 @@ Phi.UI.ListBase = new Class({
 		if( !instanceOf(value, Phi.Core.ArrayCollection) )
 			throw new Error( "DataProvider must be a ArrayCollection!");
 			
-		this.options.dataProvider = value;
-		this.options.dataProvider.addEvent("collectionChange", this.onCollectionChange);
+		this.dataProvider = value;
+		this.dataProvider.addEvent("collectionChange", this.onCollectionChange);
 		
 		this.dispatchEvent("newDataProvider");
 	},
 	
 	getDataProvider: function()
 	{
-		return this.options.dataProvider;
+		return this.dataProvider;
 	},
 	
 	setItemRenderer: function( value )
@@ -59,13 +62,13 @@ Phi.UI.ListBase = new Class({
 		if( value === null )
 			return;
 			
-		this.options.itemRenderer = value;
+		this.itemRenderer = value;
 		this.rebuildItems();
 	},
 	
 	getItemRenderer: function()
 	{
-		return this.options.itemRenderer;	
+		return this.itemRenderer;	
 	},
 	
 	setSelectable: function( value )
@@ -205,8 +208,8 @@ Phi.UI.ListBase = new Class({
 		this.parent();
 		
 		this.setSelectable( this.options.selectable );
-		this.setDataProvider( this.options.dataProvider );
 		this.setItemRenderer( this.options.itemRenderer );
+		this.setDataProvider( this.options.dataProvider );
 		
 		this.setSelectedIndex( this.options.setSelectedIndex );
 	},
@@ -280,9 +283,25 @@ Phi.UI.ListBase = new Class({
 			}
 		}
 		
-		
+		this.updateOddClass();
 	},
 
+	updateOddClass: function()
+	{
+		var iterator = this.getDataProvider().createIterator();
+		
+		for( var i = 0; i< this.getChildren().length ; i++)
+		{
+			var item = this.getChildAt(i);
+			
+			if( $(item).hasClass('odd') )
+				$(item).removeClass('odd');	
+					
+			if( i % 2 != 0)
+				$(item).addClass('odd');
+		}
+	},
+	
 	/**
 	 * This is called when an item was clicked.
 	 */

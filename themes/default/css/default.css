@@ -26,6 +26,11 @@ button
   	border-radius: 3px;
 }
 
+.buttonMode
+{
+	cursor: pointer;	
+}
+
 .phi-Modal
 {
 	background-color: #000000;
@@ -214,4 +219,9 @@ button
 .phi-List .selected
 {
 	background-color: #FFF6D9;
+}
+
+.strike
+{
+	text-decoration: line-through;
 }

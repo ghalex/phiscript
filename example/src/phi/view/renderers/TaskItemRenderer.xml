@@ -1,4 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ListItemRenderer width="100%" height="100%">
+
+	<HBox width="100%" 
+		  height="35"
+		  gap="5"
+		  paddingLeft="10">
+		  
+		<CheckBox id="chk"
+				  width="15" 
+				  onMouseDown="onMDown()"
+				  onClick="putTaskAsDone()" />
+		
+		<Label id="taskTitleLb" text="{this.model.name}" width="100%" />
+		<Image source="assets/images/delete.png" onClick="deleteTask()" buttonMode="true" />
+		<Image source="assets/images/options.png" />
+	</HBox>
 	
+	<JavaScript>
+		
+		putTaskAsDone: function()
+		{
+			this.taskTitleLb.removeClass('strike');
+		
+			if( this.chk.getChecked() == true )
+				this.taskTitleLb.addClass('strike');
+		},
+		
+		deleteTask: function()
+		{
+			this.sendMessage("deleteTask", {task: this.model});
+		},
+				
+		onMDown: function()
+		{
+		}
+	</JavaScript>
 </ListItemRenderer>

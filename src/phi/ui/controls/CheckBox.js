@@ -16,16 +16,20 @@
 Phi.UI.CheckBox = new Class({
 	Extends: Phi.UI.Component,
 	
-	initialize: function( checked )
+	options: {
+		checked: null
+	},
+	
+	initialize: function( options )
 	{
-		this.parent();
-		
-		if(checked)
-			this.setChecked(checked);
+		this.parent( options );
 	},
 	
 	setChecked: function( value )
 	{
+		if( value === null || value === undefined )
+			return;
+			
 		$(this).checked = value;
 	},
 	
@@ -50,8 +54,13 @@ Phi.UI.CheckBox = new Class({
 		this.parent();
 		$(this).addClass('phi-CheckBox');
 		
-	}.protect()
+	}.protect(),
 	
+	onOptionsChange: function()
+	{
+		this.parent();
+		this.setChecked( this.options.checked );
+	}
 });
 
 

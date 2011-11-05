@@ -9,7 +9,7 @@
 		
 		<HBox gap="4">
 			<TextInput id="itemNameTi"
-					   width="175"
+					   width="160"
 					   onEnter="addTask()" 
 					   text="{this.tasksList.selectedItem.name}"/>
 					   
@@ -21,13 +21,16 @@
 					enabled="{this.tasksList.selectedItem}"
 					onClick="editTask()" />
 					
-			<Button text="Delete" style="danger" enabled="{this.tasksList.selectedItem}" />
+			<Button text="Delete" 
+					style="danger" 
+					onClick="deleteTask()"
+					enabled="{this.tasksList.selectedItem}" />
 		</HBox>
 		
 		<List id="tasksList" 
 			  width="400"
 			  height="400"
-			  
+			  itemRenderer="renderers.TaskItemRenderer"
 			  dataProvider="{this.model.tasks}" />
 		
 		<HBox gap="4">
@@ -38,6 +41,10 @@
 	</VBox>
 	
 	<JavaScript>
+		
+		messages: {
+			deleteTask: 'onDeleteTask',
+		},
 		
 		creationComplete: function()
 		{
@@ -71,7 +78,24 @@
 		
 		editTask: function()
 		{
-			console.log( 'edit task' );
+			var selectedTask = this.tasksList.getSelectedItem();
+			selectedTask.set({name: this.itemNameTi.getText() });
+			
+			//console.log( 'edit task' );
+		},
+		
+		deleteTask: function()
+		{
+			var selectedTask = this.tasksList.getSelectedItem();
+			
+			this.tasksList.getDataProvider().removeItem( selectedTask );
+			this.itemNameTi.setText("");
+		},
+		
+		onDeleteTask: function( msg )
+		{
+			this.tasksList.getDataProvider().removeItem( msg.task );
+			this.itemNameTi.setText("");
 		}
 		
 	</JavaScript>
