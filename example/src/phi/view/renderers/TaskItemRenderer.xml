@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ListItemRenderer>
 
+	<Import className="popups.MyFirstPopUp" />
+	
 	<HBox width="100%" 
 		  height="35"
 		  gap="5"
@@ -12,8 +14,13 @@
 				  onClick="putTaskAsDone()" />
 		
 		<Label id="taskTitleLb" text="{this.model.name}" width="100%" />
-		<Image source="assets/images/delete.png" onClick="deleteTask()" buttonMode="true" />
-		<Image source="assets/images/options.png" />
+		<Image source="assets/images/delete.png" 
+			   onClick="deleteTask()" 
+			   buttonMode="true" />
+			   
+		<Image source="assets/images/options.png"
+			   onClick="showOptionsPopUp()"
+			   buttonMode="true" />
 	</HBox>
 	
 	<JavaScript>
@@ -30,7 +37,15 @@
 		{
 			this.sendMessage("deleteTask", {task: this.model});
 		},
-				
+		
+		showOptionsPopUp: function()
+		{
+			var popUp = Phi.Mn.PopUpManager.createPopUp( MyFirstPopUp, {hideOnClick: false} );
+			
+			popUp.show( true );
+			popUp.center();
+		},
+		
 		onMDown: function()
 		{
 		}

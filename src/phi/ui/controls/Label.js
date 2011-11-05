@@ -18,6 +18,12 @@ Phi.UI.Label = new Class({
 	
 	text: "",
 	
+	options: {
+		text: null,
+		fontSize: null,
+		color: null
+	},
+	
 	setFontSize: function( value )
 	{
 		if( value === null || value === undefined )

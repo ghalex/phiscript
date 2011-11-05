@@ -3,7 +3,9 @@
 	  height="100%"
 	  onCreationComplete="creationComplete()"
 	  horizontalAlign="center">
-
+	
+	<Import className="renderers.TaskItemRenderer" />
+		
 	<VBox horizontalAlign="center" gap="10">
 		<Image source="assets/images/todo.png" paddingBottom="20"/>
 		

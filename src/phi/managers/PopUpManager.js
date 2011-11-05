@@ -88,6 +88,19 @@ Phi.Mn.PopUpManager.addPopUp = function( popUp, modal )
 	rootBox.addChild( popUp );
 };
 
+Phi.Mn.PopUpManager.getPopUpForView = function( view )
+{
+	for( var key in Phi.Mn.PopUpManager.popups )
+	{
+		var popUp = Phi.Mn.PopUpManager.popups[ key ];
+		
+		if( popUp.firstChild() == view )
+			return popUp;
+	}
+	
+	return null;
+}
+
 Phi.Mn.PopUpManager.bringToFront = function( popUp )
 {
 	if( popUp === null )
@@ -102,8 +115,8 @@ Phi.Mn.PopUpManager.bringToFront = function( popUp )
 	if( rootBox.hasChild( popUp ))
 	{
 		if( popUp.modal )
-			rootBox.moveChild( popUp.modal, 0 );
+			rootBox.moveChild( popUp.modal, rootBox.getChildren().length -1 );
 			
-		rootBox.moveChild( popUp, 0 );
+		rootBox.moveChild( popUp, rootBox.getChildren().length -1 );
 	}
 };

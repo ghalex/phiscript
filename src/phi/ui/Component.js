@@ -32,7 +32,8 @@ Phi.UI.Component = new Class({
 		paddingLeft: null,
 		paddingTop: null,
 		paddingRight: null,
-		paddingBottom: null
+		paddingBottom: null,
+		backgroundColor: null
 	},
 	
 	model: {
@@ -178,6 +179,14 @@ Phi.UI.Component = new Class({
 		return !$(this).hasClass('disabled');
 	},
 	
+	setBackgroundColor: function( value )
+	{
+		if( value === null || value === undefined )
+			return;
+			
+		$(this).setStyle('background-color', value);
+	},
+	
 	toElement: function()
 	{
 		if( this.element === null )
@@ -281,6 +290,7 @@ Phi.UI.Component = new Class({
 		this.setPadding("top", op.paddingTop);
 		this.setPadding("right", op.paddingRight);
 		this.setPadding("bottom", op.paddingBottom);
+		this.setBackgroundColor( op.backgroundColor );
 		
 		this.setButtonMode( op.buttonMode );
 		this.setVisible( op.visible );

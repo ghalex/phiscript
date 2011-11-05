@@ -17,6 +17,11 @@ Phi.UI.TextInput = new Class({
 	Extends: Phi.UI.Component,
 	
 	text: null,
+	
+	options: {
+		text: null,
+		color: null
+	},
 
 	initialize: function( options )
 	{
@@ -41,6 +46,14 @@ Phi.UI.TextInput = new Class({
 		return $(this).get("value");		
 	},
 	
+	setColor: function( value )
+	{
+		if( value === null || value === undefined )
+			return;
+			
+		$(this).setStyle('color', value);
+	},
+	
 	displayAsPassword: function( value )
 	{
 		if( value === null )
@@ -62,6 +75,7 @@ Phi.UI.TextInput = new Class({
 		this.parent();
 		
 		this.setText( this.options.text );
+		this.setColor( this.options.color );
 		this.displayAsPassword( this.options.displayAsPassword );
 	},
 		
