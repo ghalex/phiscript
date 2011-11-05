@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ListItemRenderer width="100%" height="100%">
+<ListItemRenderer>
 
 	<HBox width="100%" 
 		  height="35"

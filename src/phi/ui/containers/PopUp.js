@@ -17,14 +17,17 @@ Phi.UI.PopUp = new Class({
 	Extends: Phi.UI.Container,
 	Binds: ['onWindowMouseUp'],
 	
+	uid: "",
 	options: {
-		hideOnClick: false
+		hideOnClick: false,
+		relativeTo: null,
+		allowNegative: false
 	},
 	
 	initialize: function( options )
 	{
 		this.parent( options );
-		window.addEvent('mouseup', this.onWindowMouseUp); 
+		window.addEvent('mouseup', this.onWindowMouseUp);
 	},
 	
 	center: function()
@@ -32,47 +35,33 @@ Phi.UI.PopUp = new Class({
 		$(this).position();
 	},
 	
-	snapTo: function( uiobject, side )
+	snapTo: function( component, side )
 	{
 		if( !side )
 			side = PopUpSnap.BOTTOM;
 			
-		var mapSide = [];
-		
-		mapSide.left	= "topLeft";
-		mapSide.top		= "topLeft";
-		mapSide.right	= "topRight";
-		mapSide.bottom	= "bottomLeft";
-		
-		var mapEdge = [];
-		
-		mapEdge.left	= "topRight";
-		mapEdge.top		= "bottomLeft";
-		mapEdge.right	= "topLeft";
-		mapEdge.bottom	= "topLeft";
-		
 		// Show popup first
 		this.show();
 		
 		// Snap to Phi.UI.Component
 		$(this).position({
-			relativeTo: $(uiobject),
-			position: mapSide[side],
-			edge: mapEdge[side],
+			relativeTo: $(component),
+			position: PopUpSnap.mapSide[side],
+			edge: PopUpSnap.mapEdge[side],
 			allowNegative: true
 		});
 	},
 	
-	snapToElement: function( element, options )
+	snapToElement: function( element, att )
 	{
 		// Show popup first
 		this.show();
 		
-		options.relativeTo = element;
-		options.allowNegative = true;
+		// Snap to HTML element
+		att.relativeTo = element;
+		att.allowNegative = true;
 		
-		// Snap to Phi.UI.Component
-		$(this).position(options);
+		$(this).position( att );
 	},
 	
 	setX: function( x )
@@ -93,35 +82,14 @@ Phi.UI.PopUp = new Class({
 	
 	hide: function()
 	{
-		var rootBox = Phi.UI.RootBox.get();
-		
-		if( rootBox.hasChild( this ))
-		{
-			if( this.modal )
-				rootBox.removeChild( this.modal );
-						
-			rootBox.removeChild( this );
-		}
+		Phi.Mn.PopUpManager.removePopUp( this );
+		return this;
 	},
 	
 	show: function( modal )
 	{
-		var rootBox = Phi.UI.RootBox.get();
-		
-		// If popUp is allready displayed
-		// we return.
-		if( rootBox.hasChild(this) )
-			return;
-			
-		// If we need to show popUp as modal.			
-		if( modal )
-		{
-			// Create modal & add to stage
-			this.modal = new Phi.UI.Modal();
-			rootBox.addChild( this.modal );
-		}
-
-		rootBox.addChild( this );
+		Phi.Mn.PopUpManager.addPopUp( this, modal );
+		return this;
 	},
 	
 	isVisible: function()

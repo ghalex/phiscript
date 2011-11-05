@@ -16,12 +16,6 @@
 Phi.UI.ItemRenderer = new Class({
 	Extends: Phi.Mvc.View,
 	
-	initialize: function()
-	{
-		this.parent();
-		this.addEvent("dataChange", this.onDataChange);
-	},
-	
 	//-------------------------------------------------------------------
 	// Protected functions
 	//-------------------------------------------------------------------

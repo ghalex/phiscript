@@ -26,7 +26,7 @@ Phi.Core.ChildList = new Class({
 	addChildAt: function( child, index )
 	{
 		if( !instanceOf(child, Phi.UI.Component) )
-			throw new Error( "Child must be a Phi.UI.Component!");
+			throw new Error( "Child must be an instance of Phi.UI.Component!");
 		
 		// Remove child from old parent
 		// if child was not removed before
@@ -50,32 +50,28 @@ Phi.Core.ChildList = new Class({
 		return this;
 	},
 	
+	moveChild: function( child, newIndex )
+	{
+		var oldIndex = this.getChildIndex( child );
+
+		if( childIndex > -1 )
+		{
+			// Remove child	
+			this.children.erase(child);
+			
+			// Add child at new location
+			this.children.pushAt( child, newIndex );
+			
+			// Dispatch events			
+			this.dispatchEvent("childMoved", {child: child, oldIndex: oldIndex, newIndex: newIndex})
+			child.dispatchEvent("moved", {oldIndex: oldIndex, newIndex: newIndex})
+			
+		}		
+	},
+	
 	getChildAt: function(index)
 	{
 		return this.children[index];
-	},
-	
-	child: function( id )
-	{
-		var result = null;
-		
-		for (var i=0; i < this.children.length; i++) 
-		{
-			var child = this.children[i];
-			
-			if( instanceOf(child, Phi.UI.Container) )
-			{
-				result = child.child( id );
-
-				if( result )
-					return result;
-			}
-			
-			if( child.options.id == id )
-                return child;	
-		}
-		
-		return null;
 	},
 	
 	getChildIndex: function( child )

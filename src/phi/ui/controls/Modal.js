@@ -18,9 +18,9 @@ Phi.UI.Modal = new Class({
 	Extends: Phi.UI.Component,
 	Binds: ['onAdded','onWindowResize'],
 	
-	initialize: function()
+	initialize: function( options )
 	{
-		this.parent();
+		this.parent( options );
 		this.addEvent('added', this.onAdded);
 	},
 	
