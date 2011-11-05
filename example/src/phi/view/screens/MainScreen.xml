@@ -33,7 +33,16 @@
 			  width="400"
 			  height="400"
 			  itemRenderer="renderers.TaskItemRenderer"
-			  dataProvider="{this.model.tasks}" />
+			  dataProvider="{this.model.tasks}">
+			
+			<dataProvider>
+				<Array>
+					<Model name="Task1" isDone="false" />
+					<Model name="Create list" isDone="false" />
+				</Array>
+			</dataProvider>
+			
+		</List>
 		
 		<HBox gap="4">
 			<Button text="Logout!" onClick="logout()" style="success" />
