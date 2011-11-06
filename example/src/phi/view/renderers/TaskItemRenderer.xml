@@ -9,7 +9,7 @@
 		  paddingLeft="10">
 		  
 		<CheckBox id="chk"
-				  onMouseDown="onMDown()"
+				  onMousedown="onMDown()"
 				  onClick="putTaskAsDone()" />
 		
 		<Label id="taskTitleLb" text="{this.data.label}" width="100%" />
@@ -24,8 +24,10 @@
 	
 	<JavaScript>
 		
-		putTaskAsDone: function()
+		putTaskAsDone: function( event )
 		{
+			event.stopPropagation();
+			
 			this.taskTitleLb.removeClass('strike');
 		
 			if( this.chk.getChecked() == true )
@@ -45,8 +47,9 @@
 			popUp.center();
 		},
 		
-		onMDown: function()
+		onMDown: function( event )
 		{
+			event.stop();
 		}
 	</JavaScript>
 </ListItemRenderer>
