@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListItemRenderer>
+
+	<HBox width="100%" 
+		  height="35"
+		  paddingLeft="10">
+
+		<Label style="priority" text="{this.data.label}" />
+		
+	</HBox>
+
+</ListItemRenderer>

@@ -21,11 +21,13 @@ Phi.UI.ListBase = new Class({
 		selectable: true,
 		dataProvider: null,
 		itemRenderer: null,
+		itemRendererFunction: null,
 		selectedItem: null,
 		selectedIndex: null
 	},
 	
 	itemRenderer: null,
+	itemRendererFunction: null,
 	dataProvider: null,
 	
 	initialize: function( options )
@@ -69,6 +71,22 @@ Phi.UI.ListBase = new Class({
 	getItemRenderer: function()
 	{
 		return this.itemRenderer;	
+	},
+	
+	setItemRendererFunction: function( value )
+	{
+		if( value === null )
+			return;
+			
+		//if( typeOf(value) != "function" )
+		//	throw new Error("ItemRendererFunction type must be function.")
+			
+		this.itemRendererFunction = value;
+	},
+	
+	getItemRendererFunction: function()
+	{
+		return this.itemRendererFunction;
 	},
 	
 	setSelectable: function( value )
@@ -151,6 +169,13 @@ Phi.UI.ListBase = new Class({
 	createItem: function( data )
 	{
 		var renderer = this.getItemRenderer();
+		
+		if( this.getItemRendererFunction() )
+		{
+			var f = this.getItemRendererFunction();
+			renderer = f( data );
+		}
+		
 		var item = new renderer();
 		
 		if( !instanceOf(item, Phi.UI.ListItemRenderer) )
@@ -208,6 +233,7 @@ Phi.UI.ListBase = new Class({
 		this.parent();
 		
 		this.setSelectable( this.options.selectable );
+		this.setItemRendererFunction( this.options.itemRendererFunction );
 		this.setItemRenderer( this.options.itemRenderer );
 		this.setDataProvider( this.options.dataProvider );
 		

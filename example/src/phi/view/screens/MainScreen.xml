@@ -5,6 +5,7 @@
 	  horizontalAlign="center">
 	
 	<Import className="renderers.TaskItemRenderer" />
+	<Import className="renderers.PriorityItemRenderer" />
 		
 	<VBox horizontalAlign="center" gap="10">
 		<Image source="assets/images/todo.png" paddingBottom="20"/>
@@ -32,7 +33,7 @@
 		<List id="tasksList" 
 			  width="400"
 			  height="400"
-			  itemRenderer="renderers.TaskItemRenderer"
+			  itemRendererFunction="this.rendererFunction"
 			  dataProvider="{this.data.tasks}">
 			
 			<dataProvider>
@@ -57,6 +58,14 @@
 			deleteTask: 'onDeleteTask',
 		},
 		
+		rendererFunction: function( item )
+		{
+			if( item.get('type') === 'priority' )
+				return PriorityItemRenderer;
+				
+			return TaskItemRenderer;
+		},
+		
 		creationComplete: function()
 		{
 			this.setData( new Phi.Mvc.Model({tasks: this.buildTasks() }));
@@ -66,9 +75,10 @@
 		{
 			var tasks = new Phi.Core.ArrayCollection();
 			
+			tasks.addItem( new Phi.Mvc.Model({label: "High:", type: 'priority'}));
 			tasks.addItem( new Phi.Mvc.Model({label: "Task1", isDone: false}));
 			tasks.addItem( new Phi.Mvc.Model({label: "Create a list", isDone: false}));
-			tasks.addItem( new Phi.Mvc.Model({label: "Do shopping", isDone: false}));
+			tasks.addItem( new Phi.Mvc.Model({label: "Low:", type: 'priority'}));
 			tasks.addItem( new Phi.Mvc.Model({label: "Sheet", isDone: false}));
 			
 			return tasks;
@@ -82,8 +92,12 @@
 		addTask: function()
 		{
 			var tasks = this.tasksList.getDataProvider();
-			tasks.addItem(new Phi.Mvc.Model({label: this.itemNameTi.getText()}));
+			var index = this.tasksList.getChildren().length;
 			
+			if( this.tasksList.getSelectedIndex() > -1 )
+				index = this.tasksList.getSelectedIndex() + 1;
+				
+			tasks.addItemAt( new Phi.Mvc.Model({label: this.itemNameTi.getText()}), index);
 			this.itemNameTi.setText("");
 		},
 		
