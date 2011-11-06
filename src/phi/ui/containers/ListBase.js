@@ -136,7 +136,7 @@ Phi.UI.ListBase = new Class({
 		if( !itemElement )
 			return -1;
 		
-		return this.getDataProvider().getItemIndex( itemElement.instance().getModel() );
+		return this.getDataProvider().getItemIndex( itemElement.instance().getData() );
 	},
 	
 	//-------------------------------------------------------------------
@@ -156,7 +156,7 @@ Phi.UI.ListBase = new Class({
 		if( !instanceOf(item, Phi.UI.ListItemRenderer) )
 			throw new Error( "ItemRenderer must be an instance of Phi.UI.ListItemRenderer!");
 		
-		item.setModel( data );
+		item.setData( data );
 		item.list = this;
 		item.addEvent("mouseenter", this.onItemRollOver);
 		item.addEvent("mouseleave", this.onItemRollOut);

@@ -12,7 +12,7 @@
 				  onMouseDown="onMDown()"
 				  onClick="putTaskAsDone()" />
 		
-		<Label id="taskTitleLb" text="{this.model.name}" width="100%" />
+		<Label id="taskTitleLb" text="{this.data.label}" width="100%" />
 		<Image source="assets/images/delete.png" 
 			   onClick="deleteTask()" 
 			   buttonMode="true" />
@@ -34,7 +34,7 @@
 		
 		deleteTask: function()
 		{
-			this.sendMessage("deleteTask", {task: this.model});
+			this.sendMessage("deleteTask", {task: this.data});
 		},
 		
 		showOptionsPopUp: function()

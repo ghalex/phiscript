@@ -16,7 +16,7 @@
 			<Label text="Username:" width="100" />
 			<TextInput id="user" 
 					   width="220" 
-					   text="{this.model.username}"
+					   text="{this.data.username}"
 					   onEnter="login()" />
 		</HBox>
 		
@@ -25,7 +25,7 @@
 			<TextInput id="pass" 
 					   displayAsPassword="false" 
 					   width="220" 
-					   text="{this.model.password}"
+					   text="{this.data.password}"
 					   onEnter="login()"/>
 		</HBox>
 		
@@ -48,7 +48,7 @@
 				
 		creationComplete: function()
 		{
-			this.setModel( new Phi.Mvc.Model({username: "admin", password: "admin"}));
+			this.setData( new Phi.Mvc.Model({username: "admin", password: "admin"}));
 		},
 		
 		login: function()
@@ -69,8 +69,8 @@
 		
 		onLogout: function()
 		{
-			this.getModel().unset('username');
-			this.getModel().unset('password');
+			this.getData().unset('username');
+			this.getData().unset('password');
 		}
 		
 	</JavaScript>

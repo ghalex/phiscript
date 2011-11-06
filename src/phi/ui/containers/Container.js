@@ -20,8 +20,6 @@ Phi.UI.Container = new Class({
 	Extends: Phi.UI.Component,
 	Implements: [Phi.Core.ChildList],
 	
-	model: null,
-	
 	initialize: function(options)
 	{
 		this.parent(options);

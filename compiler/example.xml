@@ -10,8 +10,8 @@
 		  horizontalAlign="center">
 		  
 		<HBox id="prevNextHBox" height="40" gap="4">
-			<Button text="{model.name}" width="{model.width}" onClick="prev()" style="primary" />
-			<Button text="{model.name}" onClick="next()" />
+			<Button text="{data.name}" width="{data.width}" onClick="prev()" style="primary" />
+			<Button text="{data.name}" onClick="next()" />
 			<TextInput id="txt1" onChange="change( event )" />
 		</HBox>
     </VBox>

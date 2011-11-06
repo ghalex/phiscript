@@ -13,7 +13,7 @@
 			<TextInput id="itemNameTi"
 					   width="160"
 					   onEnter="addTask()" 
-					   text="{this.tasksList.selectedItem.name}"/>
+					   text="{this.tasksList.selectedItem.label}"/>
 					   
 			<Button text="Add task"
 				    onClick="addTask()" />
@@ -33,7 +33,7 @@
 			  width="400"
 			  height="400"
 			  itemRenderer="renderers.TaskItemRenderer"
-			  dataProvider="{this.model.tasks}">
+			  dataProvider="{this.data.tasks}">
 			
 			<dataProvider>
 				<Array>
@@ -59,17 +59,17 @@
 		
 		creationComplete: function()
 		{
-			this.setModel( new Phi.Mvc.Model({tasks: this.buildTasks() }));
+			this.setData( new Phi.Mvc.Model({tasks: this.buildTasks() }));
 		},
 		
 		buildTasks: function()
 		{
 			var tasks = new Phi.Core.ArrayCollection();
 			
-			tasks.addItem( new Phi.Mvc.Model({name: "Task1", isDone: false}));
-			tasks.addItem( new Phi.Mvc.Model({name: "Create a list", isDone: false}));
-			tasks.addItem( new Phi.Mvc.Model({name: "Do shopping", isDone: false}));
-			tasks.addItem( new Phi.Mvc.Model({name: "Sheet", isDone: false}));
+			tasks.addItem( new Phi.Mvc.Model({label: "Task1", isDone: false}));
+			tasks.addItem( new Phi.Mvc.Model({label: "Create a list", isDone: false}));
+			tasks.addItem( new Phi.Mvc.Model({label: "Do shopping", isDone: false}));
+			tasks.addItem( new Phi.Mvc.Model({label: "Sheet", isDone: false}));
 			
 			return tasks;
 		},
@@ -82,7 +82,7 @@
 		addTask: function()
 		{
 			var tasks = this.tasksList.getDataProvider();
-			tasks.addItem(new Phi.Mvc.Model({name: this.itemNameTi.getText()}));
+			tasks.addItem(new Phi.Mvc.Model({label: this.itemNameTi.getText()}));
 			
 			this.itemNameTi.setText("");
 		},
@@ -90,7 +90,7 @@
 		editTask: function()
 		{
 			var selectedTask = this.tasksList.getSelectedItem();
-			selectedTask.set({name: this.itemNameTi.getText() });
+			selectedTask.set({label: this.itemNameTi.getText() });
 			
 			//console.log( 'edit task' );
 		},

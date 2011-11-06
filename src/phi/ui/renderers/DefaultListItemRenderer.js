@@ -24,7 +24,7 @@ Phi.UI.DefaultListItemRenderer = new Class({
 		var hbox = new Phi.UI.HBox({width: '100%', height: 35, paddingLeft: 10});
 		hbox.addChild( label );
 		
-		Phi.Mn.BindManager.bindUsingView( this, label, 'text', 'model', 'name');
+		Phi.Mn.BindManager.bindUsingView( this, label, 'text', 'data', 'label');
 		this.addChild( hbox );
 	},
 });

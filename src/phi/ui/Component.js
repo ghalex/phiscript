@@ -36,9 +36,6 @@ Phi.UI.Component = new Class({
 		backgroundColor: null
 	},
 	
-	model: {
-	},
-	
 	initialize: function( options )
 	{
 		this.parent( options );

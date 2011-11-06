@@ -15,7 +15,7 @@
 Phi.Mvc.View = new Class({
 	Extends: Phi.UI.Container,
 	
-	model: null,
+	data: null,
 	message: null,
 	
 	initialize: function(options)
@@ -26,18 +26,18 @@ Phi.Mvc.View = new Class({
 		this.dispatchEvent( "creationComplete" );
 	},
 	
-	setModel: function( value )
+	setData: function( value )
 	{
 		if( value === null )
 			return;
 			
-		this.model = value;
-		this.dispatchEvent("propertyChange", {property: 'model', value: value});
+		this.data = value;
+		this.dispatchEvent("propertyChange", {property: 'data', value: value});
 	},
 	
-	getModel: function()
+	getData: function()
 	{
-		return this.model;
+		return this.data;
 	},
 	
 	sendMessage: function( name, args )
