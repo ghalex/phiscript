@@ -17,15 +17,6 @@ div
 	display: block;
 }
 
-button
-{
-	margin: 0px;
-	padding: 0px;
-	-webkit-border-radius: 3px;
-  	-moz-border-radius: 3px;
-  	border-radius: 3px;
-}
-
 .buttonMode
 {
 	cursor: pointer;	
@@ -38,8 +29,23 @@ button
 }
 
 /**
- * 	Button
+ * Phi.UI.Button
+ * 
+ * They are four classes of buttons:
+ * 	- .primary
+ * 	- .danger
+ * 	- .success
+ * 	- .disabled
  */
+button
+{
+	margin: 0px;
+	padding: 0px;
+	-webkit-border-radius: 3px;
+  	-moz-border-radius: 3px;
+  	border-radius: 3px;
+}
+
 .phi-Button
 {
 	cursor: pointer;
@@ -76,7 +82,6 @@ button
 	color: #333;
 	text-decoration: none;
 }
-
 
 .phi-Button:focus 
 {
@@ -152,7 +157,9 @@ button
 }
 
 /**
- * 	TextInput
+ * Phi.UI.TextInput
+ * 	
+ * - Simple and clean skin, grey border and inner shadow. 	
  */
 .phi-TextInput
 {
@@ -182,7 +189,12 @@ button
 }
 
 /**
- * 	List
+ * Phi.UI.List
+ * 
+ * There is one main style for List and three styles for ListItem:
+ * 	- .odd
+ * 	- .over
+ * 	- .selected
  */
 .phi-List
 {
@@ -206,22 +218,87 @@ button
 	border-bottom: 1px solid #DDDDDD;
 }
 
-.phi-List .odd
+.phi-ListItem.odd
 {
 	background-color: #F9F9F9;
 }
 
-.phi-List .over
+.phi-ListItem.over
 {
 	background-color: #EFEFEF;
 }
 
-.phi-List .selected
+.phi-ListItem.selected
 {
 	background-color: #FFF6D9;
 }
 
-.strike
+/**
+ * Phi.UI.TitleWindow
+ * 
+ * Style for TitleWindow and two sections:
+ * 	- .header
+ * 		- .title
+ * 		- .close
+ * 	- .body
+ */
+
+.phi-TitleWindow
 {
-	text-decoration: line-through;
+	background-color: #ffffff;
+	border: 1px solid #3D3D3D;
+
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4);
+	box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4);
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding-box;
+	background-clip: padding-box;
+}
+
+.phi-TitleWindow .header
+{
+	height: 30px;
+	background-color: #f5f5f5;
+	border-bottom: 1px solid #ddd;
+  	-webkit-border-radius: 6px 6px 0 0 ;
+  	-moz-border-radius: 6px 6px 0 0;
+	border-radius: 6px 6px 0 0;
+  	-webkit-box-shadow: inset 0 1px 0 #ffffff;
+  	-moz-box-shadow: inset 0 1px 0 #ffffff;
+  	box-shadow: inset 0 1px 0 #ffffff;
+  	zoom: 1;
+	padding: 10px 10px 0px 15px;
+}
+
+.phi-TitleWindow .title
+{
+	font-size: 18px;
+  	font-weight: bold;
+	color: #404040;
+}
+
+.phi-TitleWindow .close 
+{
+	float: right;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	background-image: url(../images/close.png);
+}
+
+.phi-TitleWindow .close:hover 
+{
+	cursor: pointer;
+	background-image: url(../images/close_over.png);
+}
+
+.phi-TitleWindow .body
+{
+	width: 100%;
+	height: 100%;
+	padding: 5px;
 }

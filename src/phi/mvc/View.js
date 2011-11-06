@@ -46,6 +46,13 @@ Phi.Mvc.View = new Class({
 		dispatcher.dispatchEvent( name, args );
 	},
 	
+	initElement: function()
+	{
+		this.parent();
+		$(this).addClass("phi-View");
+		
+	}.protect(),
+	
 	/**
 	 * This function is called by Phi.UI.Container after createChildren() was called
 	 * and before dispatching "childrenCreated" event.

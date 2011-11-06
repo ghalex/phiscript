@@ -28,5 +28,12 @@ Phi.UI.ItemRenderer = new Class({
 	{
 		return new Element('div');
 	}.protect(),
+	
+	initElement: function()
+	{
+		this.parent();
+		$(this).removeClass("phi-View");
+		
+	}.protect(),
 
 });

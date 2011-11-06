@@ -52,6 +52,7 @@ function getFiles()
 		// Containers
 		'ui/containers/Container.js',
 		'mvc/View.js',
+		'ui/containers/TitleWindow.js',
 		'ui/containers/ViewStack.js',
 		'ui/containers/HTMLBox.js',
 		'ui/containers/ScrollBox.js',
