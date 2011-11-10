@@ -17,6 +17,7 @@ Phi.UI.TextInput = new Class({
 	Extends: Phi.UI.Component,
 	
 	text: null,
+	className: "Phi.UI.TextInput",
 	
 	options: {
 		text: null,

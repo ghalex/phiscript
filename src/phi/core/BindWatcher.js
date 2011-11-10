@@ -14,6 +14,7 @@
  */
 Phi.Core.BindWatcher = new Class({
 	Implements: [Events],
+	Binds: ['applyBind'],
 	
 	target: null,
 	targetProperty: null,
@@ -40,8 +41,14 @@ Phi.Core.BindWatcher = new Class({
 	{
 		if( this.getSource() === null || this.getSource() === undefined )
 			return;
-			
-		this.getSource().addEvent('propertyChange', this.applyBind.bind(this));
+		
+		if( !this.isSourceBind() );
+			this.getSource().addEvent('propertyChange', this.applyBind);
+	},
+	
+	isSourceBind: function()
+	{
+		return this.getSource().hasEvent('propertyChange', this.applyBind);
 	},
 	
 	applyBind: function()

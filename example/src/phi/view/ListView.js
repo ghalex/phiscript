@@ -2,26 +2,27 @@ var ListView = new Class({
 
 	Extends: Phi.Mvc.View,
 
-	hbox50: function()
+	hbox22: function()
 	{
-		var result = Phi.UI.HBox.create({})
+		var result = Phi.UI.HBox.create({'gap':'2'})
 		result.addChild( Phi.UI.TextInput.create({'binds':{'text':{'value':'label','view':this,'source':'tasksList.selectedItem'}},'id':'itemNameTi','width':'160'}) )
-		result.addChild( Phi.UI.Button.create({'onClick':this.addTask.bind(this),'text':'Add'}) )
+		result.addChild( Phi.UI.Button.create({'text':'Add','onClick':this.addTask.bind(this)}) )
+		result.addChild( Phi.UI.Button.create({'style':'danger','text':'Delete','onClick':this.deleteTask.bind(this)}) )
 		return result
 	},
 
-	vbox49: function()
+	vbox21: function()
 	{
 		var result = Phi.UI.VBox.create({'horizontalAlign':'center','gap':'4'})
-		result.addChild( this.hbox50() )
-		result.addChild( Phi.UI.List.create({'width':'400','id':'tasksList','height':'400','binds':{'dataProvider':{'value':'tasks','view':this,'source':'data'}}}) )
+		result.addChild( this.hbox22() )
+		result.addChild( Phi.UI.List.create({'binds':{'dataProvider':{'value':'tasks','view':this,'source':'data'}},'width':'400','id':'tasksList','height':'400'}) )
 		return result
 	},
 
-	vbox48: function()
+	vbox20: function()
 	{
-		var result = Phi.UI.VBox.create({'width':'100%','horizontalAlign':'center','border':'0','height':'100%','verticalAlign':'middle'})
-		result.addChild( this.vbox49() )
+		var result = Phi.UI.VBox.create({'horizontalAlign':'center','width':'100%','verticalAlign':'middle','border':'0','height':'100%'})
+		result.addChild( this.vbox21() )
 		return result
 	},
 
@@ -48,15 +49,21 @@ var ListView = new Class({
 			var tasks = this.tasksList.getDataProvider();
 			tasks.addItem( new Phi.Mvc.Model({label: this.itemNameTi.getText()}));
 		},
+		
+		deleteTask: function()
+		{
+			var selectedTask = this.tasksList.getSelectedItem();
+			this.tasksList.getDataProvider().removeItem( selectedTask );
+		},
 
 	createChildren: function()
 	{
-		this.addChild( this.vbox48() )
+		this.addChild( this.vbox20() )
 	},
 
 	initialize: function()
 	{
-		this.parent({'onCreationComplete':this.creationComplete.bind(this),'height':'100%','width':'100%'})
+		this.parent({'onCreationComplete':this.creationComplete.bind(this),'width':'100%','id':'listView','height':'100%'})
 	},
 });
 

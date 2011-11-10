@@ -37,3 +37,17 @@ Phi.Mn.BindManager.bindUsingView = function(view, target, targetProperty, source
 	
 	return watcher;
 };
+
+Phi.Mn.BindManager.removeWatchers = function( target )
+{
+	Phi.Mn.BindManager.watchers.each(
+		function( watcher ) {
+			if( watcher.target == target )
+			{
+				watcher.destory();
+				Phi.Mn.BindManager.watchers.erase( watcher );
+			}
+						
+		}
+	);
+}

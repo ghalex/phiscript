@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<View width="100%"
+<View id="listView"
+	  width="100%"
 	  height="100%"
 	  onCreationComplete="creationComplete()"
 	  xmlns:screens="screens">
@@ -12,12 +13,13 @@
 		
 		<VBox gap="4" horizontalAlign="center">
 			
-		<HBox>
+		<HBox gap="2">
 			<TextInput id="itemNameTi"
 					   width="160"
 					   text="{this.tasksList.selectedItem.label}"/>
 					   
 			<Button text="Add" onClick="addTask()" />
+			<Button text="Delete" style="danger" onClick="deleteTask()" />
 		</HBox>
 					   
 		<List id="tasksList" 
@@ -52,7 +54,14 @@
 		{
 			var tasks = this.tasksList.getDataProvider();
 			tasks.addItem( new Phi.Mvc.Model({label: this.itemNameTi.getText()}));
+		},
+		
+		deleteTask: function()
+		{
+			var selectedTask = this.tasksList.getSelectedItem();
+			this.tasksList.getDataProvider().removeItem( selectedTask );
 		}
+		
 		
 	</JavaScript>
 </View>

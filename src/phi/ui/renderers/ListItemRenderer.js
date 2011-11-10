@@ -19,6 +19,7 @@ Phi.UI.ListItemRenderer = new Class({
 	Extends: Phi.UI.ItemRenderer,
 
 	list: null,	
+	className: "Phi.UI.ListItemRenderer",
 
 	/**
 	 * Returns list item DOM element

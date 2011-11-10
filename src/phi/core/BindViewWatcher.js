@@ -15,6 +15,7 @@
 Phi.Core.BindViewWatcher = new Class({
 	Extends: Phi.Core.BindWatcher,
 	Implements: [Events],
+	Binds: ['updateChain'],
 	
 	view: null,
 	chain: [],
@@ -28,7 +29,7 @@ Phi.Core.BindViewWatcher = new Class({
 		this.updateChain();
 	},
 	
-	updateChain: function()
+	updateChain: function( event )
 	{
 		// If we have a source to bind
 		// we create a watcher for it.
@@ -48,7 +49,8 @@ Phi.Core.BindViewWatcher = new Class({
 		var result = this.view;
 		var tmp = this.source.split('.');
 		
-		result.addEvent("propertyChange", this.updateChain.bind(this));
+		result.addEvent("propertyChange", this.updateChain);
+		this.chain.push( result );	
 		
 		tmp.each( function( item, index ){
 			if( result != null )
@@ -57,7 +59,7 @@ Phi.Core.BindViewWatcher = new Class({
 				
 				if( result )
 				{
-					result.addEvent("propertyChange", this.updateChain.bind(this));						
+					result.addEvent("propertyChange", this.updateChain);						
 					this.chain.push( result );
 				}
 			}
@@ -88,8 +90,8 @@ Phi.Core.BindViewWatcher = new Class({
 	removeAllListners: function()
 	{
 		this.chain.each( function( item, index ){
-			item.removeEvent("propertyChange", this.updateChain.bind(this));
-		}.bind(this))
+			item.removeEvent("propertyChange", this.updateChain);
+		},this);
 		
 		this.chain = [];
 	}

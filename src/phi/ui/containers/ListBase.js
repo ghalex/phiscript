@@ -337,7 +337,7 @@ Phi.UI.ListBase = new Class({
 		
 		this.setSelectedIndex( index );
 		
-		this.dispatchEvent("propertyChange");
+		//this.dispatchEvent("propertyChange");
 		this.dispatchEvent("itemClick", {index:index});
 	}
 });

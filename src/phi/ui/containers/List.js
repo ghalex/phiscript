@@ -16,6 +16,8 @@
 Phi.UI.List = new Class({
 	Extends: Phi.UI.ListBase,
 	
+	className: "Phi.UI.List",
+	
 	initialize: function( options )
 	{
 		this.parent( options );
