@@ -1,4 +1,4 @@
-var phiscriptFiles = [
+var files = [
     
     'core/Core.js',
 		
@@ -59,4 +59,53 @@ var phiscriptFiles = [
 	'ui/controls/Menu.js'
 ];
 
-exports.all = files;
+var FileManager = new Class({
+	Implements: [Options],
+	
+	scriptsToLoad: [],
+	
+	options: {
+		baseUrl: ""
+	},
+	
+	initialize: function( options )
+	{
+		this.setOptions( options );
+	},
+	
+	loadScript: function( url, callback )
+	{
+		var head = $$("head")[0];
+		var el = new Element('script', {type: "text/javascript"});
+		
+		el.addEvent('load', callback );
+		el.src = this.options.baseUrl + url;
+		
+		el.inject( head );
+	},
+	
+	loadScripts: function( scripts, callback )
+	{
+		this.scriptsToLoad = Array.clone( scripts );
+		this.recursiveLoad( callback );
+	},
+	
+	recursiveLoad: function( callback )
+	{
+		if( this.scriptsToLoad.length == 0 )
+		{
+			callback();
+			return;
+		}
+			
+		this.loadScript( this.scriptsToLoad.shift(), function() {
+			this.recursiveLoad( callback );
+		}.bind(this) );
+	}
+});
+
+var require = function( scripts, options, callback )
+{
+	var manager = new FileManager(options);
+	manager.loadScripts( scripts, callback );
+}

@@ -61,7 +61,7 @@ Phi.Core.BindViewWatcher = new Class({
 					this.chain.push( result );
 				}
 			}
-		}.bind(this))
+		}, this)
 	},
 	
 	getSource: function()
