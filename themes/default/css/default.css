@@ -231,6 +231,7 @@ button
 .phi-ListItem.selected
 {
 	background-color: #FFF6D9;
+	color: #333333;
 }
 
 /**
@@ -257,6 +258,7 @@ button
 .phi-Menu .phi-ListItem.over
 {
 	background-color: #EFEFEF;
+	color: #333333;
 }
 
 .phi-Menu .phi-Separator

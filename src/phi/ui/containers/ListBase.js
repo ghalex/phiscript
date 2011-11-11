@@ -185,7 +185,7 @@ Phi.UI.ListBase = new Class({
 		item.list = this;
 		item.addEvent("mouseenter", this.onItemRollOver);
 		item.addEvent("mouseleave", this.onItemRollOut);
-		item.addEvent("click", this.onItemClick);
+		item.addEvent("mousedown", this.onItemClick);
 		
 		var index = this.getDataProvider().getItemIndex( data );
 		

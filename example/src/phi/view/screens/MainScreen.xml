@@ -57,6 +57,7 @@
 		messages: {
 			addTask: 'onAddTask', // This message is send by popup
 			deleteTask: 'onDeleteTask', // This message is send from ItemRenderer
+			moveTask: 'onMoveTask' // Called from context menu
 		},
 		
 		rendererFunction: function( item )
@@ -132,6 +133,21 @@
 		{
 			this.tasksList.getDataProvider().removeItem( msg.task );
 			this.itemNameTi.setText("");
+		},
+		
+		onMoveTask: function( msg )
+		{
+			var dp = this.tasksList.getDataProvider();
+			var index = dp.getItemIndex( msg.task );
+			
+			if( msg.direction == 'up' )
+				if( index > 0 )
+					index--;
+			else
+				if( index < dp.length() )
+					index++;
+					
+			dp.moveItem( msg.task, index );
 		}
 		
 	</JavaScript>

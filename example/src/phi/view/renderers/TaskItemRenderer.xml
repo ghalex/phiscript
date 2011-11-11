@@ -34,9 +34,30 @@
 		
 		creationComplete: function()
 		{
+			this.optionsMenu = new Phi.UI.Menu();
+			this.optionsMenu.setDataProvider( this.menuDp() );
 			
+			this.optionsMenu.addEvent('itemClick', function( event ) {
+				switch( event.index ) {
+					case 0: {
+						this.sendMessage('moveTask', {task: event.item, direction: 'up'});
+						break;
+					}
+					
+					case 1: {
+						this.sendMessage('moveTask', {task: event.item, direction: 'down'});
+						break;
+					}
+					
+				}
+			})
 		},
-			
+		
+		menuItemClick: function( event )
+		{
+			console.log('MenuItem Click');
+		},
+		
 		showAddPopUp: function()
 		{
 			var popUp = Phi.Mn.PopUpManager.createPopUp( AddNewTaskPopUp, {hideOnClick: false} );
@@ -45,10 +66,8 @@
 			popUp.center();
 		},
 		
-		showOptionsMenu: function()
+		showOptionsMenu: function( event )
 		{
-			this.optionsMenu = new Phi.UI.Menu();
-			this.optionsMenu.setDataProvider( this.menuDp() );
 			this.optionsMenu.snapTo( this.optionsBtn );
 		},
 		

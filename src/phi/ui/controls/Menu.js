@@ -40,11 +40,12 @@ Phi.UI.Menu = new Class({
 			width: "100%",
 			height: "100%",
 			selectable: false,
-			itemRendererFunction: this.listItemRendererFunction,
-			onItemRollOver: this.onItemRollOver,
-			onItemClick: this.onItemClick,
+			itemRendererFunction: this.listItemRendererFunction
 		});
-		
+
+		this.list.addEvent('itemRollOver', this.onItemRollOver);
+		this.list.addEvent('itemClick', this.onItemClick);
+				
 		this.addChild( this.list );
 	},
 	
@@ -60,17 +61,11 @@ Phi.UI.Menu = new Class({
 	
 	show: function( x, y )
 	{
-		// Set opacity 0 for fade effect
-		//$(this).set('opacity', 0);
-		
 		// Move menu at specific position
 		this.setPosition(x, y);
 		
 		// Show menu
 		this.parent();
-		
-		//var myFx = new Fx.Tween($(this));
-		//myFx.start('opacity', 0, 1);
 	},
 	
 	hide: function()
