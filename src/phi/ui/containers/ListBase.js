@@ -1,7 +1,7 @@
 /**
  *
  * script: ListBase.js
- * name: Phi.UI.ListBase
+ * name: phi.ui.ListBase
  * 
  * description: This is base class for all list components.
  * 
@@ -13,8 +13,8 @@
  *   - phi/ui/containers/Container.js
  * 
  */
-Phi.UI.ListBase = new Class({
-	Extends: Phi.UI.Container,
+phi.ui.ListBase = new Class({
+	Extends: phi.ui.Container,
 	Binds: ['onCollectionChange', 'onItemClick', 'onItemRollOver', 'onItemRollOut'],
 	
 	options: {
@@ -35,17 +35,17 @@ Phi.UI.ListBase = new Class({
 		this.parent( options );
 		
 		if( this.itemRenderer === null )
-			this.itemRenderer = Phi.UI.DefaultListItemRenderer;
+			this.itemRenderer = phi.ui.DefaultListItemRenderer;
 		
 		this.addEvent("newDataProvider", this.onNewDataProvider);
 	},
 	
 	setDataProvider: function( value )
 	{
-		if( value === null )
+		if( value === null || value === undefined )
 			return;
 			
-		if( !instanceOf(value, Phi.Core.ArrayCollection) )
+		if( !instanceOf(value, phi.collections.ArrayCollection) )
 			throw new Error( "DataProvider must be a ArrayCollection!");
 			
 		this.dataProvider = value;
@@ -178,8 +178,8 @@ Phi.UI.ListBase = new Class({
 		
 		var item = new renderer();
 		
-		if( !instanceOf(item, Phi.UI.ListItemRenderer) )
-			throw new Error( "ItemRenderer must be an instance of Phi.UI.ListItemRenderer!");
+		if( !instanceOf(item, phi.ui.ListItemRenderer) )
+			throw new Error( "ItemRenderer must be an instance of phi.ui.ListItemRenderer!");
 		
 		item.setData( data );
 		item.list = this;

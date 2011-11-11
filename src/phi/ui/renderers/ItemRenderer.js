@@ -1,7 +1,7 @@
 /**
  *
  * script: ItemRenderer.js
- * name: Phi.UI.ItemRenderer
+ * name: phi.ui.ItemRenderer
  * 
  * description: Base class for all renderers. For ex. ListItemRenderer used to render list items.
  * 
@@ -13,8 +13,8 @@
  *   - phi/ui/containers/Container
  * 
  */
-Phi.UI.ItemRenderer = new Class({
-	Extends: Phi.Mvc.View,
+phi.ui.ItemRenderer = new Class({
+	Extends: phi.ui.View,
 	
 	//-------------------------------------------------------------------
 	// Protected functions

@@ -1,7 +1,7 @@
 /**
  *
  * script: ScrollBox.js
- * name: Phi.UI.ScrollBox
+ * name: phi.ui.ScrollBox
  * 
  * description: This layout component adds scroll
  * 
@@ -13,8 +13,8 @@
  *   - phi/ui/containers/Container.js
  * 
  */
-Phi.UI.ScrollBox = new Class({
-	Extends: Phi.UI.Container,
+phi.ui.ScrollBox = new Class({
+	Extends: phi.ui.Container,
 	
 	initialize: function()
 	{

@@ -1,7 +1,7 @@
 /**
  *
  * script: Iterator.js
- * name: Phi.Core.Iterator
+ * name: phi.core.Iterator
  * 
  * description: Provides a way to access elements of an ArrayCollection
  * 
@@ -13,13 +13,13 @@
  *   - phi/core/ArrayCollection
  * 
  */
-Phi.Core.Iterator = new Class({
+phi.core.Iterator = new Class({
 	initialize: function( collection )
 	{
 		if( !collection )
 			throw new Error( "Collection cannot be null!");
 			
-		if( !instanceOf(collection, Phi.Core.ArrayCollection) )
+		if( !instanceOf(collection, phi.collections.ArrayCollection) )
 			throw new Error( "Collection must be a ArrayCollection!");
 			
 		this.collection = collection;

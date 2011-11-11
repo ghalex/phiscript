@@ -1,7 +1,7 @@
 /**
  *
  * script: CellBox.js
- * name: Phi.UI.CellBox
+ * name: phi.ui.CellBox
  * 
  * description: This is a layout component that allows you to arrange your components in a table.
  * 
@@ -14,8 +14,8 @@
  *	 - phi/html/Table.js
  * 
  */
-Phi.UI.CellBox = new Class({
-	Extends: Phi.UI.Container,
+phi.ui.CellBox = new Class({
+	Extends: phi.ui.Container,
 	
 	options: {
 		horizontalAlign: "left",
@@ -28,7 +28,7 @@ Phi.UI.CellBox = new Class({
 	getTable: function()
 	{
 		if( !this.table )
-			this.table = new Phi.HTML.Table();
+			this.table = new phi.html.Table();
 			
 		return this.table;
 	},
@@ -159,9 +159,9 @@ Phi.UI.CellBox = new Class({
  * Factory method.
  * @param options.
  */
-Phi.UI.CellBox.create = function( options )
+phi.ui.CellBox.create = function( options )
 {
-	var result = new Phi.UI.CellBox( options );
+	var result = new phi.ui.CellBox( options );
 	return result;
 };
 

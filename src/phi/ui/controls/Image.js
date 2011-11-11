@@ -1,7 +1,7 @@
 /**
  *
  * script: Image.js
- * name: Phi.UI.Image
+ * name: phi.ui.Image
  * 
  * description: Plain image.
  * 
@@ -13,8 +13,8 @@
  *   - phi/ui/Component
  * 
  */
-Phi.UI.Image = new Class({
-	Extends: Phi.UI.Component,
+phi.ui.Image = new Class({
+	Extends: phi.ui.Component,
 	
 	options: {
 		source: null	
@@ -64,8 +64,8 @@ Phi.UI.Image = new Class({
  * Factory method.
  * @param options.
  */
-Phi.UI.Image.create = function( options )
+phi.ui.Image.create = function( options )
 {
-	var result = new Phi.UI.Image( options );
+	var result = new phi.ui.Image( options );
 	return result;
 };

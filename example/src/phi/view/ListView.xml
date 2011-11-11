@@ -37,15 +37,17 @@
 		
 		creationComplete: function()
 		{
-			this.setData( new Phi.Mvc.Model({tasks: this.buildTasks() }));
+			this.setData( new phi.core.ProxyObject({tasks: this.buildTasks() }));
 		},
 		
 		buildTasks: function()
 		{
-			var tasks = new Phi.Core.ArrayCollection();
+			var tasks = new phi.collections.ArrayCollection();
 			
-			tasks.addItem( new Phi.Mvc.Model({label: "Task1", isDone: false}));
-			tasks.addItem( new Phi.Mvc.Model({label: "Task2", isDone: false}));
+			tasks.useProxyObjects( true ); // This will encapsulate the {} object in new ProxyObject( {} )
+			
+			tasks.addItem( {label: "Task1", isDone: false} );
+			tasks.addItem( {label: "Task2", isDone: false} );
 			
 			return tasks;
 		},
@@ -53,7 +55,7 @@
 		addTask: function()
 		{
 			var tasks = this.tasksList.getDataProvider();
-			tasks.addItem( new Phi.Mvc.Model({label: this.itemNameTi.getText()}));
+			tasks.addItem( {label: this.itemNameTi.getText()} );
 		},
 		
 		deleteTask: function()

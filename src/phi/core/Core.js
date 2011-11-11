@@ -3,29 +3,28 @@
  * script: Core.js
  * name: Core
  */
-var Phi = Phi || {};
+var phi = phi || {};
 
 // Define namespaces
-Phi.Core = Phi.Core || {};
-Phi.UI = Phi.UI || {};
-Phi.Mvc = Phi.Mvc || {};
-Phi.HTML = {};
-Phi.Mn = {};
+phi.core = phi.core || {};
+phi.ui = phi.ui || {};
+phi.html = phi.html || {};
+phi.mn = phi.mn || {};
+phi.collections = phi.collections || {};
 
-Object.forEachChild = function( target, callback )
+Object.forEachChild = function( target, callback, test )
 {
-	if( instanceOf(target, Phi.UI.Container))
+	if( instanceOf(target, phi.ui.Container))
 	{
 		var iterator = target.createIterator();
 
 		while( iterator.moveNext() )
-			Object.forEachChild( iterator.current(), callback );
+			if( test( iterator.current() ) )
+				Object.forEachChild( iterator.current(), callback, test );
 	}
 	
 	callback( target );
 }
-
-
 
 Array.implement({
 	pushAt: function(item, index)

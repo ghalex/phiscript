@@ -1,9 +1,9 @@
 /**
  *
  * script: PopUp.js
- * name: Phi.UI.PopUp
+ * name: phi.ui.PopUp
  * 
- * description: This container is used by PopUpManager to display a Phi.UI.Component in a popup.
+ * description: This container is used by PopUpManager to display a phi.ui.Component in a popup.
  * 
  * 
  * authors:
@@ -13,8 +13,8 @@
  *   - phi/ui/containers/Container.js
  * 
  */
-Phi.UI.PopUp = new Class({
-	Extends: Phi.UI.Container,
+phi.ui.PopUp = new Class({
+	Extends: phi.ui.Container,
 	Binds: ['onWindowMouseUp'],
 	
 	uid: "",
@@ -43,7 +43,7 @@ Phi.UI.PopUp = new Class({
 		// Show popup first
 		this.show();
 		
-		// Snap to Phi.UI.Component
+		// Snap to phi.ui.Component
 		$(this).position({
 			relativeTo: $(component),
 			position: PopUpSnap.mapSide[side],
@@ -82,19 +82,19 @@ Phi.UI.PopUp = new Class({
 	
 	hide: function()
 	{
-		Phi.Mn.PopUpManager.removePopUp( this );
+		phi.mn.PopUpManager.removePopUp( this );
 		return this;
 	},
 	
 	show: function( modal )
 	{
-		Phi.Mn.PopUpManager.addPopUp( this, modal );
+		phi.mn.PopUpManager.addPopUp( this, modal );
 		return this;
 	},
 	
 	isVisible: function()
 	{
-		var rootBox = Phi.UI.RootBox.get();
+		var rootBox = phi.ui.RootBox.get();
 		return rootBox.hasChild( this );
 	},
 	

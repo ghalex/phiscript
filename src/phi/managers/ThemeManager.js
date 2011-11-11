@@ -1,7 +1,7 @@
 /**
  *
  * script: ThemeManager.js
- * name: Phi.Mn.ThemeManager
+ * name: phi.mn.ThemeManager
  * 
  * description: Used to load themes
  * 
@@ -13,18 +13,18 @@
  * 
  */
 
-Phi.Mn.ThemeManager = {};
-Phi.Mn.ThemeManager.directory = "assets/themes/";
-Phi.Mn.ThemeManager.theme = "default";
+phi.mn.ThemeManager = {};
+phi.mn.ThemeManager.directory = "assets/themes/";
+phi.mn.ThemeManager.theme = "default";
 
-Phi.Mn.ThemeManager.setDirectory = function( value )
+phi.mn.ThemeManager.setDirectory = function( value )
 {
-	Phi.Mn.ThemeManager.directory = value;
+	phi.mn.ThemeManager.directory = value;
 };
 
-Phi.Mn.ThemeManager.load = function( theme )
+phi.mn.ThemeManager.load = function( theme )
 {
-	var themeDir = Phi.Mn.ThemeManager.directory;
+	var themeDir = phi.mn.ThemeManager.directory;
 	var linkElement =  new Element('link', {
 		id: "theme_" + theme,
 		rel: "stylesheet",
@@ -33,14 +33,14 @@ Phi.Mn.ThemeManager.load = function( theme )
 	});
 	
 	// Unload current loaded theme
-	Phi.Mn.ThemeManager.unload( Phi.Mn.ThemeManager.theme );
+	phi.mn.ThemeManager.unload( phi.mn.ThemeManager.theme );
 	
 	// Load new theme
-	Phi.Mn.ThemeManager.theme = theme;
+	phi.mn.ThemeManager.theme = theme;
 	linkElement.inject( $$('head')[0] );
 };
 
-Phi.Mn.ThemeManager.unload = function( theme )
+phi.mn.ThemeManager.unload = function( theme )
 {
 	var el = $("theme_" + theme );
 	

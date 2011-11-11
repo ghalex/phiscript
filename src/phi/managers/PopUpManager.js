@@ -1,7 +1,7 @@
 /**
  *
  * script: PopUpManager.js
- * name: Phi.Mn.PopUpManager
+ * name: phi.mn.PopUpManager
  * 
  * description: Used to create a popup
  * 
@@ -13,8 +13,8 @@
  * 
  */
 
-Phi.Mn.PopUpManager = {};
-Phi.Mn.PopUpManager.popups = [];
+phi.mn.PopUpManager = {};
+phi.mn.PopUpManager.popups = [];
 
 /**
  * Create a PopUp.
@@ -22,16 +22,16 @@ Phi.Mn.PopUpManager.popups = [];
  * @param component - the UI component that will be in popup. In this way you 
  * can show in popup any UI component.
  */
-Phi.Mn.PopUpManager.createPopUp = function( className, options )
+phi.mn.PopUpManager.createPopUp = function( className, options )
 {
 	// Create a new popUp
-	var popUp = new Phi.UI.PopUp( options );
+	var popUp = new phi.ui.PopUp( options );
 	
 	popUp.uid = String.uniqueID();	
 	popUp.addChild( new className());
 	
 	// Save popUp
-	Phi.Mn.PopUpManager.popups[ popUp.uid ] = popUp;
+	phi.mn.PopUpManager.popups[ popUp.uid ] = popUp;
 
 	return popUp;
 };
@@ -39,15 +39,15 @@ Phi.Mn.PopUpManager.createPopUp = function( className, options )
 /**
  * Remove a PopUp.
  */
-Phi.Mn.PopUpManager.removePopUp = function( popUp )
+phi.mn.PopUpManager.removePopUp = function( popUp )
 {
 	if( popUp === null )
 		return;
 	
-	if( !instanceOf(popUp, Phi.UI.PopUp) )
-		throw new Error( "PopUp must be an instance of Phi.UI.PopUp!");	
+	if( !instanceOf(popUp, phi.ui.PopUp) )
+		throw new Error( "PopUp must be an instance of phi.ui.PopUp!");	
 			
-	var rootBox = Phi.UI.RootBox.get();
+	var rootBox = phi.ui.RootBox.get();
 	
 	// If popUp is on the stage
 	// we remove it.
@@ -59,18 +59,18 @@ Phi.Mn.PopUpManager.removePopUp = function( popUp )
 		rootBox.removeChild( popUp );
 	}
 		
-	delete Phi.Mn.PopUpManager.popups[ popUp.uid ];
+	delete phi.mn.PopUpManager.popups[ popUp.uid ];
 };
 
-Phi.Mn.PopUpManager.addPopUp = function( popUp, modal )
+phi.mn.PopUpManager.addPopUp = function( popUp, modal )
 {
 	if( popUp === null )
 		return;
 		
-	if( !instanceOf(popUp, Phi.UI.PopUp) )
-		throw new Error( "PopUp must be an instance of Phi.UI.PopUp!");	
+	if( !instanceOf(popUp, phi.ui.PopUp) )
+		throw new Error( "PopUp must be an instance of phi.ui.PopUp!");	
 			
-	var rootBox = Phi.UI.RootBox.get();
+	var rootBox = phi.ui.RootBox.get();
 	
 	// If popUp is allready displayed
 	// we return.
@@ -81,18 +81,18 @@ Phi.Mn.PopUpManager.addPopUp = function( popUp, modal )
 	if( modal )
 	{
 		// Create modal & add to stage
-		popUp.modal = new Phi.UI.Modal();
+		popUp.modal = new phi.ui.Modal();
 		rootBox.addChild( popUp.modal );
 	}
 
 	rootBox.addChild( popUp );
 };
 
-Phi.Mn.PopUpManager.getPopUpForView = function( view )
+phi.mn.PopUpManager.getPopUpForView = function( view )
 {
-	for( var key in Phi.Mn.PopUpManager.popups )
+	for( var key in phi.mn.PopUpManager.popups )
 	{
-		var popUp = Phi.Mn.PopUpManager.popups[ key ];
+		var popUp = phi.mn.PopUpManager.popups[ key ];
 		
 		if( popUp.firstChild() == view )
 			return popUp;
@@ -101,15 +101,15 @@ Phi.Mn.PopUpManager.getPopUpForView = function( view )
 	return null;
 }
 
-Phi.Mn.PopUpManager.bringToFront = function( popUp )
+phi.mn.PopUpManager.bringToFront = function( popUp )
 {
 	if( popUp === null )
 		return;
 		
-	if( !instanceOf(popUp, Phi.UI.PopUp) )
-			throw new Error( "PopUp must be an instance of Phi.UI.PopUp!");
+	if( !instanceOf(popUp, phi.ui.PopUp) )
+			throw new Error( "PopUp must be an instance of phi.ui.PopUp!");
 	
-	var rootBox = Phi.UI.RootBox.get();
+	var rootBox = phi.ui.RootBox.get();
 		
 	// If popUp is on the stage
 	if( rootBox.hasChild( popUp ))

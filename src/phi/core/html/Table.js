@@ -3,7 +3,7 @@
 // Phi.HTML: HtmlTable
 //--------------------------------------------------------
 
-Phi.HTML.Table = new Class({
+phi.html.Table = new Class({
 	Extends: HtmlTable,
 		
 	pushElement: function( element, trIndex, tdIndex)

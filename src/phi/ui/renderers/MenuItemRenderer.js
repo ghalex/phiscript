@@ -1,7 +1,7 @@
 /**
  *
  * script: MenuItemRenderer.js
- * name: Phi.UI.MenuItemRenderer
+ * name: phi.ui.MenuItemRenderer
  * 
  * description: 
  * Default ItemRenderer used by Menu.
@@ -14,8 +14,8 @@
  *   - phi/ui/renderers/ListItemRenderer
  * 
  */
-Phi.UI.MenuItemRenderer = new Class({
-	Extends: Phi.UI.ListItemRenderer,
+phi.ui.MenuItemRenderer = new Class({
+	Extends: phi.ui.ListItemRenderer,
 	
 	label: null,
 	hbox: null,
@@ -30,9 +30,9 @@ Phi.UI.MenuItemRenderer = new Class({
 	build: function()
 	{
 		// Create childs
-		this.label = new Phi.UI.Label("");
-		this.hbox = new Phi.UI.HBox();
-		this.image = new Phi.UI.Image('assets/themes/default/images/right.png');
+		this.label = new phi.ui.Label("");
+		this.hbox = new phi.ui.HBox();
+		this.image = new phi.ui.Image('assets/themes/default/images/right.png');
 		
 		// Add childs
 		this.addChild( this.hbox.addChild( this.label ));

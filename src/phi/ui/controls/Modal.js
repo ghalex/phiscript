@@ -1,7 +1,7 @@
 /**
  *
  * script: Modal.js
- * name: Phi.UI.Modal
+ * name: phi.ui.Modal
  * 
  * description: This component is used by PopUp component to display itself as
  *              modal PopUp.
@@ -14,8 +14,8 @@
  *   - phi/ui/Component
  * 
  */
-Phi.UI.Modal = new Class({
-	Extends: Phi.UI.Component,
+phi.ui.Modal = new Class({
+	Extends: phi.ui.Component,
 	Binds: ['onAdded','onWindowResize'],
 	
 	initialize: function( options )

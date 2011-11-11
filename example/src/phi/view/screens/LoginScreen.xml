@@ -48,7 +48,7 @@
 				
 		creationComplete: function()
 		{
-			this.setData( new Phi.Mvc.Model({username: "admin", password: "admin"}));
+			this.setData({username: "admin", password: "admin"});
 		},
 		
 		login: function()

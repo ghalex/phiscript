@@ -1,7 +1,7 @@
 /**
  *
  * script: ArrayCollection.js
- * name: Phi.Core.ArrayCollection
+ * name: phi.core.ArrayCollection
  * 
  * description: 
  * Provides basic operation on Array's
@@ -14,8 +14,11 @@
  *   - core/Events
  * 
  */
-Phi.Core.ArrayCollection = new Class({
+phi.collections.ArrayCollection = new Class({
 	Implements: [Events],
+	
+	useProxy: false,
+	source: null,
 	
 	initialize: function( source ) 
 	{
@@ -33,35 +36,32 @@ Phi.Core.ArrayCollection = new Class({
 	addItemAt: function( item, index )
 	{
 		var eventArgs = {};
+		var pItem = this.wrapItem( item );
 		
-		eventArgs.item = item;
+		eventArgs.item = pItem;
 		eventArgs.index = index;
 		eventArgs.location = index;
 		eventArgs.kind = CollectionEventKind.ADD;
 		
 		// Add item
-		this.source.splice(index, 0, item );
+		this.source.splice(index, 0, pItem );
 
 		// Dispatch event
 		this.dispatchEvent( "collectionChange", eventArgs);		
 	},
 	
-	length: function()
-	{
-		return this.source.length;
-	},
-	
 	setItemAt: function( item, index )
 	{
 		var eventArgs = {};
+		var pItem = this.wrapItem( item );
 		
-		eventArgs.item = item;
+		eventArgs.item = pItem;
 		eventArgs.oldItem = this.getItemAt( index );
 		eventArgs.location = index;
 		eventArgs.kind = CollectionEventKind.REPLACE;
 		
 		// Add item
-		this.source.splice(index, 1, item );
+		this.source.splice(index, 1, pItem );
 		
 		// Dispatch event
 		this.dispatchEvent("collectionChange", eventArgs)
@@ -70,8 +70,9 @@ Phi.Core.ArrayCollection = new Class({
 	moveItem: function( item, newIndex )
 	{
 		var eventArgs = {};
+		var pItem = this.wrapItem( item );
 		
-		eventArgs.item = item;
+		eventArgs.item = pItem;
 		eventArgs.oldLocation = this.getItemIndex(item);
 		eventArgs.location = newIndex;
 		eventArgs.kind = CollectionEventKind.MOVE;
@@ -80,7 +81,7 @@ Phi.Core.ArrayCollection = new Class({
 		this.source.splice(event.oldLocation, 1);
 		
 		// Add item at new location
-		this.source.splice(event.location, 0, item );
+		this.source.splice(event.location, 0, pItem );
 		
 		// Dispatch event
 		this.dispatchEvent("collectionChange", eventArgs);
@@ -118,7 +119,27 @@ Phi.Core.ArrayCollection = new Class({
 	
 	createIterator: function()
 	{
-		return new Phi.Core.Iterator( this );	
+		return new phi.core.Iterator( this );	
+	},
+	
+	useProxyObjects: function( value )
+	{
+		this.useProxy = value;	
+	},
+		
+	length: function()
+	{
+		return this.source.length;
+	},
+	
+	wrapItem: function( item )
+	{
+		var result = item;
+		
+		if( this.useProxy && !instanceOf(item, phi.core.ProxyObject))
+			result = new phi.core.ProxyObject( item );
+		
+		return result;	
 	},
 	
 	toString: function()

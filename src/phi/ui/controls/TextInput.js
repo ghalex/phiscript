@@ -1,7 +1,7 @@
 /**
  *
  * script: TextInput.js
- * name: Phi.UI.TextInput
+ * name: phi.ui.TextInput
  * 
  * description: 
  * 
@@ -13,11 +13,11 @@
  *   - phi/ui/Component
  * 
  */
-Phi.UI.TextInput = new Class({
-	Extends: Phi.UI.Component,
+phi.ui.TextInput = new Class({
+	Extends: phi.ui.Component,
 	
 	text: null,
-	className: "Phi.UI.TextInput",
+	className: "phi.ui.TextInput",
 	
 	options: {
 		text: null,
@@ -99,9 +99,9 @@ Phi.UI.TextInput = new Class({
  * Factory method.
  * @param options.
  */
-Phi.UI.TextInput.create = function( options )
+phi.ui.TextInput.create = function( options )
 {
-	var result = new Phi.UI.TextInput( options );
+	var result = new phi.ui.TextInput( options );
 	return result;
 };
 

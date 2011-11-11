@@ -1,7 +1,7 @@
 /**
  *
  * script: ViewStack.js
- * name: Phi.UI.ViewStack
+ * name: phi.ui.ViewStack
  * 
  * description: This is a navigator container.
  * 
@@ -13,8 +13,8 @@
  *   - phi/ui/containers/Container.js
  * 
  */
-Phi.UI.ViewStack = new Class({
-	Extends: Phi.UI.Container,
+phi.ui.ViewStack = new Class({
+	Extends: phi.ui.Container,
 	
 	selectedIndex: -1,
 
@@ -101,8 +101,8 @@ Phi.UI.ViewStack = new Class({
  * Factory method.
  * @param options.
  */
-Phi.UI.ViewStack.create = function( options )
+phi.ui.ViewStack.create = function( options )
 {
-	var result = new Phi.UI.ViewStack( options );
+	var result = new phi.ui.ViewStack( options );
 	return result;
 };

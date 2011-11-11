@@ -1,7 +1,7 @@
 /**
  *
  * script: List.js
- * name: Phi.UI.List
+ * name: phi.ui.List
  * 
  * description:
  * 
@@ -13,10 +13,10 @@
  *   - phi/ui/containers/ListBase.js
  * 
  */
-Phi.UI.List = new Class({
-	Extends: Phi.UI.ListBase,
+phi.ui.List = new Class({
+	Extends: phi.ui.ListBase,
 	
-	className: "Phi.UI.List",
+	className: "phi.ui.List",
 	
 	initialize: function( options )
 	{
@@ -42,8 +42,8 @@ Phi.UI.List = new Class({
  * Factory method.
  * @param options.
  */
-Phi.UI.List.create = function( options )
+phi.ui.List.create = function( options )
 {
-	var result = new Phi.UI.List( options );
+	var result = new phi.ui.List( options );
 	return result;
 };

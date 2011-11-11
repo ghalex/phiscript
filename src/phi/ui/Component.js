@@ -1,7 +1,7 @@
 /**
  *
  * script: Component.js
- * name: Phi.UI.Component
+ * name: phi.ui.Component
  * 
  * description: Simple UI component.
  * 
@@ -13,8 +13,8 @@
  *   - phi/ui/Component
  * 
  */
-Phi.UI.Component = new Class({
-	Extends: Phi.UI.Object,
+phi.ui.Component = new Class({
+	Extends: phi.ui.Object,
 	Binds: ['onResize'],
 	
     element: null,
@@ -122,7 +122,7 @@ Phi.UI.Component = new Class({
 	
 	getParentView: function()
 	{
-		if( instanceOf(this, Phi.Mvc.View))
+		if( instanceOf(this, phi.ui.View))
 			return this;
 			
 		if( this.getParent() )
@@ -239,7 +239,7 @@ Phi.UI.Component = new Class({
 	
 	/**
 	 * Create element for each
-	 * Phi.UI.Component.
+	 * phi.ui.Component.
 	 */
 	createElement: function()
 	{
@@ -304,7 +304,7 @@ Phi.UI.Component = new Class({
 		
 		for( var key in binds )
 		{
-			Phi.Mn.BindManager.bindUsingView(
+			phi.mn.BindManager.bindUsingView(
 				binds[key].view, 	// View 
 				this, 				// Target
 				key, 				// TargetProperty

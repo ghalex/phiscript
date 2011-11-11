@@ -1,7 +1,7 @@
 /**
  *
  * script: Object
- * name: Phi.UI.Object
+ * name: phi.ui.Object
  * 
  * description: Simple UI component.
  * 
@@ -12,7 +12,7 @@
  * requires:
  * 
  */
-Phi.UI.Object = new Class({
+phi.ui.Object = new Class({
 	Extends: Options,
 	Implements: [Events],
 	

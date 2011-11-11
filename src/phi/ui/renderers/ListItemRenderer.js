@@ -1,7 +1,7 @@
 /**
  *
  * script: ListItemRenderer.js
- * name: Phi.UI.ListItemRenderer
+ * name: phi.ui.ListItemRenderer
  * 
  * description: 
  * Item renderer used to render list items. Extend this 
@@ -15,11 +15,11 @@
  *   - phi/ui/renderers/ItemRenderer
  * 
  */
-Phi.UI.ListItemRenderer = new Class({
-	Extends: Phi.UI.ItemRenderer,
+phi.ui.ListItemRenderer = new Class({
+	Extends: phi.ui.ItemRenderer,
 
 	list: null,	
-	className: "Phi.UI.ListItemRenderer",
+	className: "phi.ui.ListItemRenderer",
 
 	/**
 	 * Returns list item DOM element

@@ -1,7 +1,7 @@
 /**
  *
  * script: VBox.js
- * name: Phi.UI.VBox
+ * name: phi.ui.VBox
  * 
  * description: This layout component arrange all children vertical.
  * 
@@ -13,8 +13,8 @@
  *   - phi/ui/containers/CellBox.js
  * 
  */
-Phi.UI.VBox = new Class({
-	Extends: Phi.UI.CellBox,
+phi.ui.VBox = new Class({
+	Extends: phi.ui.CellBox,
 	Binds: ['onChildHeightChange'],
 	
 	options: {
@@ -107,8 +107,8 @@ Phi.UI.VBox = new Class({
  * Factory method.
  * @param options.
  */
-Phi.UI.VBox.create = function( options )
+phi.ui.VBox.create = function( options )
 {
-	var result = new Phi.UI.VBox( options );
+	var result = new phi.ui.VBox( options );
 	return result;
 };

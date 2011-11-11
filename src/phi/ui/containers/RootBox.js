@@ -1,11 +1,11 @@
 /**
  *
  * script: RootBox.js
- * name: Phi.UI.RootBox
+ * name: phi.ui.RootBox
  * 
  * description: 
  * This is the main container. You must use this like 
- * this: Phi.UI.RootBox.get().addChild( child )
+ * this: phi.ui.RootBox.get().addChild( child )
  * 
  * 
  * authors:
@@ -15,8 +15,8 @@
  *   - phi/ui/containers/Container.js
  * 
  */
-Phi.UI.RootBox = new Class({
-	Extends: Phi.UI.Container,
+phi.ui.RootBox = new Class({
+	Extends: phi.ui.Container,
 	
 	percentageWidth: 0,
 	percentageHeight: 0,
@@ -27,12 +27,12 @@ Phi.UI.RootBox = new Class({
 		
 		// Throw error if an instance of this class
 		// allredy exist.
-		if( Phi.UI.RootBox.instance )
-			throw new Error("Please use Phi.UI.RootBox.get() to access RootBox!");
+		if( phi.ui.RootBox.instance )
+			throw new Error("Please use phi.ui.RootBox.get() to access RootBox!");
 		
 		// Save this instance
 		// Because this is a singleton class
-		Phi.UI.RootBox.instance = this;
+		phi.ui.RootBox.instance = this;
 	},
 	
 	updateSize: function()
@@ -86,12 +86,12 @@ Phi.UI.RootBox = new Class({
 
 });
 
-Phi.UI.RootBox.getInstance = function()
+phi.ui.RootBox.getInstance = function()
 {
-	return Phi.UI.RootBox.instance || new Phi.UI.RootBox();
+	return phi.ui.RootBox.instance || new phi.ui.RootBox();
 };
 
-Phi.UI.RootBox.get = function()
+phi.ui.RootBox.get = function()
 {
 	var element = $$("body")[0];
 	var instance = element.retrieve( "rootBox" );
@@ -101,7 +101,7 @@ Phi.UI.RootBox.get = function()
 
 	// If this is the first instance we create it
 	// and store it to element.		
-	instance = Phi.UI.RootBox.getInstance();
+	instance = phi.ui.RootBox.getInstance();
 	element.store( "rootBox", instance );
 	
     // Inject element to DOM

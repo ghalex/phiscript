@@ -1,7 +1,7 @@
 /**
  *
  * script: Container.js
- * name: Phi.UI.Container
+ * name: phi.ui.Container
  * 
  * description: This is base class for all UI components that can have children.
  * 
@@ -13,12 +13,12 @@
  *   - phi/ui/Component.js
  *	 - phi/core/ChildList.js
  *	 - phi/core/Iterator.js
- *   - phi/core/ArrayCollection.js
+ *   - phi/collections/ArrayCollection.js
  * 
  */
-Phi.UI.Container = new Class({
-	Extends: Phi.UI.Component,
-	Implements: [Phi.Core.ChildList],
+phi.ui.Container = new Class({
+	Extends: phi.ui.Component,
+	Implements: [phi.core.ChildList],
 	
 	initialize: function(options)
 	{
@@ -57,7 +57,7 @@ Phi.UI.Container = new Class({
 	
 	createIterator: function()
 	{
-		return new Phi.Core.Iterator( new Phi.Core.ArrayCollection( this.children ));	
+		return new phi.core.Iterator( new phi.collections.ArrayCollection( this.children ));	
 	},
 	
 	createElement: function()

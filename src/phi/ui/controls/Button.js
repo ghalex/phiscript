@@ -1,7 +1,7 @@
 /**
  *
  * script: Button.js
- * name: Phi.UI.Button
+ * name: phi.ui.Button
  * 
  * description: Simple button.
  * 
@@ -13,8 +13,8 @@
  *   - phi/ui/Component
  * 
  */
-Phi.UI.Button = new Class({
-	Extends: Phi.UI.Component,
+phi.ui.Button = new Class({
+	Extends: phi.ui.Component,
 	
 	text: "",
 
@@ -54,8 +54,8 @@ Phi.UI.Button = new Class({
  * Factory method.
  * @param options.
  */
-Phi.UI.Button.create = function( options )
+phi.ui.Button.create = function( options )
 {
-	var result = new Phi.UI.Button( options );
+	var result = new phi.ui.Button( options );
 	return result;
 };

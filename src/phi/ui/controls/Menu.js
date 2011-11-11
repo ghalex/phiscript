@@ -1,7 +1,7 @@
 /**
  *
  * script: Menu.js
- * name: Phi.UI.Menu
+ * name: phi.ui.Menu
  * 
  * description: Menu component
  * 
@@ -14,8 +14,8 @@
  *	 - phi/ui/containers/List.js
  * 
  */
-Phi.UI.Menu = new Class({
-	Extends: Phi.UI.PopUp,
+phi.ui.Menu = new Class({
+	Extends: phi.ui.PopUp,
 	Binds: ['onItemRollOver','onItemClick'],
 	
 	options: {
@@ -31,10 +31,10 @@ Phi.UI.Menu = new Class({
 	{
 		this.parent(options);
 		
-		this.list = new Phi.UI.List();
+		this.list = new phi.ui.List();
 		this.list.setWidth(200);
 		this.list.setSelectable(false);
-		this.list.setItemRenderer( Phi.UI.MenuItemRenderer );
+		this.list.setItemRenderer( phi.ui.MenuItemRenderer );
 		this.list.addEvent("itemRollOver", this.onItemRollOver);
 		this.list.addEvent("itemClick", this.onItemClick);
 		this.parentChild = null;
@@ -141,7 +141,7 @@ Phi.UI.Menu = new Class({
 		if( children )
 		{
 			if( !this.childMenu )
-				this.childMenu = new Phi.UI.Menu();
+				this.childMenu = new phi.ui.Menu();
 			
 			if(child != this.childMenu.parentChild)
 			{
@@ -200,9 +200,9 @@ Phi.UI.Menu = new Class({
  * Factory method.
  * @param options.
  */
-Phi.UI.Menu.create = function( options )
+phi.ui.Menu.create = function( options )
 {
-	var result = new Phi.UI.Menu();
+	var result = new phi.ui.Menu();
 	return result;
 };
 

@@ -1,7 +1,7 @@
 /**
  *
  * script: BindWatcher.js
- * name: Phi.Core.BindWatcher
+ * name: phi.core.BindWatcher
  * 
  * description: Provides a way to access elements of an ArrayCollection
  * 
@@ -12,8 +12,8 @@
  * requires:
  * 
  */
-Phi.Core.BindViewWatcher = new Class({
-	Extends: Phi.Core.BindWatcher,
+phi.core.BindViewWatcher = new Class({
+	Extends: phi.core.BindWatcher,
 	Implements: [Events],
 	Binds: ['updateChain'],
 	

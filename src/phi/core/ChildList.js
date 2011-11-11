@@ -1,10 +1,10 @@
 /**
  *
  * script: ChildList.js
- * name: Phi.Core.ChildList
+ * name: phi.core.ChildList
  * 
  * description: 
- * This class is used by Phi.UI.Container to manage children.
+ * This class is used by phi.ui.Container to manage children.
  * 
  * 
  * authors:
@@ -14,7 +14,7 @@
  *   - core/Events
  * 
  */
-Phi.Core.ChildList = new Class({
+phi.core.ChildList = new Class({
 	Implements: [Events],
 	children: [],
 	
@@ -25,8 +25,8 @@ Phi.Core.ChildList = new Class({
 	
 	addChildAt: function( child, index )
 	{
-		if( !instanceOf(child, Phi.UI.Component) )
-			throw new Error( "Child must be an instance of Phi.UI.Component!");
+		if( !instanceOf(child, phi.ui.Component) )
+			throw new Error( "Child must be an instance of phi.ui.Component!");
 		
 		// Remove child from old parent
 		// if child was not removed before
@@ -91,8 +91,8 @@ Phi.Core.ChildList = new Class({
 	
 	removeChild: function( child )
 	{
-		if( !instanceOf(child, Phi.UI.Component) )
-			throw new Error( "Child must be a Phi.UI.Component!");
+		if( !instanceOf(child, phi.ui.Component) )
+			throw new Error( "Child must be a phi.ui.Component!");
 		
 		var index = this.getChildIndex( child );
 		

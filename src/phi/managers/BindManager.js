@@ -1,7 +1,7 @@
 /**
  *
  * script: BindManager.js
- * name: Phi.Mn.BindManager
+ * name: phi.mn.BindManager
  * 
  * description: Used to create a popup
  * 
@@ -13,16 +13,16 @@
  * 
  */
 
-Phi.Mn.BindManager = {};
-Phi.Mn.BindManager.watchers = [];
+phi.mn.BindManager = {};
+phi.mn.BindManager.watchers = [];
 
 /**
  * Bind a source.property to target.property
  */
-Phi.Mn.BindManager.bind = function(target, targetProperty, source,  sourceProperty)
+phi.mn.BindManager.bind = function(target, targetProperty, source,  sourceProperty)
 {
-	var watcher = new Phi.Core.BindWatcher(target, targetProperty, source,  sourceProperty);
-	Phi.Mn.BindManager.watchers.push( watcher );
+	var watcher = new phi.core.BindWatcher(target, targetProperty, source,  sourceProperty);
+	phi.mn.BindManager.watchers.push( watcher );
 	
 	return watcher;
 };
@@ -30,22 +30,22 @@ Phi.Mn.BindManager.bind = function(target, targetProperty, source,  sourceProper
 /**
  * Bind a view.source.property to target.property
  */
-Phi.Mn.BindManager.bindUsingView = function(view, target, targetProperty, source,  sourceProperty)
+phi.mn.BindManager.bindUsingView = function(view, target, targetProperty, source,  sourceProperty)
 {
-	var watcher = new Phi.Core.BindViewWatcher(view, target, targetProperty, source,  sourceProperty);
-	Phi.Mn.BindManager.watchers.push( watcher );
+	var watcher = new phi.core.BindViewWatcher(view, target, targetProperty, source,  sourceProperty);
+	phi.mn.BindManager.watchers.push( watcher );
 	
 	return watcher;
 };
 
-Phi.Mn.BindManager.removeWatchers = function( target )
+phi.mn.BindManager.removeWatchers = function( target )
 {
-	Phi.Mn.BindManager.watchers.each(
+	phi.mn.BindManager.watchers.each(
 		function( watcher ) {
 			if( watcher.target == target )
 			{
 				watcher.destory();
-				Phi.Mn.BindManager.watchers.erase( watcher );
+				phi.mn.BindManager.watchers.erase( watcher );
 			}
 						
 		}

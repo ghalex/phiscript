@@ -1,7 +1,7 @@
 /**
  *
  * script: TitleWindow.js
- * name: Phi.UI.TitleWindow
+ * name: phi.ui.TitleWindow
  * 
  * description: This component is used to display a window with title.
  * 
@@ -13,8 +13,8 @@
  *   - phi/ui/containers/CellBox.js
  * 
  */
-Phi.UI.TitleWindow = new Class({
-	Extends: Phi.UI.Container,
+phi.ui.TitleWindow = new Class({
+	Extends: phi.ui.Container,
 	
 	headerElement: null,
 	titleElement: null,
@@ -113,7 +113,7 @@ Phi.UI.TitleWindow = new Class({
 	{
 		if( !this.drag )
 		{
-			var popUp = Phi.Mn.PopUpManager.getPopUpForView( this.getParent() );
+			var popUp = phi.mn.PopUpManager.getPopUpForView( this.getParent() );
 			
 			if( popUp )
 			{
@@ -131,8 +131,8 @@ Phi.UI.TitleWindow = new Class({
  * Factory method.
  * @param options.
  */
-Phi.UI.TitleWindow.create = function( options )
+phi.ui.TitleWindow.create = function( options )
 {
-	var result = new Phi.UI.TitleWindow( options );
+	var result = new phi.ui.TitleWindow( options );
 	return result;
 };

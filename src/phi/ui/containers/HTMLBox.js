@@ -1,9 +1,9 @@
 /**
  *
  * script: HTMLBox.js
- * name: Phi.UI.HTMLBox
+ * name: phi.ui.HTMLBox
  * 
- * description: This container is used to inject a Phi.UI.Component into a specific HTML element
+ * description: This container is used to inject a phi.ui.Component into a specific HTML element
  * 
  * 
  * authors:
@@ -13,8 +13,8 @@
  *   - phi/ui/containers/Container.js
  * 
  */
-Phi.UI.HTMLBox = new Class({
-	Extends: Phi.UI.Container,
+phi.ui.HTMLBox = new Class({
+	Extends: phi.ui.Container,
 	
 	initialize: function(element, options)
 	{

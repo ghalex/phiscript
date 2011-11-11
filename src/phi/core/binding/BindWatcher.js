@@ -1,7 +1,7 @@
 /**
  *
  * script: BindWatcher.js
- * name: Phi.Core.BindWatcher
+ * name: phi.core.BindWatcher
  * 
  * description: Provides a way to access elements of an ArrayCollection
  * 
@@ -12,7 +12,7 @@
  * requires:
  * 
  */
-Phi.Core.BindWatcher = new Class({
+phi.core.BindWatcher = new Class({
 	Implements: [Events],
 	Binds: ['applyBind'],
 	
@@ -39,11 +39,18 @@ Phi.Core.BindWatcher = new Class({
 	
 	bindSource: function()
 	{
-		if( this.getSource() === null || this.getSource() === undefined )
+		var source = this.getSource();
+		
+		if( source  === null || source === undefined )
 			return;
 		
-		if( !this.isSourceBind() );
-			this.getSource().addEvent('propertyChange', this.applyBind);
+		if ( source.addEvent ) 
+		{
+			if( !this.isSourceBind() )
+				source.addEvent('propertyChange', this.applyBind);
+		}
+		else
+			console.warn("Source ("+ source +") cannot be bind, please use 'ProxObject' to wrap your object for binding to work!")
 	},
 	
 	isSourceBind: function()
@@ -53,10 +60,21 @@ Phi.Core.BindWatcher = new Class({
 	
 	applyBind: function()
 	{
+		var source = this.getSource();
+		var value  = null;
+		
 		if( this.getSource() === null || this.getSource() === undefined )
 			return;
+		
+		if( source.get )
+			value = source.get( this.sourceProperty );
+		else
+			value = source[ this.sourceProperty ];
 			
-		this.target.set( this.targetProperty, this.getSource().get( this.sourceProperty ) );
+		if( this.target.set )
+			this.target.set( this.targetProperty, value );
+		else
+			this.target[ this.targetProperty ] = value;
 	}
 });
 

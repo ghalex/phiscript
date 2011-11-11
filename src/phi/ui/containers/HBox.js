@@ -1,7 +1,7 @@
 /**
  *
  * script: HBox.js
- * name: Phi.UI.HBox
+ * name: phi.ui.HBox
  * 
  * description: This layout component arrange all children horizontal.
  * 
@@ -13,8 +13,8 @@
  *   - phi/ui/containers/CellBox.js
  * 
  */
-Phi.UI.HBox = new Class({
-	Extends: Phi.UI.CellBox,
+phi.ui.HBox = new Class({
+	Extends: phi.ui.CellBox,
 	Binds: ['onChildWidthChange'],
 	
 	options: {
@@ -108,8 +108,8 @@ Phi.UI.HBox = new Class({
  * Factory method.
  * @param options.
  */
-Phi.UI.HBox.create = function( options )
+phi.ui.HBox.create = function( options )
 {
-	var result = new Phi.UI.HBox( options );
+	var result = new phi.ui.HBox( options );
 	return result;
 };

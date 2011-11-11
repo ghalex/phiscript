@@ -1,7 +1,7 @@
 /**
  *
  * script: CheckBox.js
- * name: Phi.UI.CheckBox
+ * name: phi.ui.CheckBox
  * 
  * description: Checkbox control
  * 
@@ -13,8 +13,8 @@
  *   - phi/ui/Component
  * 
  */
-Phi.UI.CheckBox = new Class({
-	Extends: Phi.UI.Component,
+phi.ui.CheckBox = new Class({
+	Extends: phi.ui.Component,
 	
 	options: {
 		checked: null
@@ -68,8 +68,8 @@ Phi.UI.CheckBox = new Class({
  * Factory method.
  * @param options.
  */
-Phi.UI.CheckBox.create = function( options )
+phi.ui.CheckBox.create = function( options )
 {
-	var result = new Phi.UI.CheckBox( options );
+	var result = new phi.ui.CheckBox( options );
 	return result;
 }

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <View width="100%"
 	  height="100%"
 	  onCreationComplete="creationComplete()"
@@ -68,18 +67,19 @@
 		
 		creationComplete: function()
 		{
-			this.setData( new Phi.Mvc.Model({tasks: this.buildTasks() }));
+			this.setData({tasks: this.buildTasks() });
 		},
 		
 		buildTasks: function()
 		{
-			var tasks = new Phi.Core.ArrayCollection();
+			var tasks = new phi.collections.ArrayCollection();
 			
-			tasks.addItem( new Phi.Mvc.Model({label: "High:", type: 'priority'}));
-			tasks.addItem( new Phi.Mvc.Model({label: "Task1", isDone: false}));
-			tasks.addItem( new Phi.Mvc.Model({label: "Create a list", isDone: false}));
-			tasks.addItem( new Phi.Mvc.Model({label: "Low:", type: 'priority'}));
-			tasks.addItem( new Phi.Mvc.Model({label: "Sheet", isDone: false}));
+			tasks.useProxyObjects( true ); // this will change addItem to addItem( new phi.core.ProxyObject( {label:"Task1"} ))
+			tasks.addItem( {label: "High:"} );
+			tasks.addItem( {label: "Task1"} );
+			tasks.addItem( {label: "Create a list"} );
+			tasks.addItem( {label: "Low:"} );
+			tasks.addItem( {label: "Sheet"} );
 			
 			return tasks;
 		},
@@ -97,7 +97,7 @@
 			if( this.tasksList.getSelectedIndex() > -1 )
 				index = this.tasksList.getSelectedIndex() + 1;
 				
-			tasks.addItemAt( new Phi.Mvc.Model({label: this.itemNameTi.getText()}), index);
+			tasks.addItemAt( {label: this.itemNameTi.getText()}, index);
 			this.itemNameTi.setText("");
 		},
 		

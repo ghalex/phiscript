@@ -1,27 +1,27 @@
 var ListView = new Class({
 
-	Extends: Phi.Mvc.View,
+	Extends: phi.ui.View,
 
 	hbox22: function()
 	{
-		var result = Phi.UI.HBox.create({'gap':'2'})
-		result.addChild( Phi.UI.TextInput.create({'binds':{'text':{'value':'label','view':this,'source':'tasksList.selectedItem'}},'id':'itemNameTi','width':'160'}) )
-		result.addChild( Phi.UI.Button.create({'text':'Add','onClick':this.addTask.bind(this)}) )
-		result.addChild( Phi.UI.Button.create({'style':'danger','text':'Delete','onClick':this.deleteTask.bind(this)}) )
+		var result = phi.ui.HBox.create({'gap':'2'})
+		result.addChild( phi.ui.TextInput.create({'id':'itemNameTi','width':'160','binds':{'text':{'source':'tasksList.selectedItem','value':'label','view':this}}}) )
+		result.addChild( phi.ui.Button.create({'text':'Add','onClick':this.addTask.bind(this)}) )
+		result.addChild( phi.ui.Button.create({'text':'Delete','style':'danger','onClick':this.deleteTask.bind(this)}) )
 		return result
 	},
 
 	vbox21: function()
 	{
-		var result = Phi.UI.VBox.create({'horizontalAlign':'center','gap':'4'})
+		var result = phi.ui.VBox.create({'gap':'4','horizontalAlign':'center'})
 		result.addChild( this.hbox22() )
-		result.addChild( Phi.UI.List.create({'binds':{'dataProvider':{'value':'tasks','view':this,'source':'data'}},'width':'400','id':'tasksList','height':'400'}) )
+		result.addChild( phi.ui.List.create({'id':'tasksList','height':'400','width':'400','binds':{'dataProvider':{'source':'data','value':'tasks','view':this}}}) )
 		return result
 	},
 
 	vbox20: function()
 	{
-		var result = Phi.UI.VBox.create({'horizontalAlign':'center','width':'100%','verticalAlign':'middle','border':'0','height':'100%'})
+		var result = phi.ui.VBox.create({'height':'100%','verticalAlign':'middle','width':'100%','border':'0','horizontalAlign':'center'})
 		result.addChild( this.vbox21() )
 		return result
 	},
@@ -31,15 +31,17 @@ var ListView = new Class({
 		
 		creationComplete: function()
 		{
-			this.setData( new Phi.Mvc.Model({tasks: this.buildTasks() }));
+			this.setData( new phi.core.ProxyObject({tasks: this.buildTasks() }));
 		},
 		
 		buildTasks: function()
 		{
-			var tasks = new Phi.Core.ArrayCollection();
+			var tasks = new phi.collections.ArrayCollection();
 			
-			tasks.addItem( new Phi.Mvc.Model({label: "Task1", isDone: false}));
-			tasks.addItem( new Phi.Mvc.Model({label: "Task2", isDone: false}));
+			tasks.useProxyObjects( true ); // This will encapsulate the {} object in new ProxyObject( {} )
+			
+			tasks.addItem( {label: "Task1", isDone: false} );
+			tasks.addItem( {label: "Task2", isDone: false} );
 			
 			return tasks;
 		},
@@ -47,7 +49,7 @@ var ListView = new Class({
 		addTask: function()
 		{
 			var tasks = this.tasksList.getDataProvider();
-			tasks.addItem( new Phi.Mvc.Model({label: this.itemNameTi.getText()}));
+			tasks.addItem( {label: this.itemNameTi.getText()} );
 		},
 		
 		deleteTask: function()
@@ -63,7 +65,7 @@ var ListView = new Class({
 
 	initialize: function()
 	{
-		this.parent({'onCreationComplete':this.creationComplete.bind(this),'width':'100%','id':'listView','height':'100%'})
+		this.parent({'id':'listView','height':'100%','onCreationComplete':this.creationComplete.bind(this),'width':'100%'})
 	},
 });
 

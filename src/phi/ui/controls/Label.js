@@ -1,7 +1,7 @@
 /**
  *
  * script: Lable.js
- * name: Phi.UI.Label
+ * name: phi.ui.Label
  * 
  * description: Simple text.
  * 
@@ -13,8 +13,8 @@
  *   - phi/ui/Component
  * 
  */
-Phi.UI.Label = new Class({
-	Extends: Phi.UI.Component,
+phi.ui.Label = new Class({
+	Extends: phi.ui.Component,
 	
 	text: "",
 	
@@ -81,8 +81,8 @@ Phi.UI.Label = new Class({
  * Factory method.
  * @param options.
  */
-Phi.UI.Label.create = function( options )
+phi.ui.Label.create = function( options )
 {
-	var result = new Phi.UI.Label( options );
+	var result = new phi.ui.Label( options );
 	return result;
 };
