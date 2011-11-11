@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ListItemRenderer>
+<ListItemRenderer onCreationComplete="creationComplete()">
 
 	<Import className="popups.AddNewTaskPopUp" />
 	
@@ -16,18 +16,41 @@
 		
 		<Image source="assets/images/create.gif"
 			   onMousedown="stopSelectingTask()"
-			   onClick="showOptionsPopUp()"
+			   onClick="showAddPopUp()"
 			   buttonMode="true" />
 			   
 		<Image source="assets/images/delete.png" 
 			   onClick="deleteTask()" 
 			   buttonMode="true" />
 			   	   
-		<Image source="assets/images/options.png"
+		<Image id="optionsBtn"
+			   source="assets/images/options.png"
+			   onMousedown="stopSelectingTask()"
+			   onClick="showOptionsMenu()"
 			   buttonMode="true" />
 	</HBox>
 	
 	<JavaScript>
+		
+		creationComplete: function()
+		{
+			
+		},
+			
+		showAddPopUp: function()
+		{
+			var popUp = Phi.Mn.PopUpManager.createPopUp( AddNewTaskPopUp, {hideOnClick: false} );
+			
+			popUp.show( true );
+			popUp.center();
+		},
+		
+		showOptionsMenu: function()
+		{
+			this.optionsMenu = new Phi.UI.Menu();
+			this.optionsMenu.setDataProvider( this.menuDp() );
+			this.optionsMenu.snapTo( this.optionsBtn );
+		},
 		
 		putTaskAsDone: function( event )
 		{
@@ -43,18 +66,23 @@
 		{
 			this.sendMessage("deleteTask", {task: this.data});
 		},
-		
-		showOptionsPopUp: function()
-		{
-			var popUp = Phi.Mn.PopUpManager.createPopUp( AddNewTaskPopUp, {hideOnClick: false} );
-			
-			popUp.show( true );
-			popUp.center();
-		},
-		
+	
 		stopSelectingTask: function( event )
 		{
 			event.stop();
+		},
+		
+		menuDp: function()
+		{
+			var op = new Phi.Core.ArrayCollection();
+			
+			op.addItem( new Phi.Mvc.Model({label: "Move Up"}));
+			op.addItem( new Phi.Mvc.Model({label: "Move Down"}));
+			op.addItem( new Phi.Mvc.Model({type: "separator"}));
+			op.addItem( new Phi.Mvc.Model({label: "Settings"}));
+			
+			return op;
 		}
+		
 	</JavaScript>
 </ListItemRenderer>

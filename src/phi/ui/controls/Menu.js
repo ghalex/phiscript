@@ -29,16 +29,21 @@ Phi.UI.Menu = new Class({
 	
 	initialize: function(options)
 	{
-		this.parent(options);
+		this.parent( options );
 		
-		this.list = new Phi.UI.List();
-		this.list.setWidth(200);
-		this.list.setSelectable(false);
-		this.list.setItemRenderer( Phi.UI.MenuItemRenderer );
-		this.list.addEvent("itemRollOver", this.onItemRollOver);
-		this.list.addEvent("itemClick", this.onItemClick);
-		this.parentChild = null;
+		// Menu init vars
 		this.childMenu = null;
+		this.parentChild = null;
+		
+		// Menu list
+		this.list = Phi.UI.List.create({
+			width: "100%",
+			height: "100%",
+			selectable: false,
+			itemRendererFunction: this.listItemRendererFunction,
+			onItemRollOver: this.onItemRollOver,
+			onItemClick: this.onItemClick,
+		});
 		
 		this.addChild( this.list );
 	},
@@ -84,6 +89,14 @@ Phi.UI.Menu = new Class({
 	//-------------------------------------------------------------------
 	// Protected functions
 	//-------------------------------------------------------------------
+	
+	listItemRendererFunction: function( data )
+	{
+		if( data.get('type') == 'separator')
+			return Phi.UI.MenuSeparatorRenderer;
+			
+		return Phi.UI.MenuItemRenderer;
+	},
 	
 	elementToMenu: function( element )
 	{
@@ -202,7 +215,7 @@ Phi.UI.Menu = new Class({
  */
 Phi.UI.Menu.create = function( options )
 {
-	var result = new Phi.UI.Menu();
+	var result = new Phi.UI.Menu( options );
 	return result;
 };
 

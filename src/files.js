@@ -54,6 +54,7 @@ var files = [
 	'ui/renderers/ListItemRenderer.js',
 	'ui/renderers/DefaultListItemRenderer.js',
 	'ui/renderers/MenuItemRenderer.js',
+	'ui/renderers/MenuSeparatorRenderer.js',
 	'ui/containers/ListBase.js',
 	'ui/containers/List.js',
 	'ui/controls/Menu.js'

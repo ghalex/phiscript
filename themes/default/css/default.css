@@ -234,6 +234,38 @@ button
 }
 
 /**
+ * Phi.UI.Menu
+ * 
+ * Style for Menu component.
+ */
+
+.phi-Menu .phi-List
+{
+	padding: 2px 0px;
+	min-width: 100px;
+}
+
+.phi-Menu .phi-ListItem
+{
+	font-weight: bold;
+	font-size: 11px;
+	background-color: #FFFFFF;
+	border: 0px solid;
+	padding: 3px 0px 3px 0px;
+}
+
+.phi-Menu .phi-ListItem.over
+{
+	background-color: #EFEFEF;
+}
+
+.phi-Menu .phi-Separator
+{
+	margin: 5px 0px;
+	padding: 0px;
+	border-top: 1px solid #ccc;
+}
+/**
  * Phi.UI.TitleWindow
  * 
  * Style for TitleWindow and two sections:
@@ -242,7 +274,6 @@ button
  * 		- .close
  * 	- .body
  */
-
 .phi-TitleWindow
 {
 	background-color: #ffffff;
