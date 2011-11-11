@@ -9,16 +9,21 @@
 		  paddingLeft="10">
 		  
 		<CheckBox id="chk"
-				  onMousedown="onMDown()"
+				  onMousedown="stopSelectingTask()"
 				  onClick="putTaskAsDone()" />
 		
 		<Label id="taskTitleLb" text="{this.data.label}" width="100%" />
+		
+		<Image source="assets/images/create.gif"
+			   onMousedown="stopSelectingTask()"
+			   onClick="showOptionsPopUp()"
+			   buttonMode="true" />
+			   
 		<Image source="assets/images/delete.png" 
 			   onClick="deleteTask()" 
 			   buttonMode="true" />
-			   
+			   	   
 		<Image source="assets/images/options.png"
-			   onClick="showOptionsPopUp()"
 			   buttonMode="true" />
 	</HBox>
 	
@@ -47,7 +52,7 @@
 			popUp.center();
 		},
 		
-		onMDown: function( event )
+		stopSelectingTask: function( event )
 		{
 			event.stop();
 		}

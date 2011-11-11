@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<View width="300" height="160">
+<View width="300" height="130">
 
 	<TitleWindow width="100%" 
 				 height="100%"
@@ -12,16 +12,12 @@
 		  <VBox gap="4" paddingLeft="10" paddingTop="10">
 		  	<HBox>
 				<Label text="Title:" width="100" />
-				<TextInput width="150" />
+				<TextInput id="taskTitleTi" width="150" />
 			</HBox>
 			
-			<HBox>
-				<Label text="Description:" width="100" />
-				<TextInput width="150" />
-			</HBox>
 			
 			<HBox paddingLeft="100">
-				<Button text="Save" style="primary" />
+				<Button text="Save" style="primary" onClick="addTask()" />
 			</HBox>
 		  </VBox>
 		  
@@ -33,6 +29,12 @@
 		{
 			var popUp = Phi.Mn.PopUpManager.getPopUpForView( this );
 			popUp.hide();
+		},
+		
+		addTask: function()
+		{
+			this.sendMessage('addTask', {taskTitle: this.taskTitleTi.getText() });
+			this.closePopUp();
 		}
 		
 	</JavaScript>

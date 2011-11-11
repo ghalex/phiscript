@@ -55,12 +55,13 @@
 	<JavaScript>
 		
 		messages: {
-			deleteTask: 'onDeleteTask',
+			addTask: 'onAddTask', // This message is send by popup
+			deleteTask: 'onDeleteTask', // This message is send from ItemRenderer
 		},
 		
 		rendererFunction: function( item )
 		{
-			if( item.get('type') === 'priority' )
+			if( item.get('label').substr( item.get('label').length-1, 1 ) === ':' )
 				return PriorityItemRenderer;
 				
 			return TaskItemRenderer;
@@ -75,10 +76,10 @@
 		{
 			var tasks = new Phi.Core.ArrayCollection();
 			
-			tasks.addItem( new Phi.Mvc.Model({label: "High:", type: 'priority'}));
+			tasks.addItem( new Phi.Mvc.Model({label: "High:"}));
 			tasks.addItem( new Phi.Mvc.Model({label: "Task1", isDone: false}));
 			tasks.addItem( new Phi.Mvc.Model({label: "Create a list", isDone: false}));
-			tasks.addItem( new Phi.Mvc.Model({label: "Low:", type: 'priority'}));
+			tasks.addItem( new Phi.Mvc.Model({label: "Low:"}));
 			tasks.addItem( new Phi.Mvc.Model({label: "Sheet", isDone: false}));
 			
 			return tasks;
@@ -89,7 +90,7 @@
 			this.sendMessage("logout");
 		},
 		
-		addTask: function()
+		addTaskWithTitle: function( title )
 		{
 			var tasks = this.tasksList.getDataProvider();
 			var index = this.tasksList.getChildren().length;
@@ -97,8 +98,13 @@
 			if( this.tasksList.getSelectedIndex() > -1 )
 				index = this.tasksList.getSelectedIndex() + 1;
 				
-			tasks.addItemAt( new Phi.Mvc.Model({label: this.itemNameTi.getText()}), index);
+			tasks.addItemAt( new Phi.Mvc.Model({label: title }), index);
 			this.itemNameTi.setText("");
+		},
+		
+		addTask: function()
+		{
+			this.addTaskWithTitle( this.itemNameTi.getText() );
 		},
 		
 		editTask: function()
@@ -115,6 +121,11 @@
 			
 			this.tasksList.getDataProvider().removeItem( selectedTask );
 			this.itemNameTi.setText("");
+		},
+		
+		onAddTask: function( msg )
+		{
+			this.addTaskWithTitle( msg.taskTitle );
 		},
 		
 		onDeleteTask: function( msg )
