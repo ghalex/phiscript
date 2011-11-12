@@ -10,14 +10,15 @@
 	<script src="libs/underscore.js" type="text/javascript"></script>
 	
 	<!-- PhiScript -->
-	<script src="../src/files.js" type="text/javascript"></script>
+	<script src="../bin/phiscript.min-0.8.5.js" type="text/javascript"></script>
+	<script src="src/phi/view/MainView.js" type="text/javascript"></script>
 	
 	<script>
 		
 		window.addEvent('domready', function() 
 		{
-			require( files, {baseUrl: "../src/phi/"}, function(){
-				require( ['src/phi/view/MainView.js'], {}, function(){
+			//require( files, {baseUrl: "../src/phi/"}, function(){
+			//	require( ['src/phi/view/MainView.js'], {}, function(){
 				
 				// Load default theme
 				phi.mn.ThemeManager.setDirectory( "../themes/" );
@@ -34,8 +35,8 @@
 				// Add generated view to RootBox
 				rootBox.addChild( mainView );
 				
-				});
-			});
+			//	});
+			//});
 		});
 	</script>
 	

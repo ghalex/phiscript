@@ -29,8 +29,8 @@ phi.ui.TextInput = new Class({
 		this.parent( options );
 		
 		// Add listners
-		this.addEvent('keydown', this.onKeyDown)
-		this.addEvent('keyup', this.onKeyUp);
+		this.addEvent('keydown', this.onInputKeyDown)
+		this.addEvent('keyup', this.onInputKeyUp);
 	},
 	
 	setText: function( value )
@@ -80,13 +80,13 @@ phi.ui.TextInput = new Class({
 		this.displayAsPassword( this.options.displayAsPassword );
 	},
 		
-	onKeyUp: function( event )
+	onInputKeyUp: function( event )
 	{
 		this.dispatchEvent("textChange");
 		this.dispatchEvent("propertyChange", {property: 'text', value: this.getText()});
 	},
 	
-	onKeyDown: function( event )
+	onInputKeyDown: function( event )
 	{
 		if( event.key == 'enter' )
 			this.dispatchEvent('enter');

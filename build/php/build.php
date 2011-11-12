@@ -2,7 +2,7 @@
 include_once("buildFunctions.php");
 header("content-type: application/x-javascript");
 
-$version = "0.7.0";
+$version = "0.8.5";
 $buildFile = false;
 $filesDir = "../../src/phi/";
 
