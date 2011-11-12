@@ -38,6 +38,8 @@
 			<Label id="lb1" text="Stay signed in" />
 			
 		</HBox>
+		
+		<Label paddingLeft="100" text="Info: Use *admin* / *admin* to login." style="info" />
 	</VBox>	
 	
 	<JavaScript>

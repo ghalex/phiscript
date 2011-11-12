@@ -44,6 +44,10 @@
 			
 		</List>
 		
+		<VBox>
+			<Label text="- Use keys *Up* and *Down* to select tasks" style="info" />
+			<Label text="- Use *Alt* key to move tasks" style="info" />
+		</VBox>
 		<HBox gap="4">
 			<Button text="Logout!" onClick="logout()" style="success" />
 			
