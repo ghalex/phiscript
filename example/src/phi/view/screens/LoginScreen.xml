@@ -41,6 +41,7 @@
 	</VBox>	
 	
 	<JavaScript>
+		<![CDATA[
 		
 		messages: {
 			logout: 'onLogout'
@@ -73,6 +74,7 @@
 			this.getData().unset('password');
 		}
 		
+		]]>
 	</JavaScript>
 
 </View>

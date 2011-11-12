@@ -3,8 +3,9 @@
 function getFiles()
 {
 	$files = array(
-		'core/Core.js',
-		
+    
+	    'core/Core.js',
+			
 		// Constants 
 		'constants/VerticalAlign.js',
 		'constants/HorizontalAlign.js',
@@ -12,24 +13,24 @@ function getFiles()
 		'constants/PopUpSnap.js',
 		
 		// Core
-		'core/Events.js',
-		'core/Element.js',
-		'core/Iterator.js',
-		'core/ArrayCollection.js',
+		'core/events/Events.js',
+		'core/ProxyObject.js',
 		'core/Function.js',
 		'core/ChildList.js',
-		'core/BindWatcher.js',
-		'core/BindViewWatcher.js',
-		'mvc/Model.js',
-		'mvc/Dispatcher.js',
+		'core/Iterator.js',
+		'core/html/Element.js',
+		'core/html/Table.js',
+		'core/binding/BindWatcher.js',
+		'core/binding/BindViewWatcher.js',
+		'core/messaging/MessageDispatcher.js',
+		
+		// Collections
+		'collections/ArrayCollection.js',
 		
 		// Managers 
 		'managers/PopUpManager.js',
 		'managers/ThemeManager.js',
 		'managers/BindManager.js',
-		
-		// HTML
-		'html/Table.js',
 		
 		// UI
 		'ui/Object.js',
@@ -43,7 +44,7 @@ function getFiles()
 		
 		// Containers
 		'ui/containers/Container.js',
-		'mvc/View.js',
+		'ui/containers/View.js',
 		'ui/containers/TitleWindow.js',
 		'ui/containers/ViewStack.js',
 		'ui/containers/HTMLBox.js',
@@ -57,6 +58,7 @@ function getFiles()
 		'ui/renderers/ListItemRenderer.js',
 		'ui/renderers/DefaultListItemRenderer.js',
 		'ui/renderers/MenuItemRenderer.js',
+		'ui/renderers/MenuSeparatorRenderer.js',
 		'ui/containers/ListBase.js',
 		'ui/containers/List.js',
 		'ui/controls/Menu.js'

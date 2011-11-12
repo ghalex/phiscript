@@ -185,7 +185,7 @@ phi.ui.ListBase = new Class({
 		item.list = this;
 		item.addEvent("mouseenter", this.onItemRollOver);
 		item.addEvent("mouseleave", this.onItemRollOut);
-		item.addEvent("click", this.onItemClick);
+		item.addEvent("mousedown", this.onItemClick);
 		
 		var index = this.getDataProvider().getItemIndex( data );
 		
@@ -214,6 +214,31 @@ phi.ui.ListBase = new Class({
 			var itemList = this.createItem( iterator.current() );
 			this.addChild( itemList );
 		}
+	},
+	
+	moveItem: function( direction, item )
+	{
+		if( !item )
+			item = this.getSelectedItem();
+			
+		if( !item )
+			return;
+			
+		var dp = this.getDataProvider();
+		var index = dp.getItemIndex( item );
+			
+		if( direction == 'up' )
+		{
+			if( index > 0 )
+				index--;
+		} 
+		else if( direction == 'down' )
+		{
+			if( index < dp.length() )
+				index++;
+		}
+					
+		dp.moveItem( item, index );
 	},
 	
 	//-------------------------------------------------------------------
@@ -339,5 +364,31 @@ phi.ui.ListBase = new Class({
 		
 		//this.dispatchEvent("propertyChange");
 		this.dispatchEvent("itemClick", {index:index});
+	},
+	
+	onKeyDown: function( event )
+	{
+		var index = -1;
+		
+		if( event.key == 'up' )
+		{
+			index = this.getSelectedIndex();
+			
+			if( event.alt )
+				this.moveItem('up');
+			
+			if( index > 0 )	
+				this.setSelectedIndex(  index - 1);
+		}
+		else if( event.key == 'down')
+		{
+			index = this.getSelectedIndex();
+			
+			if( event.alt )
+				this.moveItem('down');
+				
+			if( index < this.getDataProvider().length() - 1 )	
+				this.setSelectedIndex(  index + 1 );
+		}
 	}
 });

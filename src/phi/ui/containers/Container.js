@@ -57,7 +57,7 @@ phi.ui.Container = new Class({
 	
 	createIterator: function()
 	{
-		return new phi.core.Iterator( new phi.collections.ArrayCollection( this.children ));	
+		return new phi.core.Iterator( new phi.collections.ArrayCollection({ source: this.children }));	
 	},
 	
 	createElement: function()

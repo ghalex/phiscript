@@ -29,17 +29,23 @@ phi.ui.Menu = new Class({
 	
 	initialize: function(options)
 	{
-		this.parent(options);
+		this.parent( options );
 		
-		this.list = new phi.ui.List();
-		this.list.setWidth(200);
-		this.list.setSelectable(false);
-		this.list.setItemRenderer( phi.ui.MenuItemRenderer );
-		this.list.addEvent("itemRollOver", this.onItemRollOver);
-		this.list.addEvent("itemClick", this.onItemClick);
-		this.parentChild = null;
+		// Menu init vars
 		this.childMenu = null;
+		this.parentChild = null;
 		
+		// Menu list
+		this.list = phi.ui.List.create({
+			width: "100%",
+			height: "100%",
+			selectable: false,
+			itemRendererFunction: this.listItemRendererFunction
+		});
+
+		this.list.addEvent('itemRollOver', this.onItemRollOver);
+		this.list.addEvent('itemClick', this.onItemClick);
+				
 		this.addChild( this.list );
 	},
 	
@@ -55,17 +61,11 @@ phi.ui.Menu = new Class({
 	
 	show: function( x, y )
 	{
-		// Set opacity 0 for fade effect
-		//$(this).set('opacity', 0);
-		
 		// Move menu at specific position
 		this.setPosition(x, y);
 		
 		// Show menu
 		this.parent();
-		
-		//var myFx = new Fx.Tween($(this));
-		//myFx.start('opacity', 0, 1);
 	},
 	
 	hide: function()
@@ -84,6 +84,14 @@ phi.ui.Menu = new Class({
 	//-------------------------------------------------------------------
 	// Protected functions
 	//-------------------------------------------------------------------
+	
+	listItemRendererFunction: function( data )
+	{
+		if( data.get('type') == 'separator')
+			return phi.ui.MenuSeparatorRenderer;
+			
+		return phi.ui.MenuItemRenderer;
+	},
 	
 	elementToMenu: function( element )
 	{
@@ -202,7 +210,7 @@ phi.ui.Menu = new Class({
  */
 phi.ui.Menu.create = function( options )
 {
-	var result = new phi.ui.Menu();
+	var result = new Phi.UI.Menu( options );
 	return result;
 };
 

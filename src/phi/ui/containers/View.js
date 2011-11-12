@@ -29,6 +29,9 @@ phi.ui.View = new Class({
 	
 	useProxyObjects: function( value )
 	{
+		if( value === null || value === undefined )
+			return;
+			
 		this.useProxy = value;	
 	},
 	
@@ -55,6 +58,13 @@ phi.ui.View = new Class({
 	//-------------------------------------------------------------------
 	// Protected functions
 	//-------------------------------------------------------------------
+	
+	onOptionsChange: function()
+	{
+		this.parent();
+		this.useProxyObjects( this.options.useProxyObjects );
+		
+	}.protect(),
 	
 	initElement: function()
 	{

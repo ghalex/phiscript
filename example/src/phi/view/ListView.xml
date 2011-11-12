@@ -31,6 +31,7 @@
 	</VBox>
 
 	<JavaScript>
+		<![CDATA[
 		
 		messages: {
 		},
@@ -64,6 +65,6 @@
 			this.tasksList.getDataProvider().removeItem( selectedTask );
 		}
 		
-		
+		]]>
 	</JavaScript>
 </View>

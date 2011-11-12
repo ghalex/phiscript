@@ -23,6 +23,7 @@
 	</VBox>
 
 	<JavaScript>
+		<![CDATA[
 		
 		messages: {
 			loginSuccess: 'onLoginSuccess',
@@ -44,5 +45,6 @@
 			this.vs.setSelectedIndex(0);
 		}
 		
+		]]>
 	</JavaScript>
 </View>

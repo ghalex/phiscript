@@ -52,14 +52,17 @@
 	</VBox>
 	
 	<JavaScript>
+		<![CDATA[
 		
 		messages: {
-			deleteTask: 'onDeleteTask',
+			addTask: 'onAddTask', // This message is send by popup
+			deleteTask: 'onDeleteTask', // This message is send from ItemRenderer
+			moveTask: 'onMoveTask' // Called from context menu
 		},
 		
 		rendererFunction: function( item )
 		{
-			if( item.get('type') === 'priority' )
+			if( item.get('label').substr( item.get('label').length-1, 1 ) === ':' )
 				return PriorityItemRenderer;
 				
 			return TaskItemRenderer;
@@ -73,7 +76,7 @@
 		buildTasks: function()
 		{
 			var tasks = new phi.collections.ArrayCollection();
-			
+
 			tasks.useProxyObjects( true ); // this will change addItem to addItem( new phi.core.ProxyObject( {label:"Task1"} ))
 			tasks.addItem( {label: "High:"} );
 			tasks.addItem( {label: "Task1"} );
@@ -89,7 +92,7 @@
 			this.sendMessage("logout");
 		},
 		
-		addTask: function()
+		addTaskWithTitle: function( title )
 		{
 			var tasks = this.tasksList.getDataProvider();
 			var index = this.tasksList.getChildren().length;
@@ -97,8 +100,14 @@
 			if( this.tasksList.getSelectedIndex() > -1 )
 				index = this.tasksList.getSelectedIndex() + 1;
 				
-			tasks.addItemAt( {label: this.itemNameTi.getText()}, index);
+			tasks.addItemAt( {label: title}, index);
+			
 			this.itemNameTi.setText("");
+		},
+		
+		addTask: function()
+		{
+			this.addTaskWithTitle( this.itemNameTi.getText() );
 		},
 		
 		editTask: function()
@@ -117,12 +126,23 @@
 			this.itemNameTi.setText("");
 		},
 		
+		onAddTask: function( msg )
+		{
+			this.addTaskWithTitle( msg.taskTitle );
+		},
+		
 		onDeleteTask: function( msg )
 		{
 			this.tasksList.getDataProvider().removeItem( msg.task );
 			this.itemNameTi.setText("");
+		},
+		
+		onMoveTask: function( msg )
+		{
+			this.tasksList.moveItem( msg.direction, msg.task );
 		}
 		
+		]]>
 	</JavaScript>
 	
 </View>

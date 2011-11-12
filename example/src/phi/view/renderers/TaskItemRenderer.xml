@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ListItemRenderer>
+<ListItemRenderer onCreationComplete="creationComplete()">
 
 	<Import className="popups.AddNewTaskPopUp" />
 	
@@ -9,20 +9,72 @@
 		  paddingLeft="10">
 		  
 		<CheckBox id="chk"
-				  onMousedown="onMDown()"
+				  onMousedown="stopSelectingTask()"
 				  onClick="putTaskAsDone()" />
 		
 		<Label id="taskTitleLb" text="{this.data.label}" width="100%" />
+		
+		<Image source="assets/images/create.gif"
+			   onClick="showAddPopUp()"
+			   buttonMode="true" />
+			   
 		<Image source="assets/images/delete.png" 
 			   onClick="deleteTask()" 
 			   buttonMode="true" />
-			   
-		<Image source="assets/images/options.png"
-			   onClick="showOptionsPopUp()"
+			   	   
+		<Image id="optionsBtn"
+			   source="assets/images/options.png"
+			   onMousedown="stopSelectingTask()"
+			   onClick="showOptionsMenu()"
 			   buttonMode="true" />
 	</HBox>
 	
 	<JavaScript>
+		<![CDATA[
+		
+		creationComplete: function()
+		{
+			this.optionsMenu = new phi.ui.Menu();
+			this.optionsMenu.setDataProvider( new phi.collections.ArrayCollection({
+				source: [
+					{label: "Move Up"},
+					{label: "Move Down"},
+					{type: "separator"},
+					{label: "Settings"}
+				], 
+				useProxyObjects: true
+			}));
+			
+			this.optionsMenu.addEvent('itemClick', this.onMenuItemClick.bind(this) );
+		},
+		
+		showAddPopUp: function()
+		{
+			var popUp = phi.mn.PopUpManager.createPopUp( AddNewTaskPopUp, {hideOnClick: false} );
+			
+			popUp.show( true );
+			popUp.center();
+		},
+		
+		showOptionsMenu: function( event )
+		{
+			this.optionsMenu.snapTo( this.optionsBtn );
+		},
+		
+		onMenuItemClick: function( event )
+		{
+			switch( event.index ) {
+				case 0: {
+					this.sendMessage('moveTask', {task: this.getData(), direction: 'up'});
+					break;
+				}
+				
+				case 1: {
+					this.sendMessage('moveTask', {task: this.getData(), direction: 'down'});
+					break;
+				}
+			}
+		},
 		
 		putTaskAsDone: function( event )
 		{
@@ -38,18 +90,12 @@
 		{
 			this.sendMessage("deleteTask", {task: this.data});
 		},
-		
-		showOptionsPopUp: function()
-		{
-			var popUp = Phi.Mn.PopUpManager.createPopUp( AddNewTaskPopUp, {hideOnClick: false} );
-			
-			popUp.show( true );
-			popUp.center();
-		},
-		
-		onMDown: function( event )
+	
+		stopSelectingTask: function( event )
 		{
 			event.stop();
 		}
+		
+		]]>
 	</JavaScript>
 </ListItemRenderer>

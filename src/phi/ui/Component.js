@@ -15,7 +15,7 @@
  */
 phi.ui.Component = new Class({
 	Extends: phi.ui.Object,
-	Binds: ['onResize'],
+	Binds: ['onResize', 'onKeyDown'],
 	
     element: null,
     parentComponent: null,
@@ -46,6 +46,7 @@ phi.ui.Component = new Class({
 				
 		// Add resize event
 		window.addEvent('resize', this.onResize);
+		window.addEvent('keydown', this.onKeyDown );
 	},
 	
 	addClass: function( className )
@@ -327,6 +328,10 @@ phi.ui.Component = new Class({
 	},
 	
 	onResize: function( event )
+	{
+	},
+	
+	onKeyDown: function( event )
 	{
 	}
 });

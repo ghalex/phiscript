@@ -31,19 +31,13 @@ var ListView = new Class({
 		
 		creationComplete: function()
 		{
-			this.setData( new phi.core.ProxyObject({tasks: this.buildTasks() }));
-		},
-		
-		buildTasks: function()
-		{
-			var tasks = new phi.collections.ArrayCollection();
-			
-			tasks.useProxyObjects( true ); // This will encapsulate the {} object in new ProxyObject( {} )
-			
-			tasks.addItem( {label: "Task1", isDone: false} );
-			tasks.addItem( {label: "Task2", isDone: false} );
-			
-			return tasks;
+			this.setData( {tasks: new phi.collections.ArrayCollection{
+				source: [
+					{label: "Task1"},
+					{label: "Task2"}				
+				],
+				useProxyObjects: true	
+			}});
 		},
 		
 		addTask: function()

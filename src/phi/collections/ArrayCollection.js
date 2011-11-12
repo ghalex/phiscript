@@ -18,14 +18,15 @@ phi.collections.ArrayCollection = new Class({
 	Implements: [Events],
 	
 	useProxy: false,
-	source: null,
+	source: [],
 	
-	initialize: function( source ) 
+	initialize: function( options ) 
 	{
-		if( source )
-			this.source = source;
-		else
-			this.source = [];
+		if( options )
+		{
+			this.useProxy = options.useProxyObjects;
+			this.parseSource( options.source );
+		}
 	},
 	
 	addItem: function( item )
@@ -78,10 +79,10 @@ phi.collections.ArrayCollection = new Class({
 		eventArgs.kind = CollectionEventKind.MOVE;
 		
 		// Remove item
-		this.source.splice(event.oldLocation, 1);
+		this.source.splice(eventArgs.oldLocation, 1);
 		
 		// Add item at new location
-		this.source.splice(event.location, 0, pItem );
+		this.source.splice(eventArgs.location, 0, pItem );
 		
 		// Dispatch event
 		this.dispatchEvent("collectionChange", eventArgs);
@@ -145,5 +146,12 @@ phi.collections.ArrayCollection = new Class({
 	toString: function()
 	{
 		return this.source.toString();
+	},
+	
+	parseSource: function( source )
+	{
+		source.each( function( item ){
+			this.addItem( item );
+		}, this);
 	}
 });
