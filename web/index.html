@@ -96,20 +96,16 @@ table td
 			<h1>API <small>(info: NOT complete)</small></h1> 
 		</div>
 		<div>
-			<p>
-				<b>Controls:</b><br/>
+			<p id="uiComponentsList">
+				<b>Components list:</b><br/>
 				<a href="#uiComponent">Component</a> , 
+				<a href="#uiContainer">Container</a>  ,
 				<a href="#uiButton">Button</a> , 
 				<a href="#uiCheckbox">CheckBox</a> , 
 				<a href="#uiImage">Image</a> , 
 				<a href="#uiLabel">Label</a>  ,
 				<a href="#uiTextInput">TextInput</a> , 
-				<a href="#">Menu</a>
-								
-				<br/><br/>
-				
-				<b>Containers:</b><br/>
-				<a href="#">Container</a>  ,
+				<a href="#">Menu</a> , 
 				<a href="#">CellBox</a> , 
 				<a href="#">HBox</a> , 
 				<a href="#">VBox</a> , 
@@ -121,70 +117,84 @@ table td
 
 
 			</p>
-
 			
 			<h3 id="uiComponent">phi.ui.Component <small> <i>extends</i>: <a href="">phi.ui.Object</a></small><a class="nobg" href="#api"><img alt="back" src="images/jumpback.png" /></a></h3>
 
 			<p>
 				<b>Methods:</b>
-				<a href="#uiComponent">addClass</a> , 
-				<a href="#uiComponent_m1">removeClass</a> , 
+				<a href="#">addClass</a> , 
+				<a href="#">removeClass</a> , 
 				<a href="">getPosition</a> , 
-				<a href="#uiComponent_m2">setWidth</a> , 
-				<a href="#uiComponent_m3">setHeight</a> , 
-				<a href="#uiComponent_m4">getWidth</a> , 
-				<a href="#uiComponent_m5">getHeight</a> , 
+				<a href="#">setWidth</a> , 
+				<a href="#">setHeight</a> , 
+				<a href="#">getWidth</a> , 
+				<a href="#">getHeight</a> , 
 				<a href="#">setSize</a> , 
-				<a href="#uiComponent_m6">getParent</a> , 
-				<a href="#uiComponent_m7">getParentView</a> , 
+				<a href="#">getParent</a> , 
+				<a href="#">getParentView</a> , 
 				<a href="#">setVisible</a> , 
 				<a href="#">getVisible</a> , 
 				<a href="#">setEnabled</a> , 
 				<a href="#">getEnabled</a> , 
-				<a href="#">setBackgroundColor</a>  
+				<a href="#">setBackgroundColor</a>
+				<br /><br />
+				
+				<b>Events:</b>
+				<a href="#">added</a> ,
+				<a href="#">removed</a> ,
+				<a href="#">click</a> , 
+				<a href="#">dblclick</a> , 
+				<a href="#">keydown</a> , 
+				<a href="#">keypress</a> , 
+				<a href="#">keyup</a> , 
+				<a href="#">mousedown</a> , 
+				<a href="#">mousemove</a> , 
+				<a href="#">mouseout</a> , 
+				<a href="#">mouseover</a> , 
+				<a href="#">mouseup</a>
 			</p>
 			
-			<p id="uiComponent_m1">
+			<p>
 				<span class="fname">addClass</span>: <code>ui.addClass( className )</code> <br />
 				- Add class to HTML element.
 			</p>
 			
-			<p id="uiComponent_m2">
+			<p>
 				<span class="fname">removeClass</span>: <code>ui.removeClass( className )</code> <br />
 				- Remove class from HTML element.
 			</p>
 			
-			<p id="uiComponent_m3">
+			<p>
 				<span class="fname">setWidth</span>: <code>ui.setWidth( width )</code> <br />
 				- Sets component width.
 			</p>
 			
-			<p id="uiComponent_m4">
+			<p>
 				<span class="fname">setHeight</span>: <code>ui.setHeight( height )</code> <br />
 				- Sets component height.
 			</p>
 			
-			<p id="uiComponent_m5">
+			<p>
 				<span class="fname">getWidth</span>: <code>ui.getWidth()</code> <br />
 				- Returns component width.
 			</p>
 			
-			<p id="uiComponent_m6">
+			<p>
 				<span class="fname">getHeight</span>: <code>ui.getHeight()</code> <br />
 				- Returns component height.
 			</p>
 			
-			<p id="uiComponent_m7">
+			<p>
 				<span class="fname">getParent</span>: <code>ui.getParent()</code> <br />
 				- Returns component parent.
 			</p>
 			
-			<p id="uiComponent_m8">
+			<p>
 				<span class="fname">getParentView</span>: <code>ui.getParentView()</code> <br />
 				- Returns component parent view. <br/><br />
 				
 				<b>Example:</b>
-				<pre class="prettyprint linenums lang-xml">
+<pre class="prettyprint linenums lang-xml">
 &lt;View id=&quot;myCustomView&quot;&gt;
 	&lt;HBox&gt;
 	  &lt;TextInput /&gt;
@@ -194,23 +204,23 @@ table td
 	  &lt;/VBox&gt;
 	&lt;/HBox&gt;
 &lt;/View&gt;
-				</pre>
+</pre>
 				
 				<code>this.btn1.getParentView()</code> will return <a>myCustomView</a>
 			</p>
 			
-			<p id="uiComponent_m9">
+			<p>
 				<span class="fname">setVisible</span>: <code>ui.setVisible( true|false )</code> <br />
 				- Sets the component visibility.
 			</p>
 			
-			<p id="uiComponent_m10">
+			<p>
 				<span class="fname">getVisible</span>: <code>ui.getVisible()</code> <br />
 				- Returns the component visibility.
 			</p>
 			
 			<!-- phi.ui.Button -->
-			<h3 id="uiButton">phi.ui.Button <small> <i>extends</i>: <a href="#uiComponent">phi.ui.Component</a></small><a class="nobg" href="#api"><img alt="back" src="images/jumpback.png" /></a></h3>
+			<h3 id="uiButton">phi.ui.Button <small> <i>extends</i>: <a href="#uiComponentsList">phi.ui.Component</a></small><a class="nobg" href="#api"><img alt="back" src="images/jumpback.png" /></a></h3>
 			
 			<p>
 				<b>XML:</b>
@@ -252,7 +262,7 @@ table td
 			</p>
 			
 			<!-- phi.ui.Checkbox -->
-			<h3 id="uiCheckbox">phi.ui.CheckBox <small> <i>extends</i>: <a href="#uiComponent">phi.ui.Component</a></small><a class="nobg" href="#api"><img alt="back" src="images/jumpback.png" /></a></h3>
+			<h3 id="uiCheckbox">phi.ui.CheckBox <small> <i>extends</i>: <a href="#uiComponentsList">phi.ui.Component</a></small><a class="nobg" href="#api"><img alt="back" src="images/jumpback.png" /></a></h3>
 			
 			<p>
 				<b>XML:</b>
@@ -264,14 +274,15 @@ table td
 			 
 			<p>
 				<b>Methods:</b>
-				<a href="#">setChecked</a> , <a href="#">getChecked</a> 
+				<a href="#">setChecked</a> , 
+				<a href="#">getChecked</a> 
 			</p>
 			
 			<p><span class="fname">setChecked</span>: <code>chk.setChecked( true|false )</code> <br /></p>
 			<p><span class="fname">getChecked</span>: <code>chk.getText()</code> <br /></p>
 			
 			<!-- phi.ui.Image -->
-			<h3 id="uiImage">phi.ui.Image <small> <i>extends</i>: <a href="#uiComponent">phi.ui.Component</a></small><a class="nobg" href="#api"><img alt="back" src="images/jumpback.png" /></a></h3>
+			<h3 id="uiImage">phi.ui.Image <small> <i>extends</i>: <a href="#uiComponentsList">phi.ui.Component</a></small><a class="nobg" href="#api"><img alt="back" src="images/jumpback.png" /></a></h3>
 			
 			<p>
 				<b>XML:</b>
@@ -283,7 +294,8 @@ table td
 			 
 			<p>
 				<b>Methods:</b>
-				<a href="#">setChecked</a> , <a href="#">getChecked</a> 
+				<a href="#">setChecked</a> , 
+				<a href="#">getChecked</a> 
 			</p>
 			
 			<p>
@@ -297,7 +309,7 @@ table td
 			</p>
 			
 			<!-- phi.ui.Label -->
-			<h3 id="uiLabel">phi.ui.Label <small> <i>extends</i>: <a href="#uiComponent">phi.ui.Component</a></small><a class="nobg" href="#api"><img alt="back" src="images/jumpback.png" /></a></h3>
+			<h3 id="uiLabel">phi.ui.Label <small> <i>extends</i>: <a href="#uiComponentsList">phi.ui.Component</a></small><a class="nobg" href="#api"><img alt="back" src="images/jumpback.png" /></a></h3>
 			
 			<p>
 				<b>XML:</b>
@@ -311,7 +323,10 @@ table td
 			 
 			<p>
 				<b>Methods:</b>
-				<a href="#">setFontSize</a> , <a href="#">setColor</a> , <a href="#">setText</a> , <a href="#">getText</a> 
+				<a href="#">setFontSize</a> , 
+				<a href="#">setColor</a> , 
+				<a href="#">setText</a> , 
+				<a href="#">getText</a>
 			</p>
 			
 			<p><span class="fname">setFontSize</span>: <code>lb.setFontSize( fontSize )</code> <br /></p>
@@ -320,7 +335,7 @@ table td
 			<p><span class="fname">getText</span>: <code>lb.getText()</code> <br /></p>
 			
 			<!-- phi.ui.TextInput -->
-			<h3 id="uiTextInput">phi.ui.TextInput <small> <i>extends</i>: <a href="#uiComponent">phi.ui.Component</a></small><a class="nobg" href="#api"><img alt="back" src="images/jumpback.png" /></a></h3>
+			<h3 id="uiTextInput">phi.ui.TextInput <small> <i>extends</i>: <a href="#uiComponentsList">phi.ui.Component</a></small><a class="nobg" href="#api"><img alt="back" src="images/jumpback.png" /></a></h3>
 			
 			<p>
 				<b>XML:</b>
@@ -331,17 +346,87 @@ table td
 	   
 	   onTextChange=&quot;&quot;
 	   onEnter=&quot;&quot;
-	   <b>+ events from phi.ui.Component plus</b> /&gt;</pre> 
+	   <b>+ events from phi.ui.Component plus</b> /&gt;
+	   			</pre> 
 			</p>
 			 
 			<p>
 				<b>Methods:</b>
-				<a href="#">setText</a> , <a href="#">setColor</a> , <a href="#">displayAsPassword</a> 
+				<a href="#">setText</a> , 
+				<a href="#">setColor</a> , 
+				<a href="#">displayAsPassword</a>
+				<br /><br />
+				
+				<b>Events:</b>
+				<a href="#">textChange</a> , 
+				<a href="#">enter</a>  
 			</p>
 			
 			<p><span class="fname">setText</span>: <code>txtInput.setText( text )</code> <br /></p>
 			<p><span class="fname">setColor</span>: <code>txtInput.setColor( color )</code> <br /></p>
 			<p><span class="fname">displayAsPassword</span>: <code>txtInput.displayAsPassword( true|false )</code> <br /></p>
+			
+			
+			<!-- phi.ui.Container -->
+			<h3 id="uiContainer">phi.ui.Container <small> <i>extends</i>: <a href="#uiComponentsList">phi.ui.Component</a></small><a class="nobg" href="#api"><img alt="back" src="images/jumpback.png" /></a></h3>
+				 
+			<p>
+				<b>Methods:</b>
+				<a href="#">addChild</a> , 
+				<a href="#">addChildAt</a> , 
+				<a href="#">moveChild</a> , 
+				<a href="#">getChildAt</a> , 
+				<a href="#">getChildIndex</a> , 
+				<a href="#">lastChild</a> , 
+				<a href="#">firstChild</a> , 
+				<a href="#">removeChild</a> , 
+				<a href="#">removeChildAt</a> , 
+				<a href="#">hasChild</a> , 
+				<a href="#">getChildren</a> , 
+				<a href="#">removeAllChildren</a> ,
+				<a href="#">createIterator</a>
+				<br /><br />
+				
+				<b>Events:</b>
+				<a href="#">childAdded</a> , 
+				<a href="#">childRemoved</a> , 
+				<a href="#">childrenCreated</a>
+			</p>
+			
+			<p><span class="fname">addChild</span>: <code>c.addChild( uiComponent )</code> <br /></p>
+			<p><span class="fname">addChildAt</span>: <code>c.addChildAt( uiComponent, index )</code> <br /></p>
+			<p><span class="fname">moveChild</span>: <code>c.moveChild( uiComponent, newIndex )</code> <br /></p>
+			<p><span class="fname">getChildAt</span>: <code>c.getChildAt( index )</code> <br /></p>
+			<p><span class="fname">getChildIndex</span>: <code>c.getChildIndex( uiComponent )</code> <br /></p>
+			<p>
+				<span class="fname">lastChild</span>: <code>c.lastChild()</code> <br />
+				- Helper function, return container last child, it is the same as <code>c.getChildren()[c.getChildren().length-1]</code>
+			</p>
+			<p>
+				<span class="fname">firstChild</span>: <code>c.firstChild()</code> <br />
+				- Helper function, return container first child, it is the same as <code>c.getChildren()[0]</code>
+			</p>
+			<p><span class="fname">removeChild</span>: <code>c.removeChild( uiComponent )</code> <br /></p>
+			<p><span class="fname">removeChildAt</span>: <code>c.removeChildAt( inde )</code> <br /></p>
+			<p>
+				<span class="fname">removeAllChildren</span>: <code>c.removeAllChildren()</code> <br />
+				- Removes all children.
+			</p>
+			<p>
+				<span class="fname">getChildren</span>: <code>c.getChildren()</code> <br />
+				- Returns all the container children.
+			</p>
+			<p>
+				<span class="fname">createIterator</span>: <code>c.createIterator()</code> <br />
+				- This function is very helpful to parse container children <br />
+<pre class="prettyprint linenums lang-js">
+// In this example we will hide all containers children
+var iterator = c.createIterator();
+
+while( iterator.next() )
+	iterator.current().setVisible( false );
+</pre> 
+			</p>
 		</div>
 	</div>
 	
