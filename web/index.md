@@ -32,7 +32,7 @@ API {#api}
 
 ### Components list: ###
 
-[Component](#uiComponent), [Container](#), [Button](#uiButton), [CheckBox](#uiCheckBox), [Image](#uiImage), [Label](#uiLabel), [TextInput](#), [Menu](#), [CellBox](#), 
+[Component](#uiComponent), [Container](#), [Button](#uiButton), [CheckBox](#uiCheckBox), [Image](#uiImage), [Label](#uiLabel), [TextInput](#uiTextInput), [Menu](#), [CellBox](#), 
 [HBox](#), [VBox](#), [ListBase](#), [List](#), [TitleWindow](#), [View](#), [ViewStack](#)
 
 <!-- 
@@ -243,5 +243,66 @@ If we use the XML above and we write `this.btn1.getParentView()` we will get [my
 #### displayAsPassword: `txtInput.displayAsPassword( true|false )`
 \- (description)
 
-			
+
+<!-- 
+============================
+	phi.ui.Container
+============================
+-->
+### phi.ui.Container *extends:* [phi.ui.Component](#uiComponent) {#uiContainer}
+
+**Methods**:
+[addChild](#), [addChildAt](#), [moveChild](#), [getChildAt](#), [getChildIndex](#), [lastChild](#), 
+[firstChild](#), [removeChild](#), [removeChildAt](#), [hasChild](#), [getChildren](#), [removeAllChildren](#),
+[createIterator](#)
+
+**Events**:
+[childAdded](#), 
+[childRemoved](#), 
+[childrenCreated](#)
+
+#### addChild: `c.addChild( uiComponent )`
+\- (description)
+
+#### addChildAt: `c.addChildAt( uiComponent, index )`
+\- (description)
+
+#### moveChild: `c.moveChild( uiComponent, newIndex )`
+\- (description)
+
+#### getChildAt: `c.getChildAt( index )`
+\- (description)
+
+#### getChildIndex: `c.getChildIndex( uiComponent )`
+\- (description)
+
+#### lastChild: `c.lastChild()`
+\- Helper function, return container last child, it is the same as `c.getChildren()[c.getChildren().length-1]`
+
+#### firstChild: `c.firstChild()`
+\- Helper function, return container first child, it is the same as `c.getChildren()[0]`
+
+#### removeChild: `c.removeChild( uiComponent )`
+\- (description)
+
+#### removeChildAt: `c.removeChildAt( inde )`
+\- (description)
+
+#### removeAllChildren: `c.removeAllChildren()`
+\- Removes all children.
+
+#### getChildren: `c.getChildren()`
+\- Returns all the container children.
+
+#### createIterator: `c.createIterator()`
+\- This function is very useful to parse container children <br />
+
+**Example**:
+
+	// In this example we will hide all children
+	var iterator = c.createIterator();
+	
+	while( iterator.next() )
+		iterator.current().setVisible( false );
+
 .
