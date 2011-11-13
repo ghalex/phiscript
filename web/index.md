@@ -32,14 +32,15 @@ API {#api}
 
 ### Components list: ###
 
-[Component](#), [Container](#), [Button](#), [CheckBox](#), [Image](#), [Label](#), [TextInput](#), [Menu](#), [CellBox](#), 
+[Component](#uiComponent), [Container](#), [Button](#uiButton), [CheckBox](#uiCheckBox), [Image](#uiImage), [Label](#uiLabel), [TextInput](#), [Menu](#), [CellBox](#), 
 [HBox](#), [VBox](#), [ListBase](#), [List](#), [TitleWindow](#), [View](#), [ViewStack](#)
 
 <!-- 
+============================
 	phi.ui.Component
-	============================
+============================
 -->
-### phi.ui.Component *extends:* [phi.ui.Object](#) *[![API](images/jumpback.png)](#api)* {#uiComponent}
+### phi.ui.Component *extends:* [phi.ui.Object](#) {#uiComponent}
 
 **Methods**:
 [addClass](#), [removeClass](#), [getPosition](#), [setWidth](#), [setHeight](#), [getWidth](#), 
@@ -50,7 +51,6 @@ API {#api}
 [added](#), [removed](#), [click](#), [dblclick](#), [keydown](#), [keypress](#), 
 [keyup](#), [mousedown](#), [mousemove](#), [mouseout](#), [mouseover](#), [mouseup](#)
 
-<!--- phi.ui.Components: Methods  -->
 #### addClass: `ui.addClass( className )` 
 \- Add class to HTML element.
 
@@ -94,3 +94,154 @@ If we use the XML above and we write `this.btn1.getParentView()` we will get [my
 
 #### getVisible: `ui.getVisible()`
 \- Returns the component visibility.
+
+<!-- 
+============================
+	phi.ui.Button
+============================
+-->
+### phi.ui.Button *extends:* [phi.ui.Component](#uiComponent) {#uiButton}
+		
+**XML**:
+
+	<Button text=""
+			// Properties from phi.ui.Component
+			width="",
+			height=""
+			style="" // This will use btn.addClass, ex. style="primary btn",
+			visible="true|false",
+			enabled="true|false",
+			buttonMode="true|false",
+			paddingLeft="",
+			paddingTop="",
+			paddingRight="",
+			paddingBottom="",
+			backgroundColor=""
+			
+			// Events from phi.ui.Component
+			onMousedown=""
+			onMouseup=""
+			onClick=""
+			onKeyup="" 
+			onKeydown="" />
+		 
+**Methods**:
+[setText](#), [getText](#) 
+
+
+#### setText: `button.setText( text )`
+\- Sets button text.
+
+#### getText: `button.getText()`
+\- Return button current text.
+
+<!-- 
+============================
+	phi.ui.CheckBox
+============================
+-->
+### phi.ui.CheckBox *extends:* [phi.ui.Component](#uiComponent) {#uiCheckBox}
+
+**XML**:
+
+	<CheckBox checked="true|false"
+			  // + properties from phi.ui.Component ( see phi.ui.Button )
+			  // + events from phi.ui.Component
+			  />
+ 
+**Methods**:
+[setChecked](#), [getChecked](#) 
+
+#### setChecked: `chk.setChecked( true|false )`
+\- Sets checkbox checked state
+
+#### getChecked: `chk.getText()`
+\- Returns if checkbox is checked
+
+<!-- 
+============================
+	phi.ui.Image
+============================
+-->
+### phi.ui.Image *extends:* [phi.ui.Component](#uiComponent) {#uiImage}
+			
+**XML**:
+
+	<Image source="path/to/image"
+		   // + properties from phi.ui.Component ( see phi.ui.Button )
+		   // + events from phi.ui.Component
+		   />
+ 
+**Methods**:
+[setChecked](#), [getChecked](#)
+
+#### setSource: `img.setSource( path )`
+\- Sets the URL of the image to load. 
+
+#### getSource: `img.getSource()`
+\- Return the image URL.
+
+<!-- 
+============================
+	phi.ui.Label
+============================
+-->
+### phi.ui.Label *extends:* [phi.ui.Component](#uiComponent) {#uiLabel}
+			
+**XML**:
+
+	<Label text="true|false" 
+		   color="#FF0000"
+		   fontSize="12"
+		   // + properties from phi.ui.Component ( see phi.ui.Button )
+		   // + events from phi.ui.Component />
+ 
+**Methods**:
+[setFontSize](#), [setColor](#), [setText](#), [getText](#)
+
+#### setFontSize: `lb.setFontSize( fontSize )`
+\- (description)
+
+#### setColor: `lb.setColor( color )`
+\- (description)
+
+#### setText: `lb.setText( text )`
+\- (description)
+
+#### getText: `lb.getText()`
+\- (description)
+
+<!-- 
+============================
+	phi.ui.TextInput
+============================
+-->
+### phi.ui.TextInput *extends:* [phi.ui.Component](#uiComponent) {#uiTextInput}
+			
+**XML**:
+
+	<TextInput text="true|false"
+			   color="#FF0000"
+			   displayAsPassword="true|false"
+			   // + properties from phi.ui.Component ( see phi.ui.Button )
+			   onTextChange=""
+			   onEnter="" 
+			   // + events from phi.ui.Component plus />
+
+**Methods**:
+[setText](#), [setColor](#), [displayAsPassword](#)
+
+**Events**:
+[textChange](#), [enter](#)  
+
+#### setText: `txtInput.setText( text )`
+\- (description)
+
+#### setColor: `txtInput.setColor( color )`
+\- (description)
+
+#### displayAsPassword: `txtInput.displayAsPassword( true|false )`
+\- (description)
+
+			
+.
