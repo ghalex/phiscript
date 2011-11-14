@@ -1,4 +1,3 @@
-
 <?php
 include_once("markdown.php");
 $data = file_get_contents("index.md");
@@ -61,7 +60,7 @@ $data = file_get_contents("index.md");
 
 <div id="content">
 	<div class="section">
-		<?= Markdown($data); ?>
+		<?php echo Markdown($data); ?>
 	</div>
 </div>
 <div id="footer"></div>

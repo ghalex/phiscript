@@ -32,8 +32,9 @@ API {#api}
 
 ### Components list: ###
 
-[Component](#uiComponent), [Container](#), [Button](#uiButton), [CheckBox](#uiCheckBox), [Image](#uiImage), [Label](#uiLabel), [TextInput](#uiTextInput), [Menu](#), [CellBox](#), 
-[HBox](#), [VBox](#), [ListBase](#), [List](#), [TitleWindow](#), [View](#), [ViewStack](#)
+[Component](#uiComponent), [Container](#uiContainer), [Button](#uiButton), [CheckBox](#uiCheckBox), 
+[Image](#uiImage), [Label](#uiLabel), [TextInput](#uiTextInput), [Menu](#), [CellBox](#uiCellBox), 
+[HBox](#uiHBox), [VBox](#uiVBox), [ListBase](#), [List](#), [TitleWindow](#), [View](#), [ViewStack](#)
 
 <!-- 
 ============================
@@ -106,16 +107,17 @@ If we use the XML above and we write `this.btn1.getParentView()` we will get [my
 
 	<Button text=""
 			// Properties from phi.ui.Component
-			width="",
+			id="btn1"
+			width=""
 			height=""
-			style="" // This will use btn.addClass, ex. style="primary btn",
-			visible="true|false",
-			enabled="true|false",
-			buttonMode="true|false",
-			paddingLeft="",
-			paddingTop="",
-			paddingRight="",
-			paddingBottom="",
+			style="" // This will use btn.addClass, ex. style="primary btn"
+			visible="true|false"
+			enabled="true|false"
+			buttonMode="true|false"
+			paddingLeft=""
+			paddingTop=""
+			paddingRight=""
+			paddingBottom=""
 			backgroundColor=""
 			
 			// Events from phi.ui.Component
@@ -305,4 +307,136 @@ If we use the XML above and we write `this.btn1.getParentView()` we will get [my
 	while( iterator.next() )
 		iterator.current().setVisible( false );
 
-.
+
+<!-- 
+============================
+	phi.ui.CellBox
+============================
+-->
+### phi.ui.CellBox *extends:* [phi.ui.Container](#uiContainer) {#uiCellBox}
+
+**Description**:
+CellBox class is the base class used by [phi.ui.HBox](#uiHBox) and [phi.ui.VBox](#uiVBox) containers. The HTML element
+of this class is HTML Table. You cannot use this class in XML.
+
+**Methods**:
+[setChildVerticalAlign](#), [setChildHorizontalAlign](#), [setVerticalAlign](#), [getVerticalAlign](#), 
+[setHorizontalAlign](#), [getHorizontalAlign](#), [setCellWidth](#), [setCellHeight](#), 
+[setBorder](#), [getBorder](#)
+
+#### setChildVerticalAlign: `cellBox.setChildVerticalAlign( child, align )`
+\- (description)
+
+#### setChildHorizontalAlign: `cellBox.setChildHorizontalAlign( child, align )`
+\- (description)
+
+#### setVerticalAlign: `cellBox.setVerticalAlign( align )`
+\- (description)
+
+#### getVerticalAlign: `cellBox.getVerticalAlign()`
+\- (description)
+
+#### setHorizontalAlign: `cellBox.setHorizontalAlign( align )`
+\- (description)
+
+#### getHorizontalAlign: `cellBox.getHorizontalAlign( align )`
+\- (description)
+
+#### setCellWidth: `cellBox.setCellWidth( trIndex, tdIndex, value )`
+\- (description)
+
+#### setCellHeight: `cellBox.setCellHeight( trIndex, tdIndex, value )`
+\- (description)
+
+#### setBorder: `cellBox.setBorder( value )`
+\- (description)
+
+#### getBorder: `cellBox.getBorder()`
+\- (description)
+
+<!-- 
+============================
+	phi.ui.HBox
+============================
+-->
+### phi.ui.HBox *extends:* [phi.ui.CellBox](#uiCellBox) {#uiHBox}
+
+**Description**:
+The HBox container lays out its children in a single horizontal row.
+
+![HBox](images/hbox.png)
+
+**XML**:
+
+	<HBox gap=""
+		  // Properties from phi.ui.CellBox
+		  verticalAlign="top|middle|bottom"
+		  horizontalAlign="left|center|right"
+		  // Properties from phi.ui.Component
+		  width=""
+		  height=""
+		  style=""
+		  visible="true|false"
+		  paddingLeft=""
+		  paddingTop=""
+		  paddingRight=""
+		  paddingBottom="" />
+
+**Methods**:
+[setCellWidth](#), [setCellHeight](#), [setGap](#), [getGap](#)
+
+#### setCellWidth: `hBox.setCellWidth( trIndex, tdIndex, value )`
+\- (description)
+
+#### setCellHeight: `hBox.setCellHeight( trIndex, tdIndex, value )`
+\- (description)
+
+#### setGap: `hBox.setGap( value )`
+\- (description)
+
+#### getGap: `hBox.getGap()`
+\- (description)
+
+<!-- 
+============================
+	phi.ui.VBox
+============================
+-->
+### phi.ui.VBox *extends:* [phi.ui.CellBox](#uiCellBox) {#uiVBox}
+
+**Description**:
+The VBox container lays out its children in a single vertical column.
+
+![HBox](images/vbox.png)
+
+
+**XML**:
+
+	<VBox gap=""
+		  // Properties from phi.ui.CellBox
+		  verticalAlign="top|middle|bottom"
+		  horizontalAlign="left|center|right"
+		  // Properties from phi.ui.Component
+		  width=""
+		  height=""
+		  style=""
+		  visible="true|false"
+		  paddingLeft=""
+		  paddingTop=""
+		  paddingRight=""
+		  paddingBottom="" />
+		  
+**Methods**:
+[setCellWidth](#), [setCellHeight](#), [setGap](#), [getGap](#)
+
+#### setCellWidth: `vBox.setCellWidth( trIndex, tdIndex, value )`
+\- (description)
+
+#### setCellHeight: `vBox.setCellHeight( trIndex, tdIndex, value )`
+\- (description)
+
+#### setGap: `vBox.setGap( value )`
+\- (description)
+
+#### getGap: `vBox.getGap()`
+\- (description)
