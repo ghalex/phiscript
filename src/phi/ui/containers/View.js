@@ -128,3 +128,13 @@ phi.ui.View = new Class({
 		}
 	}.protect()
 });
+
+/**
+ * Factory method.
+ * @param options.
+ */
+phi.ui.View.create = function( options )
+{
+	var result = new phi.ui.View( options );
+	return result;
+};

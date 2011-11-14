@@ -1,6 +1,11 @@
 <?php
 include_once("markdown.php");
-$data = file_get_contents("index.md");
+
+function section( $name )
+{
+	$data = file_get_contents( 'content/' . $name . ".md"); 
+	return Markdown( $data );
+}
 ?>
 
 <!DOCTYPE html>
@@ -42,10 +47,10 @@ $data = file_get_contents("index.md");
 		<a id="logo" href="#">PhiScript</a>
 		<ul id="mainmenu" class="nav">
 			<li><a href="#overview">Overview</a></li>
+			<li><a href="#compiler">Compiler</a></li>
+			<li><a href="#views">Views & Binding</a></li>
 			<li><a href="#api">API</a></li>
-			<li><a href="#binding">Binding</a></li>
-			<li><a href="#views">Views</a></li>
-			<li><a href="#">Contact</a></li>
+			<li><a href="#">About</a></li>
 		</ul>
 	</div>
 </div>
@@ -60,7 +65,15 @@ $data = file_get_contents("index.md");
 
 <div id="content">
 	<div class="section">
-		<?php echo Markdown($data); ?>
+		<?php echo section('overview'); ?>
+	</div>
+	
+	<div class="section">
+		<?php echo section('compiler'); ?>
+	</div>
+	
+	<div class="section">
+		<?php echo section('api'); ?>
 	</div>
 </div>
 <div id="footer"></div>
